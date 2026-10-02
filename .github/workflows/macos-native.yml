@@ -1,0 +1,77 @@
+name: Native macOS build and tests
+
+on:
+  workflow_dispatch:
+    inputs:
+      architecture:
+        description: Native Mac architecture to validate
+        type: choice
+        options:
+          - arm64
+          - x86_64
+        default: arm64
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: native-macos-manual
+  cancel-in-progress: false
+
+jobs:
+  macos-release:
+    name: macOS ${{ inputs.architecture }} Release
+    runs-on: ${{ inputs.architecture == 'x86_64' && 'macos-15-intel' || 'macos-15' }}
+    timeout-minutes: 120
+    env:
+      HEM_MAC_ARCH: ${{ inputs.architecture }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout isolated Mac revision
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: recursive
+      - name: Validate native platform and protected baseline
+        run: bash ci/macos/build-test.sh validate
+      - name: Checkout official JUCE 8.0.10
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          repository: juce-framework/JUCE
+          ref: 3af3ce009f6a02f6fa651008fffb5b41743a9fab
+          path: dependencies/JUCE
+          persist-credentials: false
+          submodules: recursive
+      - name: Configure real app and all 29 tests
+        run: bash ci/macos/build-test.sh configure
+      - name: Build app, VST3 fixture and complete test suite
+        timeout-minutes: 100
+        run: bash ci/macos/build-test.sh build
+      - name: Execute all unchanged CTests on native macOS
+        timeout-minutes: 15
+        run: bash ci/macos/build-test.sh test
+      - name: Package Mac app and hashes
+        run: bash ci/macos/build-test.sh package
+      - name: Upload successful Mac package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: HEM-Studio-Suite-macOS-${{ inputs.architecture }}-Release-${{ github.sha }}
+          path: dist-macos/
+          if-no-files-found: error
+          retention-days: 3
+      - name: Preserve complete Mac failure and test evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: macOS-${{ inputs.architecture }}-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            macos-logs/
+            build-macos/CMakeCache.txt
+            build-macos/CMakeFiles/CMakeConfigureLog.yaml
+            build-macos/Testing/
+          if-no-files-found: error
+          retention-days: 3
