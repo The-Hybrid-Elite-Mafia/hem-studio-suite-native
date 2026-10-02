@@ -1,0 +1,65 @@
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/Processors.h:3,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/ExternalPluginHost.h:2,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/ExternalPluginHost.cpp:1:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/../DSP/DspCore.h: In member function ‘void hem::Ramp::set(float)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/../DSP/DspCore.h:17:38: warning: comparing floating-point with ‘==’ or ‘!=’ is unsafe [-Wfloat-equal]
+   17 |     void set(float v) noexcept { if(v!=target){target=v;remaining=length;step=(target-value)/float(length);} }
+      |                                     ~^~~~~~~~
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/juce_audio_processors.h:155,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_utils/juce_audio_utils.h:69,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-integration/build-native/HEMStudioSuite_artefacts/JuceLibraryCode/JuceHeader.h:20,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/Processors.h:2:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h: At global scope:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/Processors.h:77:10: note:   by ‘virtual void hem::SipaProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   77 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/Processors.h:86:10: note:   by ‘virtual void hem::SurgicalEqProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   86 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/Processors.h:96:10: note:   by ‘virtual void hem::VcaProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   96 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/Processors.h:105:10: note:   by ‘virtual void hem::TruePeakProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+  105 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/ipluginbase.h:19,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/vst/ivstcomponent.h:19,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/ExternalPluginHost.cpp:5:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/funknown.h: In constructor ‘Steinberg::FReleaser::FReleaser(Steinberg::FUnknown*)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/funknown.h:549:30: warning: declaration of ‘u’ shadows a member of ‘Steinberg::FReleaser’ [-Wshadow]
+  549 |         FReleaser (FUnknown* u) : u (u) {}
+      |                    ~~~~~~~~~~^
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/format_types/VST3_SDK/pluginterfaces/base/funknown.h:555:19: note: shadowed declaration is here
+  555 |         FUnknown* u;
+      |                   ^
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_gui_basics/juce_gui_basics.h:240,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_utils/juce_audio_utils.h:66:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_gui_basics/layout/juce_ComponentMovementWatcher.h: At global scope:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_gui_basics/layout/juce_ComponentMovementWatcher.h:89:10: warning: ‘virtual void juce::ComponentMovementWatcher::componentVisibilityChanged(juce::Component&)’ was hidden [-Woverloaded-virtual=]
+   89 |     void componentVisibilityChanged (Component&) override;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/ExternalPluginHost.cpp:252:14: note:   by ‘virtual void hem::{anonymous}::ExternalEditor::EmbeddingMovementWatcher::componentVisibilityChanged()’
+  252 |         void componentVisibilityChanged() override {outer.refreshEmbeddedBounds();}
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_gui_basics/layout/juce_ComponentMovementWatcher.h:85:10: warning: ‘virtual void juce::ComponentMovementWatcher::componentMovedOrResized(juce::Component&, bool, bool)’ was hidden [-Woverloaded-virtual=]
+   85 |     void componentMovedOrResized (Component&, bool wasMoved, bool wasResized) override;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/ExternalPluginHost.cpp:250:14: note:   by ‘virtual void hem::{anonymous}::ExternalEditor::EmbeddingMovementWatcher::componentMovedOrResized(bool, bool)’
+  250 |         void componentMovedOrResized(bool, bool) override {outer.refreshEmbeddedBounds();}
+      |              ^~~~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/ExternalPluginHost.cpp: In member function ‘virtual void hem::{anonymous}::ExternalModuleProcessor::prepareToPlay(double, int)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Plugins/ExternalPluginHost.cpp:354:18: warning: comparing floating-point with ‘==’ or ‘!=’ is unsafe [-Wfloat-equal]
+  354 |         if (rate != owner->preparedRate || maximumBlock != owner->preparedBlock) {
+      |             ~~~~~^~~~~~~~~~~~~~~~~~~~~~

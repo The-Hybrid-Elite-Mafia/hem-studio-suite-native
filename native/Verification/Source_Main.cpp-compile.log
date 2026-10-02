@@ -1,0 +1,127 @@
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/MainComponent.h:2,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Main.cpp:1:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/DeviceSettingsPanel.h: In member function ‘void hem::DeviceSettingsPanel::setDeviceChangesAllowed(bool)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/DeviceSettingsPanel.h:13:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   13 |   if(changesAllowed==allowed)return;changesAllowed=allowed;refresh.setEnabled(allowed);if(selector)selector->setEnabled(allowed);
+      |   ^~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/DeviceSettingsPanel.h:13:37: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   13 |   if(changesAllowed==allowed)return;changesAllowed=allowed;refresh.setEnabled(allowed);if(selector)selector->setEnabled(allowed);
+      |                                     ^~~~~~~~~~~~~~
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/Processors.h:3,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../InsertChain.h:2,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../TrackEngine.h:2,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../SessionState.h:3,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/OfflineMixRenderer.h:2,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/OfflineMixWorker.h:2,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/OfflineMixPanel.h:2,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/MainComponent.h:3:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/../DSP/DspCore.h: In member function ‘void hem::Ramp::set(float)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/../DSP/DspCore.h:17:38: warning: comparing floating-point with ‘==’ or ‘!=’ is unsafe [-Wfloat-equal]
+   17 |     void set(float v) noexcept { if(v!=target){target=v;remaining=length;step=(target-value)/float(length);} }
+      |                                     ~^~~~~~~~
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/juce_audio_processors.h:155,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_utils/juce_audio_utils.h:69,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-integration/build-native/HEMStudioSuite_artefacts/JuceLibraryCode/JuceHeader.h:20,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/DeviceSettingsPanel.h:2:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h: At global scope:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/Processors.h:77:10: note:   by ‘virtual void hem::SipaProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   77 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/Processors.h:86:10: note:   by ‘virtual void hem::SurgicalEqProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   86 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/Processors.h:96:10: note:   by ‘virtual void hem::VcaProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   96 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/Processors.h:105:10: note:   by ‘virtual void hem::TruePeakProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+  105 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/PluginRegistry.h:2,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../SessionState.h:4:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/SpecialtyProcessors.h:10:10: note:   by ‘virtual void hem::DhtaProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   10 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/SpecialtyProcessors.h:20:10: note:   by ‘virtual void hem::TransientProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   20 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/SpecialtyProcessors.h:30:10: note:   by ‘virtual void hem::SubBassProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   30 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/SpecialtyProcessors.h:40:10: note:   by ‘virtual void hem::RestorerProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   40 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/FinishingProcessors.h:3,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/PluginRegistry.h:3:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/../DSP/FinishingCore.h: In member function ‘void hem::VocalCore::process(float*, float*, int, const hem::VocalSettings&)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/../DSP/FinishingCore.h:120:17: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+  120 |                 for(auto& f:tone)x=f.tick(x,ch);x*=v[7];}
+      |                 ^~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/../DSP/FinishingCore.h:120:49: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+  120 |                 for(auto& f:tone)x=f.tick(x,ch);x*=v[7];}
+      |                                                 ^
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h: At global scope:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/FinishingProcessors.h:9:10: note:   by ‘virtual void hem::VocalProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+    9 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/FinishingProcessors.h:19:10: note:   by ‘virtual void hem::TubeProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   19 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/FinishingProcessors.h:29:10: note:   by ‘virtual void hem::TapeProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   29 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/limiter-evidence-audit/dependencies/JUCE-8.0.10/modules/juce_audio_processors/processors/juce_AudioProcessor.h:289:18: warning: ‘virtual void juce::AudioProcessor::processBlock(juce::AudioBuffer<double>&, juce::MidiBuffer&)’ was hidden [-Woverloaded-virtual=]
+  289 |     virtual void processBlock (AudioBuffer<double>& buffer,
+      |                  ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../Plugins/FinishingProcessors.h:39:10: note:   by ‘virtual void hem::MonitorProcessor::processBlock(juce::AudioBuffer<float>&, juce::MidiBuffer&)’
+   39 |     void processBlock(juce::AudioBuffer<float>&,juce::MidiBuffer&) override;
+      |          ^~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/OfflineMixWorker.h: In member function ‘bool hem::OfflineMixWorker::start(hem::SessionSnapshot, juce::File, hem::OfflineMixOptions)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/OfflineMixWorker.h:20:45: warning: comparing floating-point with ‘==’ or ‘!=’ is unsafe [-Wfloat-equal]
+   20 |            ||std::floor(settings.sampleRate)!=settings.sampleRate||settings.blockSize<1||settings.blockSize>8192
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/OfflineMixWorker.h: In member function ‘void hem::OfflineMixWorker::finishStaging(const juce::String&)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/OfflineMixWorker.h:49:9: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   49 |         if(externalHost)externalHost->collectGarbage();if(reportResult)reportResult(outcome);
+      |         ^~
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/OfflineMixWorker.h:49:56: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   49 |         if(externalHost)externalHost->collectGarbage();if(reportResult)reportResult(outcome);
+      |                                                        ^~
+In file included from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/MonitorProfile.h:3,
+                 from /workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/MainComponent.h:11:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../DSP/MonitoringRouter.h: In member function ‘void hem::MonitoringRouter::mixRoute(const float*, const float*, float*, float*, int)’:
+/workspace/scratch/f1bbaa5cb1b9/HEM-Studio-Suite/native-host-vst3-integration/Source/Systems/../DSP/MonitoringRouter.h:46:19: warning: comparing floating-point with ‘==’ or ‘!=’ is unsafe [-Wfloat-equal]
+   46 |             if(mix==0){outL[i]=masterL[i];outR[i]=masterR[i];}
+      |                ~~~^~~

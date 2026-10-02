@@ -1,0 +1,1 @@
+PASS: 12 native processor readiness/reset/real-silence states; correlation +/-1/zero/undefined; actual sample peaks and VCA GR; signed transient gain; defined 8x FIR output estimate and real latency; coherent atomic snapshots and concurrent reprepare rate/latency metadata; actual native editor 1x/2x calibrated raster

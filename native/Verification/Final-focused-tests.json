@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-01",
+  "vst3_working_copy_programs": [
+    {
+      "program": "ChainTests",
+      "result": "PASS",
+      "log": "Verification/ChainTests.run.log",
+      "log_sha256": "47df53065c0069a1ccd62394d6971b4cb0bd89ab8fe63cc69e967a6f9b303a4f"
+    },
+    {
+      "program": "ExternalHostTests",
+      "result": "PASS",
+      "log": "Verification/ExternalHostTests.run.log",
+      "log_sha256": "634801ad051dbf2d55b76c93750ea2acc0ad515bd71fc0224a2d561e99f986cb"
+    },
+    {
+      "program": "ExternalIntegrationTests",
+      "result": "PASS",
+      "log": "Verification/ExternalIntegrationTests.run.log",
+      "log_sha256": "5df61528d94eb20ea80002cad56c8a5be443329ec90093911e344367f42d2681"
+    },
+    {
+      "program": "ExternalSessionTests",
+      "result": "PASS",
+      "log": "Verification/ExternalSessionTests.run.log",
+      "log_sha256": "959e6c6db3a3e4a060d7a7efbc23c36e981c2a08a817568b3d3c3e654f1dce7e"
+    },
+    {
+      "program": "NativeHostLifecycleTests",
+      "result": "PASS",
+      "log": "Verification/NativeHostLifecycleTests.run.log",
+      "log_sha256": "a2829ed8324d188ece37184aea957a1330c9745f321c73c77127e1d97f325c42"
+    },
+    {
+      "program": "NativeWorkspaceTests",
+      "result": "PASS",
+      "log": "Verification/NativeWorkspaceTests.run.log",
+      "log_sha256": "54cba5ccee1f42ebce1a07fcba8f48bd010c5dadc0104be764f4489f56775a4f"
+    },
+    {
+      "program": "OfflineMixTests",
+      "result": "PASS",
+      "log": "Verification/OfflineMixTests.run.log",
+      "log_sha256": "ca9db4db2e8915800f44fc926b27673eb25c9f35b2dc2bb9ac15e030af0b9300"
+    },
+    {
+      "program": "OfflineMixWorkerTests",
+      "result": "PASS",
+      "log": "Verification/OfflineMixWorkerTests.run.log",
+      "log_sha256": "15db349e358c221bc14a99158e83e362ea89f928ad665c55b717df8f2d500bbb"
+    },
+    {
+      "program": "PluginMeterDisplayTests",
+      "result": "PASS",
+      "log": "Verification/PluginMeterDisplayTests.run.log",
+      "log_sha256": "cee43a443614517483a19f1172dd861d2a21d2bdf556bc0ca165b0f87508b1bf"
+    },
+    {
+      "program": "ProcessorControlBindingTests",
+      "result": "PASS",
+      "log": "Verification/ProcessorControlBindingTests.run.log",
+      "log_sha256": "f37d97c4238762547a4cc40e6dec0bd9472a747cc2cc7d475f23b7d80b600ea1"
+    },
+    {
+      "program": "SessionTests",
+      "result": "PASS",
+      "log": "Verification/SessionTests.run.log",
+      "log_sha256": "cc7db33cc68212591ad51deff6204acda7228d55b2e75b81db733b2ef61116bf"
+    },
+    {
+      "program": "StemMixerTests",
+      "result": "PASS",
+      "log": "Verification/StemMixerTests.run.log",
+      "log_sha256": "f9270481053494723bd2e35388ab852cc4dd84ff06586e39f3cc55cfd6237314"
+    }
+  ],
+  "fixture_self_test": "Tests/VST3Fixture/BUILD-RESULTS.md",
+  "final_editor_only_change_reruns": [
+    "ExternalHostTests",
+    "ExternalIntegrationTests"
+  ],
+  "full_ctest_aggregate_executed": false,
+  "windows_build_executed": false,
+  "third_party_plugins_executed": false
+}

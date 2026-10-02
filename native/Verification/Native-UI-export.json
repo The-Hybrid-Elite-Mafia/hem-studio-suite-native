@@ -1,0 +1,13 @@
+{
+  "file": "/workspace/shared/outqa0.wav",
+  "bytes": 1152104,
+  "sha256": "7a93e5268ef5b1b96d11752013276fc794186b0832c5a711d51470a2f2d0edfc",
+  "format_tag": 3,
+  "channels": 2,
+  "rate": 48000,
+  "bits": 32,
+  "frames": 144000,
+  "fixture": "Generated 1-second 48 kHz stereo PCM16 sine fixture, L440 Hz/R660 Hz, no user music",
+  "gui_status": "Saved outqa0.wav / 144000 frames / 2557 latency samples removed",
+  "scope": "Actual native chooser/import/Apply/export flow before final meter/close edits; renderer and host export rechecked in final-source executable tests"
+}

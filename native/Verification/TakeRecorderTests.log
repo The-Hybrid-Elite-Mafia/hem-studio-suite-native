@@ -1,0 +1,1 @@
+PASS: mono/stereo 32-bit float WAV, exact frame continuity, background finalization, placement metadata, allocation-free push

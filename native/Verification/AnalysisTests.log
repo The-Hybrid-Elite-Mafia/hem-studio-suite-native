@@ -1,0 +1,1 @@
+PASS: allocation-free audio push; real JUCE FFT amplitudes, stereo bins, waveform extrema, bounded overflow and rate epochs

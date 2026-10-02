@@ -1,0 +1,4 @@
+PASS 44100 Hz: exact Task2B output, actual latency 237, irregular blocks, stereo, NaN, sample meter, zero new/new[]
+PASS 48000 Hz: exact Task2B output, actual latency 253, irregular blocks, stereo, NaN, sample meter, zero new/new[]
+PASS 96000 Hz: exact Task2B output, actual latency 445, irregular blocks, stereo, NaN, sample meter, zero new/new[]
+PASS: unchanged baseline integration only; this test does not certify reconstructed true peaks.

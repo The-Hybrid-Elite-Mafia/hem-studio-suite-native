@@ -1,0 +1,12 @@
+stage: construct native host
+ALSA lib seq_hw.c:540:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+stage: force offline
+stage: import 13
+stage: edit inserts
+stage: opening editor
+stage: replacing editor
+stage: save recall
+stage: export
+stage: clear/reimport
+stage: close safeguard
+PASS real no-device MainComponent lifecycle: 13-track async import/apply, immediate insert/replace/remove, editor retirement, disconnect settlement, save/recall, float32 export, source unload/new session, stale-generation rejection, cancel-close, save failure, save-before-close and active-export cancellation

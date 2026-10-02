@@ -1,0 +1,4 @@
+44100 Hz: 13-stem +12 dB overload <= -3.45979 dBTP
+48000 Hz: 13-stem +12 dB overload <= -3.45979 dBTP
+96000 Hz: 13-stem +12 dB overload <= -3.45979 dBTP
+PASS: linked final master, 8x ceiling, non-finite containment, latency, zero process allocations

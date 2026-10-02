@@ -1,0 +1,4 @@
+Limiter 44100 Hz / measured -1.0907 dBTP
+Limiter 48000 Hz / measured -1.0907 dBTP
+Limiter 96000 Hz / measured -1.0907 dBTP
+PASS: neutral paths, M/S, mono bass, EQ response, compression law, 8x ceiling, limiter latency, automation, zero kernel allocations.

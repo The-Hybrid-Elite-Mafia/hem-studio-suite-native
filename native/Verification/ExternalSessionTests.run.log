@@ -1,0 +1,1 @@
+PASS external session XML/JSON: opaque bytes, v1 compatibility, malformed/mixed/oversize rejection, missing-file recall, atomic save preservation, main-thread staging transaction and cancellation; no plug-in binary loaded

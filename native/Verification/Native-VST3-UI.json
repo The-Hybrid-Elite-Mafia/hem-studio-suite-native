@@ -1,0 +1,29 @@
+{
+  "date_utc": "2026-10-01",
+  "ui_verified_application_sha256": "39e9e68060b99274dd27077d26bfca80991030195fc45efa2d667108a891ef8d",
+  "final_application_sha256": "426e12df2276353ee00bfd31a81ea8b2d9b57a9a50f36121fe49c5d74adeb429",
+  "later_nonvisual_changes": "Same-context restart quarantine, process-unique dirty tokens, callback-locked context reads; production host tests rerun",
+  "window_pixels": [
+    1280,
+    720
+  ],
+  "plugin": "Original self-built HEM VST3 Fixture only",
+  "checks": {
+    "explicit_bundle_chooser_load": true,
+    "actual_native_xembed_editor": true,
+    "slider_gain_changed_from": 1.0,
+    "slider_gain_changed_to": 0.473684,
+    "editor_reopen_retains_value": true,
+    "save_and_close_preserves_session": true,
+    "restart_recall_retains_exact_displayed_value": true,
+    "expand_native_origin_correct": true,
+    "restore_native_origin_correct": true,
+    "divider_drag_native_origin_correct": true,
+    "ghost_and_header_visible": true,
+    "no_physical_audio_device": true
+  },
+  "saved_session_filename": "hemqa-session-1200.xml",
+  "saved_session_sha256": "fc4f126767229dfdd55d028f19ae9a9fa526d577a20fd9d086f791ed54c7a127",
+  "saved_session_bytes": 11576,
+  "method": "Actual cloud native UI controls and observed desktop; all test state saved, other image windows untouched"
+}

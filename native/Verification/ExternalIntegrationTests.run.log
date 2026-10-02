@@ -1,0 +1,6 @@
+ALSA lib seq_hw.c:540:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+PASS actual native host selected VST3 load and independent export with bit-exact unity audio
+PASS opaque XML/JSON recall, live parameter dirtiness, editor retirement and restored gain in export
+PASS real asynchronous VST3 latency notification, exact aligned dry fallback, 64-sample reload/export, actual-context reprepare and visible 6 ms rejection with state retained
+PASS missing/stale load preserves slot, close cancellation, pending export/recall teardown and owner collection
+PASS synchronous host destruction with pending private VST3 preparation, source bytes preserved

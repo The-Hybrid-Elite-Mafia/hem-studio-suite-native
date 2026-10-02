@@ -1,0 +1,1 @@
+PASS: mono/stereo float WAV, exact frames/samples/placement, allocation-free push, existing and raced destination/sidecar preservation, dangling symlinks, retained recovery files, atomic competing commits, truthful saved-WAV metadata warnings, empty-take cleanup

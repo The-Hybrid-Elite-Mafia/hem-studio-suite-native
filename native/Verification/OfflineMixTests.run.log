@@ -1,0 +1,10 @@
+PASS: 13 stereo stems, exact longest-source/tail length, all gains, mute/solo, zero start, loop ignored
+PASS: 44100 Hz exact baseline impulse/overload parity, actual latency alignment and final-sample tail
+PASS: 48000 Hz exact baseline impulse/overload parity, actual latency alignment and final-sample tail
+PASS: 96000 Hz exact baseline impulse/overload parity, actual latency alignment and final-sample tail
+PASS: one-frame source, one-sample blocks, zero-tail exact output length
+PASS: eight restored insert parameters, saved bypass, all eleven insert types staged, monitor-state isolation
+PASS: synchronous 24/44.1/96 kHz resampling to 48 kHz, PCM decoding, mono-to-stereo, fractional frame rounding
+PASS: invalid config/source/insert rejection, no-file cancellation, existing bytes and race protection, RIFF guard, cleanup
+PASS: offline rendering uses no physical audio device, live mic, monitor EQ or calibration.
+NOTE: unchanged baseline parity is not reconstructed true-peak certification.

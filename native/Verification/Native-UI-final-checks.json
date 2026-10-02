@@ -1,0 +1,18 @@
+{
+  "date_utc": "2026-10-01",
+  "application_sha256": "972d9471041b97d06f6a722ae997277071607fe8c8a982ecfcc41feb0f8c06eb",
+  "window_pixels": [
+    1280,
+    720
+  ],
+  "checks": {
+    "mixer_controls_fit": true,
+    "sipa_unprocessed_no_fake_fill": true,
+    "keep_open_retains_processor": true,
+    "cancel_new_retains_processor": true,
+    "confirmed_new_resets_only_qa_session": true,
+    "approved_ghost_visible": true,
+    "no_physical_audio_device": true
+  },
+  "method": "Actual native cloud desktop via supported UI controls; no other image windows/folders changed"
+}

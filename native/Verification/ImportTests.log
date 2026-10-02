@@ -1,0 +1,1 @@
+PASS batch limit, extension validation, corrupt WAV, background readers and 44.1/48/96 -> 96 kHz resampling

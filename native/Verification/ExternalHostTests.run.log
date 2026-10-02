@@ -1,0 +1,1 @@
+PASS: explicit in-house VST3 discovery; stereo gain; opaque capture/reload; 64-sample latency and fixed aligned bypass; 6 ms rejection; callback dirtiness; editor reopen/resize/lifetime; worker destruction/main collection; context/latency faults; same-context release/reprepare quarantine; post-process dry fallback.

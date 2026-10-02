@@ -1,0 +1,4 @@
+PASS 44100 Hz / DHTA reduction 5.99981 dB / neutral, delta, bass, mono, transient, restoration, automation
+PASS 48000 Hz / DHTA reduction 5.99984 dB / neutral, delta, bass, mono, transient, restoration, automation
+PASS 96000 Hz / DHTA reduction 5.99979 dB / neutral, delta, bass, mono, transient, restoration, automation
+PASS zero allocations in instrumented specialty DSP calls

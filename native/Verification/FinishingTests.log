@@ -1,0 +1,4 @@
+PASS 44100 Hz / vocal 6 dB / dynamic -5.99469 dB / tube H2 0.0219065 H3 0.0116121 / tape H3 0.0134841 / monitor -6 dB
+PASS 48000 Hz / vocal 6 dB / dynamic -5.99577 dB / tube H2 0.0219061 H3 0.0116119 / tape H3 0.0134839 / monitor -6 dB
+PASS 96000 Hz / vocal 6 dB / dynamic -5.99454 dB / tube H2 0.0219038 H3 0.0116102 / tape H3 0.0134819 / monitor -6 dB
+PASS neutral startup, 16-sample saturation latency, dry mix, disabled monitor, finite automation, zero DSP allocations
