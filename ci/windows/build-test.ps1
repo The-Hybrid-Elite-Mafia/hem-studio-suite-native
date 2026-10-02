@@ -24,12 +24,15 @@ if ($Phase -eq 'Validate') {
     @("RUNNER_OS=$env:RUNNER_OS", "RUNNER_ARCH=$env:RUNNER_ARCH", "ImageOS=$env:ImageOS", "ImageVersion=$env:ImageVersion") | Add-Content ci-logs/windows.txt
     Invoke-Logged cmake @('--version') 'ci-logs/cmake-version.txt'
     $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
-    Invoke-Logged $vswhere @('-products','*','-version','[17.0,18.0)','-requires','Microsoft.VisualStudio.Component.VC.Tools.x86.x64','-format','json') 'ci-logs/visual-studio.json'
+    Invoke-Logged $vswhere @('-products','*','-version','[18.0,19.0)','-requires','Microsoft.VisualStudio.Component.VC.14.44.17.14.x86.x64','-format','json') 'ci-logs/visual-studio.json'
+    $instances = @(Get-Content ci-logs/visual-studio.json -Raw | ConvertFrom-Json)
+    if ($instances.Count -eq 0) { throw 'VS 2026 with the MSVC 14.44/v143 component is not installed on this windows-2025 image; do not silently change runner or toolset' }
     $manifest = Get-Content native/INTEGRATION-MANIFEST.json -Raw | ConvertFrom-Json
     foreach ($relative in @('Source/CoreBaseline/Engine.h','Source/CoreBaseline/Engine.cpp')) {
         $entry = @($manifest.files | Where-Object path -eq $relative)
         if ($entry.Count -ne 1) { throw "Baseline missing from original manifest: $relative" }
         $actual = (Get-FileHash (Join-Path 'native' $relative) -Algorithm SHA256).Hash.ToLowerInvariant()
+        "$relative expected=$($entry[0].sha256) actual=$actual" | Add-Content ci-logs/baseline-hashes.txt
         if ($actual -ne $entry[0].sha256) { throw "Protected baseline was changed: $relative" }
     }
     'Protected CoreBaseline matches the imported source manifest.' | Set-Content ci-logs/baseline-integrity.txt
@@ -38,7 +41,7 @@ if ($Phase -eq 'Validate') {
     if ($LASTEXITCODE -ne 0 -or $juceRevision -ne '3af3ce009f6a02f6fa651008fffb5b41743a9fab') { throw 'JUCE pin mismatch' }
     $juceRevision | Set-Content ci-logs/juce-commit.txt
     $fixture = Join-Path $Build 'Tests/VST3Fixture/HEMVST3TestFixture_artefacts/Release/VST3/HEM VST3 Fixture.vst3'
-    Invoke-Logged cmake @('-S','native','-B',$Build,'-G','Visual Studio 17 2022','-A','x64',"-DJUCE_PATH=$Juce",'-DBUILD_TESTING=ON','-DHEM_DSP_TESTS_ONLY=OFF','-DHEM_ENABLE_ASIO=OFF','-DHEM_BUILD_VST3_TEST_FIXTURE=ON',"-DHEM_TEST_VST3_BUNDLE=$fixture",'-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded') 'ci-logs/configure.log'
+    Invoke-Logged cmake @('-S','native','-B',$Build,'-G','Visual Studio 18 2026','-A','x64','-T','v143,version=14.44,host=x64',"-DJUCE_PATH=$Juce",'-DBUILD_TESTING=ON','-DHEM_DSP_TESTS_ONLY=OFF','-DHEM_ENABLE_ASIO=OFF','-DHEM_BUILD_VST3_TEST_FIXTURE=ON',"-DHEM_TEST_VST3_BUNDLE=$fixture",'-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded') 'ci-logs/configure.log'
     Invoke-Logged ctest @('--test-dir',$Build,'-C','Release','--show-only=json-v1') 'ci-logs/test-inventory.json'
     $inventory = Get-Content ci-logs/test-inventory.json -Raw | ConvertFrom-Json
     $names = @($inventory.tests | ForEach-Object name | Sort-Object)

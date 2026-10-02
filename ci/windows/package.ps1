@@ -11,9 +11,9 @@ Copy-Item $exe $Package
 # StudioArtwork embeds both PNG assets in the binary. JUCE and the C/C++ runtime
 # are linked statically; verify the PE imports rather than guessing which DLLs ship.
 $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
-$vs = (& $vswhere -latest -products '*' -version '[17.0,18.0)' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath).Trim()
-if ($LASTEXITCODE -ne 0 -or -not $vs) { throw 'Cannot locate VS 2022 dependency inspection tool' }
-$dumpbin = Get-ChildItem "$vs/VC/Tools/MSVC/*/bin/Hostx64/x64/dumpbin.exe" | Sort-Object FullName -Descending | Select-Object -First 1
+$vs = (& $vswhere -latest -products '*' -version '[18.0,19.0)' -requires Microsoft.VisualStudio.Component.VC.14.44.17.14.x86.x64 -property installationPath).Trim()
+if ($LASTEXITCODE -ne 0 -or -not $vs) { throw 'Cannot locate VS 2026 dependency inspection tool' }
+$dumpbin = Get-ChildItem "$vs/VC/Tools/MSVC/14.44.*/bin/Hostx64/x64/dumpbin.exe" | Sort-Object FullName -Descending | Select-Object -First 1
 if (-not $dumpbin) { throw 'dumpbin.exe missing' }
 $imports = & $dumpbin.FullName /dependents $exe 2>&1
 $code = $LASTEXITCODE
@@ -32,7 +32,7 @@ Copy-Item dependencies/JUCE/modules/juce_audio_processors/format_types/VST3_SDK/
 HEM Studio Suite: private Windows x64 Release engineering build
 Source commit: $env:GITHUB_SHA
 Build run: $env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID
-Runner: windows-2025. Toolchain: Visual Studio 2022 MSVC x64, JUCE 8.0.10.
+Runner: windows-2025. Toolchain: Visual Studio 2026 generator with MSVC v143/14.44 x64, JUCE 8.0.10.
 Exact application: Hybrid Elite Mafia - Studio Suite.exe
 Assets: both StudioArtwork images are embedded in the executable.
 Dependencies: static JUCE/MSVC runtime; PE import verification in runtime-dependencies.txt.
