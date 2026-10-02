@@ -54,7 +54,7 @@ build)
     # Keep the original failure; obtain actual Mac crash/pixel evidence.
     set +e
     "$BUILD/hem_plugin_meter_tests_artefacts/Release/hem_plugin_meter_tests" "$LOG/rasters" > "$LOG/meter-diagnostic.log" 2>&1
-    lldb --batch -o run -o "thread backtrace all" -o quit -- "$BUILD/hem_external_integration_tests_artefacts/Release/hem_external_integration_tests" "$BUILD/Tests/VST3Fixture/HEMVST3TestFixture_artefacts/Release/VST3/HEM VST3 Fixture.vst3" > "$LOG/integration-backtrace.log" 2>&1
+    lldb --batch --no-lldbinit -o "breakpoint set -n malloc_error_break" -o run -o "thread backtrace all" -o quit -k "thread backtrace all" -k quit -- "$BUILD/hem_external_integration_tests_artefacts/Release/hem_external_integration_tests" "$BUILD/Tests/VST3Fixture/HEMVST3TestFixture_artefacts/Release/VST3/HEM VST3 Fixture.vst3" > "$LOG/integration-backtrace.log" 2>&1
     cat "$LOG/meter-diagnostic.log" "$LOG/integration-backtrace.log"
     exit 1
   fi

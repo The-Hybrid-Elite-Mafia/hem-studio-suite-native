@@ -3,6 +3,9 @@ project(HEMStudioSuite VERSION 0.10.0 LANGUAGES C CXX)
 # Enable Objective-C++ before JUCE subdirectories create their .mm targets.
 if(APPLE)
     enable_language(OBJCXX)
+    # Preserve separate float operations used by the Windows baseline.
+    # ARM contraction otherwise gives nominal zero transient gain a tiny bias.
+    add_compile_options(-ffp-contract=off)
 endif()
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -278,4 +281,5 @@ endif()
 # macOS console integration tests need AppKit initialized before the event loop.
 if(APPLE)
  target_sources(hem_external_integration_tests PRIVATE Tests/MacIntegrationApplication.mm)
+ target_compile_options(hem_external_integration_tests PRIVATE -g)
 endif()
