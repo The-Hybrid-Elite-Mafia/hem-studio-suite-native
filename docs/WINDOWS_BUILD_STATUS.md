@@ -10,7 +10,7 @@ The exact original source, assets, tests, license checkpoint and historical docu
 
 The manual-only workflow is [Native Windows build and tests](https://github.com/The-Hybrid-Elite-Mafia/hem-studio-suite-native/actions/workflows/windows-native.yml). Select `ci/windows-native-2025`, whose initial reviewed workflow/source commit is `c27bd99c2bcade21454127ca5031c0ca0aa036b6`. The workflow is registered on main so the dispatch UI is available, but main does not contain imported source. Running main deliberately fails source validation.
 
-- Genuine GitHub-hosted `windows-2025`, Visual Studio 2022 MSVC x64 Release
+- Genuine GitHub-hosted `windows-2025`, installed Visual Studio 2026 generator with explicit MSVC v143/14.44 x64 Release
 - Official JUCE 8.0.10 pinned at `3af3ce009f6a02f6fa651008fffb5b41743a9fab`; reviewed official actions pinned to commits
 - Full `ALL_BUILD`, exact `HEMStudioSuite` app, owned `HEMVST3TestFixture_VST3`, and all 29 original CTest targets
 - WASAPI, ASIO OFF, no DSP-only mode; explicit fixture path with no third-party plugin scan
@@ -21,7 +21,7 @@ The manual-only workflow is [Native Windows build and tests](https://github.com/
 
 The included allowance and existing zero-spend stop were verified before dispatch. Paid usage is not authorized.
 
-**At this documentation update, the Windows workflow is ready for dispatch; no completed Windows build, passing test result, or downloadable executable is claimed.** See the actual Actions run for subsequent status. Implementation details and limits are in [the branch CI guide](https://github.com/The-Hybrid-Elite-Mafia/hem-studio-suite-native/blob/ci/windows-native-2025/docs/WINDOWS_CI.md).
+**First real run [37031918670](https://github.com/The-Hybrid-Elite-Mafia/hem-studio-suite-native/actions/runs/37031918670) failed during setup before compilation/tests.** It verified Windows Server 2025 10.0.26100, image windows-2025-vs2026/20260925.250.1, and CMake 4.4.3. The protected byte check blocked checkout newline conversion; `.gitattributes` now preserves original bytes. The VS2022 query returned no instances, while the exact official image contains VS2026 and MSVC14.44. Corrected commit `5634ce2f32741cade07eb30c2c0c45c4561400a2` keeps windows-2025 and adapts only the CI generator/toolset. No completed Windows build, passing test result, or executable is claimed yet. See the actual Actions run for subsequent status. Implementation details and limits are in [the branch CI guide](https://github.com/The-Hybrid-Elite-Mafia/hem-studio-suite-native/blob/ci/windows-native-2025/docs/WINDOWS_CI.md).
 
 ## Explicit acceptance limits
 
