@@ -1,0 +1,29 @@
+# Genuine Windows CI and source provenance
+
+## Source import
+
+The original Google Drive archive `HEM-Studio-Suite-Native-Integration.zip` was downloaded as actual bytes (3,086,972 bytes), passed ZIP integrity checks, and was inspected before import. Archive SHA-256: `aa8dc468f3e01233865daa6e52d62e80b1e6e356e149e5b553b621f31d0ad119`.
+
+All 191 files were imported unchanged under `native/`, including the original manifest, documentation, artwork, and historical verification records. All 190 manifest-listed file hashes matched. Exact import commit: `1576e082e30872ce7b40ccb56c6dac3c27117bea`. The original repository README and `docs/WINDOWS_BUILD_STATUS.md` are preserved. Their old source-unavailable status is historical and superseded by this document. Source and CI development are on `ci/windows-native-2025`.
+
+## Manual build
+
+Choose **Actions → Native Windows build and tests → Run workflow**, select the reviewed `ci/windows-native-2025` branch. The workflow is registered on `main` only so GitHub exposes manual dispatch; `main` does not yet contain imported source and deliberately fails source validation if selected. There are no push, pull-request, or schedule triggers.
+
+The requested runner is explicitly `windows-2025`, with VS 2022 MSVC x64 Release. JUCE 8.0.10 is checked out from its official repository at `3af3ce009f6a02f6fa651008fffb5b41743a9fab`. Official checkout and artifact actions are commit-pinned. There are no source submodules in the supplied archive; checkout supports recursive submodules if the selected revision contains any. No compiler/dependency installer or paid service is introduced.
+
+Configuration enables all tests, disables DSP-only mode, uses WASAPI/ASIO OFF, enables only the owned VST3 fixture, and supplies its exact generated path. MSVC's runtime is selected statically for the private portable app bundle. The original source, CMake file, test assertions, DSP constants, and protected CoreBaseline are unchanged. `ci/windows/expected-tests.txt` asserts the full original 29-test inventory. Build failure, any failing test, or explicitly reported SKIP fails the job; nothing uses continue-on-error or excludes a failing test.
+
+The build uses ALL_BUILD, including `HEMStudioSuite`, all test executables and `HEMVST3TestFixture_VST3`. It is limited to two MSBuild workers. One manual job has a 120-minute job bound, with an 80-minute build-step timeout leaving time for evidence uploads; artifacts expire after three days. The account's included allowance and existing zero-spend stop were checked before the first dispatch; no billing/access settings are changed. Full compiler text, MSBuild diagnostic/binary logs, CTest verbose output, JUnit, and CTest's original logs upload even after failure.
+
+## Packaging and proof boundaries
+
+The exact app is `build/HEMStudioSuite_artefacts/Release/Hybrid Elite Mafia - Studio Suite.exe`. Both images are embedded through `StudioArtwork`. Packaging checks PE dependencies against Windows system DLLs and fails if an unhandled runtime is found; it never collects arbitrary EXEs. The private bundle contains this executable, notices, runtime/build evidence and SHA-256 checksums. The packaged executable must open a responding native window on the runner before upload. This smoke test is not physical audio-device acceptance.
+
+A successful workflow proves the selected revision built and its existing 29 registered tests passed on that actual Windows runner. It is not an independent native -0.95 dBTP certification: the original gate and difficult vectors are missing from this package. `hem_master_limiter_tests` covers the separate `Source/DSP/MasterLimiter.h`, while the shipped application routes through `CoreMasterStage` to `CoreBaseline::MasterTruePeakLimiter`. `hem_core_master_stage_tests` verifies exact baseline parity, latency, irregular blocks, sample-meter finiteness, ordinary new/new[] instrumentation and oversize-block handling; it explicitly disclaims reconstructed true peaks.
+
+The original fixture CTest does not invoke its separate optional `--editor` mode; its extra 32 editor cycles are not claimed.
+
+The original recorder/export tests conditionally depend on Windows symlink privilege. Recorder SKIP output is treated as a CI failure, not a quiet pass; no permission settings are changed by this workflow.
+
+Native independent true-peak acceptance, full realtime allocation/determinism coverage, 808/listening acceptance, ASIO, and physical audio devices remain NOT VALIDATED. Historical `native/Verification` files are Linux-era records, not current Windows evidence. Do not weaken tests or alter known-good baseline/DSP thresholds to obtain a green run. Public release and dependency licensing remain blocked pending the owner's license review in `native/Documentation/RELEASE-LICENSE-CHECK.md`.
