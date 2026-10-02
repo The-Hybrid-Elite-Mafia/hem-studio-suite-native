@@ -253,7 +253,8 @@ add_test(NAME hem_external_session_tests COMMAND hem_external_session_tests)
 
 juce_add_console_app(hem_external_integration_tests PRODUCT_NAME "HEM External Host Integration Tests")
 juce_generate_juce_header(hem_external_integration_tests)
-target_sources(hem_external_integration_tests PRIVATE Tests/ExternalIntegrationTests.cpp ${HEM_NATIVE_TEST_SOURCES})
+target_sources(hem_external_integration_tests PRIVATE Tests/ExternalIntegrationTests.cpp ${HEM_NATIVE_TEST_SOURCES}
+    Source/Plugins/ExternalPluginHost.cpp)
 target_compile_definitions(hem_external_integration_tests PRIVATE JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
 target_link_libraries(hem_external_integration_tests PRIVATE StudioArtwork HEMCoreBaseline juce::juce_audio_utils juce::juce_audio_processors juce::juce_recommended_config_flags)
 # This target intentionally requires an explicit test-owned bundle argument.
