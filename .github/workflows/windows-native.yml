@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   windows-release:
-    name: Windows 2025 MSVC x64 Release
+    name: Windows 2025 MSVC v143 x64 Release
     runs-on: windows-2025
     timeout-minutes: 120
     defaults:
@@ -41,7 +41,7 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
           submodules: recursive
-      - name: Configure Visual Studio 2022 x64 Release
+      - name: Configure installed VS 2026 with MSVC v143 x64
         timeout-minutes: 10
         run: '& ./ci/windows/build-test.ps1 -Phase Configure'
       - name: Build application, every test, and owned VST3 fixture
