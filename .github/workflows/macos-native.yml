@@ -1,6 +1,12 @@
 name: Native macOS build and tests
 
 on:
+  push:
+    branches: [ci/macos-native]
+    paths:
+      - 'native/**'
+      - 'ci/macos/**'
+      - '.github/workflows/macos-native.yml'
   workflow_dispatch:
     inputs:
       architecture:
@@ -16,16 +22,16 @@ permissions:
   contents: read
 
 concurrency:
-  group: native-macos-manual
-  cancel-in-progress: false
+  group: native-macos-isolated
+  cancel-in-progress: true
 
 jobs:
   macos-release:
-    name: macOS ${{ inputs.architecture }} Release
+    name: macOS ${{ inputs.architecture || 'arm64' }} Release
     runs-on: ${{ inputs.architecture == 'x86_64' && 'macos-15-intel' || 'macos-15' }}
     timeout-minutes: 120
     env:
-      HEM_MAC_ARCH: ${{ inputs.architecture }}
+      HEM_MAC_ARCH: ${{ inputs.architecture || 'arm64' }}
     defaults:
       run:
         shell: bash
@@ -59,7 +65,7 @@ jobs:
       - name: Upload successful Mac package
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: HEM-Studio-Suite-macOS-${{ inputs.architecture }}-Release-${{ github.sha }}
+          name: HEM-Studio-Suite-macOS-${{ inputs.architecture || 'arm64' }}-Release-${{ github.sha }}
           path: dist-macos/
           if-no-files-found: error
           retention-days: 3
@@ -67,7 +73,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: macOS-${{ inputs.architecture }}-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          name: macOS-${{ inputs.architecture || 'arm64' }}-evidence-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             macos-logs/
             build-macos/CMakeCache.txt
