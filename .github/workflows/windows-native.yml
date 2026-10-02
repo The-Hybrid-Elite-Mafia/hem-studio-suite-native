@@ -14,7 +14,7 @@ jobs:
   windows-release:
     name: Windows 2025 MSVC v143 x64 Release
     runs-on: windows-2025
-    timeout-minutes: 120
+    timeout-minutes: 180
     defaults:
       run:
         shell: pwsh
@@ -45,7 +45,7 @@ jobs:
         timeout-minutes: 10
         run: '& ./ci/windows/build-test.ps1 -Phase Configure'
       - name: Build application, every test, and owned VST3 fixture
-        timeout-minutes: 80
+        timeout-minutes: 140
         run: '& ./ci/windows/build-test.ps1 -Phase Build'
       - name: Run full registered CTest suite
         timeout-minutes: 15
@@ -90,5 +90,6 @@ jobs:
             build/CMakeFiles/CMakeConfigureLog.yaml
             build/CMakeFiles/*/CMakeCXXCompiler.cmake
             build/Testing/
+            build/HEMStudioSuite_artefacts/Release/Hybrid Elite Mafia - Studio Suite.exe
           if-no-files-found: error
           retention-days: 3
