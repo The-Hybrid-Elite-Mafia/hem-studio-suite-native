@@ -1,0 +1,94 @@
+name: Native Windows build and tests
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: native-windows-manual
+  cancel-in-progress: false
+
+jobs:
+  windows-release:
+    name: Windows 2025 MSVC x64 Release
+    runs-on: windows-2025
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout selected source revision
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: recursive
+      - name: Initialize evidence and validate source
+        run: |
+          New-Item -ItemType Directory -Force ci-logs | Out-Null
+          if (-not (Test-Path ci/windows/build-test.ps1)) {
+            throw 'This revision has no imported native source and CI scripts. Select the reviewed native import branch.'
+          }
+          & ./ci/windows/build-test.ps1 -Phase Validate
+      - name: Checkout official pinned JUCE 8.0.10
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          repository: juce-framework/JUCE
+          ref: 3af3ce009f6a02f6fa651008fffb5b41743a9fab
+          path: dependencies/JUCE
+          fetch-depth: 1
+          persist-credentials: false
+          submodules: recursive
+      - name: Configure Visual Studio 2022 x64 Release
+        timeout-minutes: 10
+        run: '& ./ci/windows/build-test.ps1 -Phase Configure'
+      - name: Build application, every test, and owned VST3 fixture
+        timeout-minutes: 80
+        run: '& ./ci/windows/build-test.ps1 -Phase Build'
+      - name: Run full registered CTest suite
+        timeout-minutes: 15
+        run: '& ./ci/windows/build-test.ps1 -Phase Test'
+      - name: Package exact Windows application
+        timeout-minutes: 5
+        run: '& ./ci/windows/package.ps1'
+      - name: Upload verified private Windows application
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: HEM-Studio-Suite-Windows-x64-Release-${{ github.sha }}
+          path: dist/HEM-Studio-Suite-Windows-x64-Release/
+          if-no-files-found: error
+          retention-days: 3
+      - name: Record validation limits and outcomes
+        if: always()
+        env:
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          New-Item -ItemType Directory -Force ci-logs | Out-Null
+          @"
+          Source: $env:GITHUB_SHA
+          Run: $env:GITHUB_SERVER_URL/$env:GITHUB_REPOSITORY/actions/runs/$env:GITHUB_RUN_ID
+          Runner requested: windows-2025
+          Job status before final uploads: $env:JOB_STATUS
+          Historical native/Verification files are not results of this Windows run.
+          Native -0.95 dBTP acceptance: NOT VERIFIED; original independent gate/vector source absent.
+          MasterLimiterTests tests a separate DSP limiter, not the shipped CoreBaseline master.
+          CoreMasterStageTests covers baseline parity, latency and ordinary new/new[] allocations only.
+          Full realtime allocation/determinism envelope, 808 listening, physical Windows audio: NOT VALIDATED.
+          Licensing: private engineering build only; not cleared for distribution.
+          "@ | Set-Content ci-logs/validation-status.txt
+          Get-Content ci-logs/validation-status.txt | Add-Content $env:GITHUB_STEP_SUMMARY
+      - name: Upload complete compiler and test evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: Windows-evidence-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ci-logs/
+            build/CMakeCache.txt
+            build/CMakeFiles/CMakeConfigureLog.yaml
+            build/CMakeFiles/*/CMakeCXXCompiler.cmake
+            build/Testing/
+          if-no-files-found: error
+          retention-days: 3
