@@ -1,5 +1,27 @@
 # Native Windows build status
 
+## Current verified result: build and 29/29 tests passed
+
+**The genuine `windows-2025` pipeline completed successfully on 2026-10-02 at 20:27 UTC.** [Successful run 37053162846](https://github.com/The-Hybrid-Elite-Mafia/hem-studio-suite-native/actions/runs/37053162846) built the application, every test and the owned VST3 fixture, executed all 29 registered CTest targets with zero failures/disabled/skipped tests, packaged the exact app, and opened a responding native window from the packaged EXE. The two focused raster regressions also passed before ALL_BUILD; the full suite reran them. Full CTest time: 10.67 seconds.
+
+Tested source commit: [`55a881700f4d90775f36b3e785d763a8652a19dc`](https://github.com/The-Hybrid-Elite-Mafia/hem-studio-suite-native/commit/55a881700f4d90775f36b3e785d763a8652a19dc), on `ci/windows-native-2025`. No merge into main was performed. Main registers the manual workflow; select the tested source branch for future manual builds.
+
+Runner: Windows Server 2025 Datacenter 10.0.26100 x64, image `windows-2025-vs2026` `20260925.250.1`, agent 2.337.0. CMake 4.4.3; VS18/2026 generator; MSVC compiler 19.44.35229.0 using installed v143/14.44.35207 x64 tools; Release/C++20/static runtime. Official JUCE8.0.10 remains pinned at `3af3ce009f6a02f6fa651008fffb5b41743a9fab`. WASAPI, ASIO OFF. The requested runner label remained `windows-2025` throughout.
+
+### Verified private artifacts
+
+- [App ZIP](https://github.com/The-Hybrid-Elite-Mafia/hem-studio-suite-native/actions/runs/37053162846/artifacts/11250281475): `HEM-Studio-Suite-Windows-x64-Release-55a881700f4d90775f36b3e785d763a8652a19dc`, 6,620,101 bytes, SHA-256 `0164147440d89b36fc50894e7a74954a796329f06a96f2a8b126b0f593e8ce5e`; expires 2026-10-05 20:27:35 UTC
+- [Complete evidence ZIP](https://github.com/The-Hybrid-Elite-Mafia/hem-studio-suite-native/actions/runs/37053162846/artifacts/11250810279): `Windows-evidence-37053162846-1`, 16,354,465 bytes, SHA-256 `396a1d9d6508ef9397792bdd7016d9185225d42a0f69077c10add6de74be1a28`; expires 2026-10-05 20:27:37 UTC
+- Exact EXE: `Hybrid Elite Mafia - Studio Suite.exe`, 12,116,480 bytes; SHA-256 `73d5e2bb555a9fffa7bc3072b9726efe84cc6bfe8e6c6b56ce74b4adeec7208b`
+
+Both actual downloadable ZIPs were downloaded and integrity/hash checked. Every package manifest entry matched; all eight package files were accounted for. The EXE was independently inspected as an x64 PE GUI image. Windows PE dependency inspection found system DLL imports only; both artwork images are embedded. The package includes build info, checksums, launch/dependency evidence and license checkpoint/notices.
+
+### What this does not establish
+
+This is a verified private engineering build and test suite, **not a completed DAW or production certification**. The original independent native **-0.95 dBTP gate remains NOT VERIFIED** because its gate/vector source is absent. The separate DSP MasterLimiter test does not certify the shipped CoreBaseline master. Physical audio devices, ASIO, full real-time allocation/determinism, 808/listening quality and broad third-party compatibility remain NOT VALIDATED. Distribution/licensing remains uncleared. All numerical assertions, thresholds, artwork, rendering backend and protected CoreBaseline were preserved; the documented test fixes correct stale references or invalid image-readback lifetime.
+
+## Historical setup, failures and corrections (preserved below)
+
 ## Verified source import
 
 The actual Google Drive ZIP was downloaded and inspected. `HEM-Studio-Suite-Native-Integration.zip` is 3,086,972 bytes, contains 191 files, and passed integrity checks. SHA-256: `aa8dc468f3e01233865daa6e52d62e80b1e6e356e149e5b553b621f31d0ad119`.
