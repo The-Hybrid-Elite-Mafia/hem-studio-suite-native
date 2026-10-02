@@ -3,6 +3,10 @@ project(HEMStudioSuite VERSION 0.10.0 LANGUAGES C CXX)
 # Enable Objective-C++ before JUCE subdirectories create their .mm targets.
 if(APPLE)
     enable_language(OBJCXX)
+    # JUCE 8.0.10 sets C/CXX visibility for plugin targets but not OBJCXX.
+    # Keep its .mm implementation symbols local to each host/plugin image.
+    set(CMAKE_OBJCXX_VISIBILITY_PRESET hidden)
+    set(CMAKE_VISIBILITY_INLINES_HIDDEN TRUE)
     # Preserve separate float operations used by the Windows baseline.
     # ARM contraction otherwise gives nominal zero transient gain a tiny bias.
     add_compile_options(-ffp-contract=off)
