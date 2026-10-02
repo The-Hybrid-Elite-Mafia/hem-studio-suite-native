@@ -90,5 +90,6 @@ jobs:
             build/CMakeFiles/CMakeConfigureLog.yaml
             build/CMakeFiles/*/CMakeCXXCompiler.cmake
             build/Testing/
+            build/HEMStudioSuite_artefacts/Release/Hybrid Elite Mafia - Studio Suite.exe
           if-no-files-found: error
           retention-days: 3
