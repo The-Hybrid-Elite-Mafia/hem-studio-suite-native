@@ -39,7 +39,7 @@ int main(){try {
  // Stress live controls: no NaN/Inf and no allocations in any DSP block.
  eq.prepare(sr);for(int block=0;block<100;++block){ep.hz[0]=block%2?150.f:600.f;ep.db[0]=block%2?-12.f:6.f;ep.q[0]=block%2?.5f:10.f;tone(300,.2f);checking=true;eq.process(l.data(),r.data(),256,ep);checking=false;for(int i=0;i<256;++i)require(std::isfinite(l[size_t(i)]),"EQ automation became unstable");}
  require(allocations==0,"Allocation occurred inside a DSP kernel");
- hem::Delay delay;delay.prepare(13);std::fill(l.begin(),l.end(),0);r=l;l[0]=r[0]=1;delay.process(l.data(),r.data(),n);require(l[13]==1&&l[0]==0,"Delay latency mismatch");
+ hem::HostDelay delay;delay.prepare(13);std::fill(l.begin(),l.end(),0);r=l;l[0]=r[0]=1;delay.process(l.data(),r.data(),n);require(l[13]==1&&l[0]==0,"Delay latency mismatch");
  std::cout<<"PASS: neutral paths, M/S, mono bass, EQ response, compression law, 8x ceiling, limiter latency, automation, zero kernel allocations.\n";
  return 0;
  }catch(const std::exception& e){checking=false;std::cerr<<"FAIL: "<<e.what()<<'\n';return 1;}}
