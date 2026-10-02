@@ -1,0 +1,3 @@
+# Preserve the verified archive bytes on every checkout, including Windows.
+# Do not let core.autocrlf rewrite source/baseline hashes.
+* -text
