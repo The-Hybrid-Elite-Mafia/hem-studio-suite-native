@@ -13,8 +13,9 @@ int main(){juce::ScopedJuceInitialiser_GUI gui;try{
  const auto crop=hem::ui::StudioBranding::ghostSource();require(crop==juce::Rectangle<int>(10,702,244,196),"Approved ghost viewport changed");
  require(cyanPixels(ghost,juce::Rectangle<int>(85,755,50,30))>20,"Approved ghost eyes are absent from source");
  for(int scale:{1,2}){
-  juce::Image image(juce::Image::ARGB,1536*scale,864*scale,true);juce::Graphics g(image);const auto root=image.getBounds().toFloat();
-  hem::ui::StudioBranding::draw(g,root,ghost);
+  juce::Image image(juce::Image::ARGB,1536*scale,864*scale,true);const auto root=image.getBounds().toFloat();
+  // Native Direct2D image readback requires the drawing context to be closed.
+  {juce::Graphics g(image);hem::ui::StudioBranding::draw(g,root,ghost);}
   const auto mapped=[&](float x,float y,float w,float h){return hem::ui::StudioBranding::mapped(root,x,y,w,h).toNearestInt();};
   require(cyanPixels(image,mapped(1326,114,176,150))>150*scale*scale,"Ghost identity/signature is not visible at startup");
   require(amberPixels(image,mapped(605,13,415,42))>500*scale*scale,"Top brand is not illuminated amber");

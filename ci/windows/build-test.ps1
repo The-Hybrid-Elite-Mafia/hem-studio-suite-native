@@ -58,6 +58,12 @@ if ($Phase -eq 'Validate') {
     try {
         $env:_CL_ = ("$previousCl /MP1").Trim()
         'MSBuild project workers=2; appended MSVC _CL_ override=/MP1; effective compiler flags may emit D9025.' | Set-Content ci-logs/compiler-concurrency.txt
+        # Catch the two observed Windows readback regressions first. Their build
+        # objects stay in this same build tree and are reused by ALL_BUILD below.
+                foreach ($target in @('hem_offline_worker_tests','hem_studio_branding_tests')) {
+            Invoke-Logged cmake @('--build',$Build,'--config','Release','--target',$target,'--parallel','2','--','/verbosity:normal',"/bl:$Root/ci-logs/msbuild-focused-$target.binlog",'/fileLogger',"/fileLoggerParameters:LogFile=$Root/ci-logs/msbuild-focused-$target-diagnostic.log;Verbosity=diagnostic") "ci-logs/build-focused-$target.log"
+        }
+        Invoke-Logged ctest @('--test-dir',$Build,'-C','Release','--verbose','--output-on-failure','--no-tests=error','--timeout','240','-R','^(hem_offline_worker_tests|hem_studio_branding_tests)$','--output-junit',"$Root/ci-logs/ctest-focused.xml") 'ci-logs/ctest-focused.log'
         Invoke-Logged cmake @('--build',$Build,'--config','Release','--parallel','2','--','/verbosity:normal',"/bl:$Root/ci-logs/msbuild.binlog",'/fileLogger',"/fileLoggerParameters:LogFile=$Root/ci-logs/msbuild-diagnostic.log;Verbosity=diagnostic") 'ci-logs/build.log'
     } finally { $env:_CL_ = $previousCl }
     if (-not (Test-Path (Join-Path $Build 'HEMStudioSuite_artefacts/Release/Hybrid Elite Mafia - Studio Suite.exe'))) { throw 'The exact application executable was not built' }

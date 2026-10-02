@@ -43,7 +43,9 @@ int main(){juce::ScopedJuceInitialiser_GUI gui;try{
 
     hem::OfflineMixPanel panel(worker,[](const juce::File&,const hem::OfflineMixOptions&){return juce::Result::ok();});
     for(const auto size:std::array<juce::Point<int>,2>{{{800,470},{1600,940}}}){
-        panel.setSize(size.x,size.y);juce::Image image(juce::Image::ARGB,size.x,size.y,true);juce::Graphics graphics(image);panel.paintEntireComponent(graphics,true);
+        panel.setSize(size.x,size.y);juce::Image image(juce::Image::ARGB,size.x,size.y,true);
+        // Native Direct2D image readback requires the drawing context to be closed.
+        {juce::Graphics graphics(image);panel.paintEntireComponent(graphics,true);}
         for(int i=0;i<panel.getNumChildComponents();++i){auto* child=panel.getChildComponent(i);require(child->getWidth()>0&&child->getHeight()>0&&panel.getLocalBounds().contains(child->getBounds()),"Export control exceeds panel bounds");}
         require(image.getPixelAt(0,0).getAlpha()==255,"Export panel background is not opaque");
     }
