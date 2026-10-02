@@ -50,7 +50,14 @@ PY
 build)
   # Run observed Mac regressions first; the complete suite is still mandatory.
   runlog build-focused.log cmake --build "$BUILD" --parallel 2 --target hem_session_tests hem_plugin_meter_tests hem_external_integration_tests HEMVST3TestFixture_VST3
-  runlog ctest-focused.log ctest --test-dir "$BUILD" --parallel 1 --verbose --output-on-failure --no-tests=error --timeout 240 -R '^(hem_session_tests|hem_plugin_meter_tests|hem_external_integration_tests)$' --output-junit "$LOG/ctest-focused.xml"
+  if ! runlog ctest-focused.log ctest --test-dir "$BUILD" --parallel 1 --verbose --output-on-failure --no-tests=error --timeout 240 -R '^(hem_session_tests|hem_plugin_meter_tests|hem_external_integration_tests)$' --output-junit "$LOG/ctest-focused.xml"; then
+    # Keep the original failure; obtain actual Mac crash/pixel evidence.
+    set +e
+    "$BUILD/hem_plugin_meter_tests_artefacts/Release/hem_plugin_meter_tests" "$LOG/rasters" > "$LOG/meter-diagnostic.log" 2>&1
+    lldb --batch -o run -o "thread backtrace all" -o quit -- "$BUILD/hem_external_integration_tests_artefacts/Release/hem_external_integration_tests" "$BUILD/Tests/VST3Fixture/HEMVST3TestFixture_artefacts/Release/VST3/HEM VST3 Fixture.vst3" > "$LOG/integration-backtrace.log" 2>&1
+    cat "$LOG/meter-diagnostic.log" "$LOG/integration-backtrace.log"
+    exit 1
+  fi
   runlog build.log cmake --build "$BUILD" --parallel 2
   test -x "$BUILD/HEMStudioSuite_artefacts/Release/Hybrid Elite Mafia - Studio Suite.app/Contents/MacOS/Hybrid Elite Mafia - Studio Suite"
   test -d "$BUILD/Tests/VST3Fixture/HEMVST3TestFixture_artefacts/Release/VST3/HEM VST3 Fixture.vst3"

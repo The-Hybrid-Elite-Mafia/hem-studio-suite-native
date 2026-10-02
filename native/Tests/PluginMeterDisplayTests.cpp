@@ -36,6 +36,11 @@ void signedRaster(ModuleProcessor& p,const juce::String& name){
         const float start=track.getX()+track.getWidth()*readout.fillStart(),end=track.getX()+track.getWidth()*readout.fillEnd();
         int first=-1,last=-1;
         for(int x=int(track.getX()*float(scale));x<int(track.getRight()*float(scale));++x)if(image.getPixelAt(x,y)==fill){if(first<0)first=x;last=x;}
+        save(image,name+"-"+juce::String(scale)+"x-before-check");
+        if(first<0&&readout.value!=0){
+            std::cerr<<"raster="<<name<<" scale="<<scale<<" value="<<readout.value<<" expectedColour="<<fill.toString()
+                     <<" track="<<track.toString()<<" probe="<<image.getPixelAt(int((start+end)*.5f*float(scale)),y).toString()<<"\n";
+        }
         if(readout.value==0)require(first<0,"Signed zero drew a half-full bar");
         else {require(first>=0,"Signed measurement has no raster bar");require(std::abs(float(first)-start*float(scale))<=3*scale&&std::abs(float(last)-end*float(scale))<=3*scale,"Signed raster endpoints are not relative to zero");}
         const int zero=int(std::round((track.getX()+track.getWidth()*.5f)*float(scale)));
