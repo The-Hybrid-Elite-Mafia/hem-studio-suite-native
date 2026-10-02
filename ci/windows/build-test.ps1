@@ -22,6 +22,7 @@ if ($Phase -eq 'Validate') {
     Invoke-Logged git @('status','--porcelain') 'ci-logs/source-status.txt'
     Get-CimInstance Win32_OperatingSystem | Format-List Caption,Version,BuildNumber,OSArchitecture | Out-File ci-logs/windows.txt
     @("RUNNER_OS=$env:RUNNER_OS", "RUNNER_ARCH=$env:RUNNER_ARCH", "ImageOS=$env:ImageOS", "ImageVersion=$env:ImageVersion") | Add-Content ci-logs/windows.txt
+    Get-CimInstance Win32_ComputerSystem | Format-List NumberOfLogicalProcessors,TotalPhysicalMemory | Out-File ci-logs/runner-capacity.txt
     Invoke-Logged cmake @('--version') 'ci-logs/cmake-version.txt'
     $vswhere = "${env:ProgramFiles(x86)}/Microsoft Visual Studio/Installer/vswhere.exe"
     Invoke-Logged $vswhere @('-products','*','-version','[18.0,19.0)','-requires','Microsoft.VisualStudio.Component.VC.14.44.17.14.x86.x64','-format','json') 'ci-logs/visual-studio.json'
@@ -51,7 +52,14 @@ if ($Phase -eq 'Validate') {
 } elseif ($Phase -eq 'Build') {
     # ALL_BUILD includes the exact HEMStudioSuite app, all tests, and HEMVST3TestFixture_VST3.
     # Two MSBuild workers limit private-runner RAM pressure and included-minute use.
-    Invoke-Logged cmake @('--build',$Build,'--config','Release','--parallel','2','--','/verbosity:normal',"/bl:$Root/ci-logs/msbuild.binlog",'/fileLogger',"/fileLoggerParameters:LogFile=$Root/ci-logs/msbuild-diagnostic.log;Verbosity=diagnostic") 'ci-logs/build.log'
+        # JUCE adds bare /MP. _CL_ is appended by MSVC after command arguments,
+    # so /MP1 prevents two MSBuild projects from each spawning a full CPU pool.
+    $previousCl = $env:_CL_
+    try {
+        $env:_CL_ = ("$previousCl /MP1").Trim()
+        'MSBuild project workers=2; appended MSVC _CL_ override=/MP1; effective compiler flags may emit D9025.' | Set-Content ci-logs/compiler-concurrency.txt
+        Invoke-Logged cmake @('--build',$Build,'--config','Release','--parallel','2','--','/verbosity:normal',"/bl:$Root/ci-logs/msbuild.binlog",'/fileLogger',"/fileLoggerParameters:LogFile=$Root/ci-logs/msbuild-diagnostic.log;Verbosity=diagnostic") 'ci-logs/build.log'
+    } finally { $env:_CL_ = $previousCl }
     if (-not (Test-Path (Join-Path $Build 'HEMStudioSuite_artefacts/Release/Hybrid Elite Mafia - Studio Suite.exe'))) { throw 'The exact application executable was not built' }
     if (-not (Test-Path (Join-Path $Build 'Tests/VST3Fixture/HEMVST3TestFixture_artefacts/Release/VST3/HEM VST3 Fixture.vst3'))) { throw 'The owned VST3 fixture bundle was not built' }
 } else {
