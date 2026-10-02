@@ -270,3 +270,9 @@ if(HEM_TEST_VST3_BUNDLE)
  add_test(NAME hem_external_host_tests COMMAND hem_external_host_tests "${HEM_TEST_VST3_BUNDLE}")
  add_test(NAME hem_external_integration_tests COMMAND hem_external_integration_tests "${HEM_TEST_VST3_BUNDLE}")
 endif()
+
+# macOS console integration tests need AppKit initialized before the event loop.
+if(APPLE)
+ enable_language(OBJCXX)
+ target_sources(hem_external_integration_tests PRIVATE Tests/MacIntegrationApplication.mm)
+endif()

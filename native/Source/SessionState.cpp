@@ -71,8 +71,16 @@ void SessionState::restoreParameters(ModuleProcessor& p,const juce::ValueTree& v
     const auto n=number(child,"value",it->minimum,it->maximum);
     if(it->toggle)require(n==0||n==1,"Invalid toggle: "+id);
  }
- for(auto child:values){auto* parameter=p.state.getParameter(child["id"].toString());
-    parameter->setValueNotifyingHost(parameter->convertTo0to1(float(double(child["value"]))));}
+ for(auto child:values){
+    const auto id=child["id"].toString();
+    const auto wanted=float(double(child["value"]));
+    auto* parameter=p.state.getParameter(id);
+    // An exact no-op restore must not re-quantise JUCE's initial raw default.
+    // APVTS initializes that value without snapToLegalValue; ARM arithmetic can
+    // distinguish it from another normalize/snap cycle. Validation above still
+    // covers every parameter before any change is made.
+    if(p.state.getRawParameterValue(id)->load()==wanted)continue;
+    parameter->setValueNotifyingHost(parameter->convertTo0to1(wanted));}
 }
 SessionSnapshot SessionState::capture(const TrackBank& bank,float in,float out,double position,bool loop,ModuleProcessor& monitor,bool includeExternalState){
  SessionSnapshot s;s.inputDb=in;s.outputDb=out;s.positionSeconds=position;s.looping=loop;

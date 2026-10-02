@@ -18,7 +18,10 @@ juce::Rectangle<float> meterArea(ModuleProcessor& p){juce::Rectangle<float> area
 juce::Image raster(ModuleProcessor& p,int scale){
     std::unique_ptr<juce::AudioProcessorEditor> editor(p.createEditor());
     juce::Image image(juce::Image::ARGB,editor->getWidth()*scale,editor->getHeight()*scale,true);
-    juce::Graphics g(image);g.addTransform(juce::AffineTransform::scale(float(scale)));editor->paintEntireComponent(g,true);return image;
+    // Finish the native rendering context before inspecting or copying pixels.
+    // CoreGraphics may defer writes until the Graphics context is destroyed.
+    { juce::Graphics g(image);g.addTransform(juce::AffineTransform::scale(float(scale)));editor->paintEntireComponent(g,true); }
+    return image;
 }
 juce::File artifacts;
 void save(const juce::Image& image,const juce::String& name){if(artifacts==juce::File())return;auto out=artifacts.getChildFile(name+".png").createOutputStream();require(out!=nullptr,"Cannot write raster artifact");require(juce::PNGImageFormat().writeImageToStream(image,*out),"Cannot encode raster artifact");}

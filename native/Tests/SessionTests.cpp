@@ -17,7 +17,17 @@ int main(){juce::ScopedJuceInitialiser_GUI juceRuntime;
     hem::SessionState::save(s,file);auto recalled=hem::SessionState::load(file);
     require(recalled.inputDb==s.inputDb&&recalled.positionSeconds==123.5&&recalled.looping,"Master state round trip");
     for(size_t t=0;t<13;++t){const auto& a=s.tracks[t];const auto& b=recalled.tracks[t];require(a.gainDb==b.gainDb&&a.muted==b.muted&&a.solo==b.solo,"Track state round trip");
-        for(size_t j=0;j<8;++j){require(a.slots[j].pluginId==b.slots[j].pluginId&&a.slots[j].bypassed==b.slots[j].bypassed,"Insert order round trip");auto p=hem::PluginRegistry::create(b.slots[j].pluginId);hem::SessionState::restoreParameters(*p,b.slots[j].parameters);require(hem::SessionState::captureParameters(*p).isEquivalentTo(a.slots[j].parameters),"Parameter round trip");}}
+        for(size_t j=0;j<8;++j){require(a.slots[j].pluginId==b.slots[j].pluginId&&a.slots[j].bypassed==b.slots[j].bypassed,"Insert order round trip");auto p=hem::PluginRegistry::create(b.slots[j].pluginId);hem::SessionState::restoreParameters(*p,b.slots[j].parameters);const auto actual=hem::SessionState::captureParameters(*p);
+            if(!actual.isEquivalentTo(a.slots[j].parameters)){
+                std::cerr<<"track="<<t<<" slot="<<j<<" plugin="<<b.slots[j].pluginId<<"\n";
+                for(int k=0;k<actual.getNumChildren();++k){
+                    const auto expected=a.slots[j].parameters.getChild(k),got=actual.getChild(k);
+                    std::cerr<<expected["id"].toString()<<" expected="<<std::hexfloat<<double(expected["value"])
+                        <<" loaded="<<double(b.slots[j].parameters.getChild(k)["value"])
+                        <<" actual="<<double(got["value"])<<"\n";
+                }
+            }
+            require(actual.isEquivalentTo(a.slots[j].parameters),"Parameter round trip");}}
     auto rejected=[&](juce::ValueTree tree){try{hem::SessionState::decode(tree,file);}catch(const std::exception&){return true;}return false;};
     auto tree=hem::SessionState::encode(s,file);tree.setProperty("version",999,nullptr);require(rejected(tree),"Unknown version accepted");
     tree=hem::SessionState::encode(s,file);tree.getChild(1).setProperty("gainDb",999,nullptr);require(rejected(tree),"Invalid gain accepted");

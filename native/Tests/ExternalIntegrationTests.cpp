@@ -42,13 +42,21 @@ void writeFixture(const juce::File& file){std::unique_ptr<juce::OutputStream> st
 juce::AudioBuffer<float> readWav(const juce::File& f){juce::WavAudioFormat format;auto stream=f.createInputStream();require(stream!=nullptr,"Export file missing");std::unique_ptr<juce::AudioFormatReader> reader(format.createReaderFor(stream.release(),true));require(reader&&reader->lengthInSamples==4800&&reader->sampleRate==48000&&reader->numChannels==2&&reader->usesFloatingPointData,"Export format/length mismatch");juce::AudioBuffer<float> b(2,4800);require(reader->read(&b,0,4800,0,true,true),"Export read failed");return b;}
 void compare(const juce::AudioBuffer<float>& actual,const juce::AudioBuffer<float>& expected,float ratio,float tolerance){for(int ch=0;ch<2;++ch)for(int i=0;i<4800;++i)require(std::abs(actual.getSample(ch,i)-expected.getSample(ch,i)*ratio)<=tolerance,"Export audio does not match independently rendered native path");}
 }
+#if JUCE_MAC
+void initialiseIntegrationApplication();
+#endif
 int main(int argc,char** argv){
+#if JUCE_MAC
+ initialiseIntegrationApplication();
+#endif
+ std::cout << std::unitbuf;
+ std::cerr << "stage: integration application initialized\n";
  if(argc!=2){std::cerr<<"Pass the exact in-house VST3 fixture bundle, never a scan directory\n";return 2;}
  juce::ScopedJuceInitialiser_GUI gui;int result=1;const juce::File plugin(juce::String::fromUTF8(argv[1]));
  std::thread driver([&]{std::unique_ptr<MainComponent> owner;try{
   const auto directory=juce::File::getSpecialLocation(juce::File::tempDirectory).getChildFile("HEM-vst3-integration-"+juce::Uuid().toString());require(directory.createDirectory().wasOk(),"Temporary directory failed");struct Cleanup{juce::File path;~Cleanup(){path.deleteRecursively();}}cleanup{directory};
   const auto source=directory.getChildFile("fixture.wav");writeFixture(source);juce::MemoryBlock original;require(source.loadFileAsData(original),"Fixture snapshot failed");
-  onMain([&]{owner=std::make_unique<MainComponent>();MainComponentTestAccess::offline(*owner);MainComponentTestAccess::import(*owner,{source.getFullPathName()});});
+  onMain([&]{std::cerr<<"stage: first main-thread callback\n";owner=std::make_unique<MainComponent>();MainComponentTestAccess::offline(*owner);MainComponentTestAccess::import(*owner,{source.getFullPathName()});});
   until([&]{auto* apply=findButton(*owner,"APPLY WHEN STOPPED");return apply&&apply->isEnabled();},"Import not ready");
   onMain([&]{findButton(*owner,"APPLY WHEN STOPPED")->onClick();});until([&]{return !MainComponentTestAccess::pending(*owner);},"Import did not settle");
   const auto reference=directory.getChildFile("native.wav");onMain([&]{require(MainComponentTestAccess::render(*owner,reference).wasOk(),"Native reference export rejected");});until([&]{return !MainComponentTestAccess::exportBusy(*owner);},"Native reference export stalled");auto expected=readWav(reference);
@@ -89,5 +97,5 @@ int main(int argc,char** argv){
   std::cout<<"PASS synchronous host destruction with pending private VST3 preparation, source bytes preserved\n";result=0;
  }catch(const std::exception& e){std::cerr<<"FAIL: "<<e.what()<<'\n';try{onMain([&]{owner.reset();});}catch(...){} }
  juce::MessageManager::callAsync([]{juce::MessageManager::getInstance()->stopDispatchLoop();});});
- juce::MessageManager::getInstance()->runDispatchLoop();driver.join();return result;
+ std::cerr<<"stage: enter dispatch loop\n";juce::MessageManager::getInstance()->runDispatchLoop();std::cerr<<"stage: dispatch loop returned\n";driver.join();return result;
 }
