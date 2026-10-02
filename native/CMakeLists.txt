@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.22)
 project(HEMStudioSuite VERSION 0.10.0 LANGUAGES C CXX)
+# Enable Objective-C++ before JUCE subdirectories create their .mm targets.
+if(APPLE)
+    enable_language(OBJCXX)
+endif()
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_definitions(JUCE_PLUGINHOST_VST3=1)
@@ -273,6 +277,5 @@ endif()
 
 # macOS console integration tests need AppKit initialized before the event loop.
 if(APPLE)
- enable_language(OBJCXX)
  target_sources(hem_external_integration_tests PRIVATE Tests/MacIntegrationApplication.mm)
 endif()
