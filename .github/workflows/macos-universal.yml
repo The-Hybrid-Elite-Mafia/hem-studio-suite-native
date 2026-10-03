@@ -15,7 +15,7 @@ concurrency:
 jobs:
   universal-build:
     runs-on: macos-15
-    timeout-minutes: 55
+    timeout-minutes: 43
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:
@@ -31,6 +31,7 @@ jobs:
       - name: Build unchanged application and 29 tests as universal Mach-O
         run: bash ci/macos-universal/build.sh
       - name: Upload test runtime, not a release
+        if: always() && hashFiles('universal-runtime.tar.gz') != ''
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: universal-runtime-${{ github.sha }}
@@ -60,7 +61,7 @@ jobs:
           - runner: macos-15-intel
             arch: x86_64
     runs-on: ${{ matrix.runner }}
-    timeout-minutes: 10
+    timeout-minutes: 4
     env:
       HEM_MAC_ARCH: ${{ matrix.arch }}
     steps:
@@ -83,7 +84,7 @@ jobs:
   release-package:
     needs: [universal-build, native-tests]
     runs-on: macos-15
-    timeout-minutes: 3
+    timeout-minutes: 2
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
         with:

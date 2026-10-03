@@ -16,3 +16,6 @@ References:
 - https://docs.github.com/en/actions/reference/runners/github-hosted-runners
 - https://github.com/actions/runner-images
 - https://github.com/juce-framework/JUCE/tree/3af3ce009f6a02f6fa651008fffb5b41743a9fab
+
+## First universal attempt
+Run 37083941846 at 14ade4a6072777633bc6c39cae3671e92a021331 completed the real universal build, then failed transfer packaging because CTest inventory captured before compilation omitted command paths for not-yet-built executables. No native test job ran. The correction regenerates inventory after compilation; assertions and DSP are unchanged. Runtime staging is now archived before audit and retained if an audit fails so a packaging-only correction need not throw away the compilation. Retry caps are 43 + 4 + 4 + 2 native runner minutes, conditional on fresh budget verification.

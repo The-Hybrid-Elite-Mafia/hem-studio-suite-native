@@ -15,8 +15,8 @@ cmake -S native -B build-universal -G 'Unix Makefiles' \
   2>&1 | tee universal-logs/configure.log
 ctest --test-dir build-universal --show-only=json-v1 > universal-logs/test-inventory.json
 cmake --build build-universal --parallel 2 2>&1 | tee universal-logs/build.log
+ctest --test-dir build-universal --show-only=json-v1 > universal-logs/test-inventory.json
 python3 ci/macos-universal/runtime.py stage
-python3 ci/macos-universal/runtime.py verify
 # Intermediate archive is explicitly not a release until both native test jobs pass.
 tar -czf universal-runtime.tar.gz universal-runtime
 shasum -a 256 universal-runtime.tar.gz > universal-logs/runtime-archive.sha256
@@ -26,3 +26,4 @@ s=pathlib.Path('universal-runtime.tar.gz').stat().st_size
 print('Runtime compressed bytes:',s)
 assert s<250_000_000, 'Artifact storage guard exceeded'
 PY
+python3 ci/macos-universal/runtime.py verify
