@@ -1,0 +1,109 @@
+name: Universal Mac build and native dual-architecture tests
+on:
+  push:
+    branches: [ci/macos-universal]
+    paths:
+      - 'native/**'
+      - 'ci/macos-universal/**'
+      - '.github/workflows/macos-universal.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: isolated-macos-universal
+  cancel-in-progress: true
+jobs:
+  universal-build:
+    runs-on: macos-15
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+          submodules: recursive
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          repository: juce-framework/JUCE
+          ref: 3af3ce009f6a02f6fa651008fffb5b41743a9fab
+          path: dependencies/JUCE
+          persist-credentials: false
+          submodules: recursive
+      - name: Build unchanged application and 29 tests as universal Mach-O
+        run: bash ci/macos-universal/build.sh
+      - name: Upload test runtime, not a release
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: universal-runtime-${{ github.sha }}
+          path: universal-runtime.tar.gz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - name: Preserve build evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: universal-build-evidence-${{ github.run_id }}
+          path: |
+            universal-logs/
+            build-universal/CMakeCache.txt
+            build-universal/CMakeFiles/CMakeConfigureLog.yaml
+          retention-days: 3
+          if-no-files-found: error
+  native-tests:
+    needs: universal-build
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            arch: arm64
+          - runner: macos-15-intel
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+    env:
+      HEM_MAC_ARCH: ${{ matrix.arch }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-runtime-${{ github.sha }}
+      - name: Execute every test and real app natively from identical universal bundle
+        run: bash ci/macos-universal/test.sh
+      - name: Preserve native architecture evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: universal-test-${{ matrix.arch }}-${{ github.run_id }}
+          path: universal-logs/
+          retention-days: 3
+          if-no-files-found: error
+  release-package:
+    needs: [universal-build, native-tests]
+    runs-on: macos-15
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-runtime-${{ github.sha }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-test-arm64-${{ github.run_id }}
+          path: evidence/arm64
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-test-x86_64-${{ github.run_id }}
+          path: evidence/x86_64
+      - name: Package only identical dual-native-tested app
+        run: bash ci/macos-universal/package.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: HEM-Studio-Suite-macOS-Universal-Release-${{ github.sha }}
+          path: dist-universal/
+          retention-days: 3
+          if-no-files-found: error
