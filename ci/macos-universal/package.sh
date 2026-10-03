@@ -21,9 +21,10 @@ cp -R evidence dist-universal/
 cp universal-logs/universal-binary-audit.json universal-logs/bundle-info.json dist-universal/
 cat > dist-universal/BUILD-REPORT.txt <<EOF
 HYBRID ELITE MAFIA - STUDIO SUITE: Universal macOS engineering build
-Source: $GITHUB_SHA
+Compiled source: ${HEM_COMPILED_SHA:-$GITHUB_SHA}
+Packaging and test workflow revision: $GITHUB_SHA
 ARM64 parent: a71dd3554afa8ee79f636409e6d42b433f1217b3
-Workflow: .github/workflows/macos-universal.yml
+Workflow: .github/workflows/macos-universal-recovery.yml
 Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
 Build: Release C++20, Apple Clang, JUCE 8.0.10
 Architectures: arm64 and x86_64 in every shipped Mach-O

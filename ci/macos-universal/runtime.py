@@ -35,7 +35,9 @@ def stage():
     (PAYLOAD/'SHA256.json').write_text(json.dumps(hashes,indent=2))
 
 def verify():
-    assert json.loads((PAYLOAD/'source.json').read_text())['commit']==os.environ['GITHUB_SHA']
+    source=json.loads((PAYLOAD/'source.json').read_text())
+    assert source['commit']==os.environ.get('HEM_COMPILED_SHA',os.environ['GITHUB_SHA'])
+    assert source.get('packaging_commit',os.environ['GITHUB_SHA'])==os.environ['GITHUB_SHA']
     for rel,h in json.loads((PAYLOAD/'SHA256.json').read_text()).items(): assert digest(PAYLOAD/rel)==h, rel
     reports=[]
     for p in sorted(PAYLOAD.rglob('*')):

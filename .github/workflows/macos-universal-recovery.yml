@@ -1,0 +1,112 @@
+name: Finalize universal Mac bundle and validate both native architectures
+on:
+  push:
+    branches: [ci/macos-universal-recovery]
+    paths:
+      - 'native/**'
+      - 'ci/macos-universal/**'
+      - '.github/workflows/macos-universal-recovery.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: isolated-macos-universal
+  cancel-in-progress: true
+env:
+  HEM_COMPILED_SHA: b41c54d41aa767dee900dd78ef623277baf12719
+jobs:
+  universal-build:
+    runs-on: macos-15
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-runtime-b41c54d41aa767dee900dd78ef623277baf12719
+          run-id: 37086588351
+          github-token: ${{ github.token }}
+      - name: Finalize existing compiled bundle without rebuilding or changing DSP
+        run: |
+          set -euo pipefail
+          mkdir -p universal-logs
+          tar -xzf universal-runtime.tar.gz
+          python3 ci/macos-universal/finalize-runtime.py 2>&1 | tee universal-logs/metadata-correction.log
+          python3 ci/macos-universal/runtime.py verify
+          tar -czf universal-runtime.tar.gz universal-runtime
+          shasum -a 256 universal-runtime.tar.gz | tee universal-logs/runtime-archive.sha256
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: universal-runtime-${{ github.sha }}
+          path: universal-runtime.tar.gz
+          compression-level: 0
+          retention-days: 1
+          if-no-files-found: error
+      - name: Preserve finalization evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: universal-finalization-evidence-${{ github.run_id }}
+          path: universal-logs/
+          retention-days: 3
+          if-no-files-found: error
+  native-tests:
+    needs: universal-build
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            arch: arm64
+          - runner: macos-15-intel
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 4
+    env:
+      HEM_MAC_ARCH: ${{ matrix.arch }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-runtime-${{ github.sha }}
+      - name: Execute every test and real app natively from identical universal bundle
+        run: bash ci/macos-universal/test.sh
+      - name: Preserve native architecture evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: universal-test-${{ matrix.arch }}-${{ github.run_id }}
+          path: universal-logs/
+          retention-days: 3
+          if-no-files-found: error
+  release-package:
+    needs: [universal-build, native-tests]
+    runs-on: macos-15
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-runtime-${{ github.sha }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-test-arm64-${{ github.run_id }}
+          path: evidence/arm64
+      - uses: actions/download-artifact@v4
+        with:
+          name: universal-test-x86_64-${{ github.run_id }}
+          path: evidence/x86_64
+      - name: Package only identical dual-native-tested app
+        run: bash ci/macos-universal/package.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: HEM-Studio-Suite-macOS-Universal-Release-${{ github.sha }}
+          path: dist-universal/
+          retention-days: 3
+          if-no-files-found: error

@@ -19,3 +19,7 @@ References:
 
 ## First universal attempt
 Run 37083941846 at 14ade4a6072777633bc6c39cae3671e92a021331 completed the real universal build, then failed transfer packaging because CTest inventory captured before compilation omitted command paths for not-yet-built executables. No native test job ran. The correction regenerates inventory after compilation; assertions and DSP are unchanged. Runtime staging is now archived before audit and retained if an audit fails so a packaging-only correction need not throw away the compilation. Retry caps are 43 + 4 + 4 + 2 native runner minutes, conditional on fresh budget verification.
+
+## Packaging-only recovery
+Run 37086588351 compiled every universal target successfully. All 31 Mach-O files passed dual-slice/minimum-OS/system-dependency checks, then bundle metadata audit failed because JUCE's generated app Info.plist omitted LSMinimumSystemVersion. Runtime artifact 11261920349 preserves the full compiled payload. No native test ran in that failed job.
+The recovery workflow downloads that exact artifact, verifies all original file hashes, sets macOS 12.0 in the app/fixture Info.plists, ad-hoc reseals the bundles and seals new checksums. Both architecture jobs then execute these identical final bytes. Binary source is b41c54d41aa767dee900dd78ef623277baf12719; workflow/metadata revision is separately recorded. No app/DSP/test source recompilation or test relaxation occurs. Recovery caps total 13 native runner minutes, conditional on fresh quota verification.
