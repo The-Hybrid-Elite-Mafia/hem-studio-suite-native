@@ -17,6 +17,7 @@ ctest --test-dir build-universal --show-only=json-v1 > universal-logs/test-inven
 cmake --build build-universal --parallel 2 2>&1 | tee universal-logs/build.log
 ctest --test-dir build-universal --show-only=json-v1 > universal-logs/test-inventory.json
 python3 ci/macos-universal/runtime.py stage
+HEM_COMPILED_SHA="$GITHUB_SHA" python3 ci/macos-universal/finalize-runtime.py
 # Intermediate archive is explicitly not a release until both native test jobs pass.
 tar -czf universal-runtime.tar.gz universal-runtime
 shasum -a 256 universal-runtime.tar.gz > universal-logs/runtime-archive.sha256
