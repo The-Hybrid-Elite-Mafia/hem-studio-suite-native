@@ -1,11 +1,5 @@
 name: Universal Mac build and native dual-architecture tests
 on:
-  push:
-    branches: [ci/macos-universal]
-    paths:
-      - 'native/**'
-      - 'ci/macos-universal/**'
-      - '.github/workflows/macos-universal.yml'
   workflow_dispatch:
 permissions:
   contents: read

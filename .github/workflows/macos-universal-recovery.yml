@@ -1,11 +1,5 @@
 name: Finalize universal Mac bundle and validate both native architectures
 on:
-  push:
-    branches: [ci/macos-universal-recovery]
-    paths:
-      - 'native/**'
-      - 'ci/macos-universal/**'
-      - '.github/workflows/macos-universal-recovery.yml'
   workflow_dispatch:
 permissions:
   contents: read
