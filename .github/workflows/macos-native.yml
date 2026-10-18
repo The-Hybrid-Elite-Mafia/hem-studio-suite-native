@@ -1,12 +1,6 @@
 name: Native macOS build and tests
 
 on:
-  push:
-    branches: [ci/macos-native]
-    paths:
-      - 'native/**'
-      - 'ci/macos/**'
-      - '.github/workflows/macos-native.yml'
   workflow_dispatch:
     inputs:
       architecture:
