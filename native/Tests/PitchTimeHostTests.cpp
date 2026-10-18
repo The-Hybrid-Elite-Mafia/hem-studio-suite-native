@@ -1,0 +1,39 @@
+#include "../Source/MainComponent.h"
+#include "../Source/Plugins/PitchTimeProcessors.h"
+#include <juce_cryptography/juce_cryptography.h>
+#include <iostream>
+#include <stdexcept>
+struct MainComponentTestAccess {
+ static void load(MainComponent& h,const juce::File& f){auto source=std::make_unique<hem::StemPlayback>();source->prepareFile(f,h.formats,h.diskThread,h.sampleRate,h.blockSize,false);auto& t=h.bank->tracks[0];t.playback.swap(source);t.loaded=true;t.name=f.getFileName();t.sourceRate=t.playback->sourceRate;}
+ static void open(MainComponent& h,bool time=false){for(size_t i=0;i<hem::PluginRegistry::entries().size();++i)if(juce::String(hem::PluginRegistry::entries()[i].id)==(time?"time-pitch-stretch":"pitch-formant")){h.installSelected(int(i));return;}}
+ static void command(MainComponent& h,int c){h.clipCommand(c);}
+ static void diagnostic(MainComponent& h){hem::pitchtime::Settings settings;auto* p=dynamic_cast<hem::PitchTimeProcessor*>(h.editedProcessor);auto result=p->settings(48000,1,120,settings);std::cout<<"settings "<<result.getErrorMessage()<<" ratio "<<settings.durationRatio<<" source "<<p->parameter("sourceTempo")<<" target "<<p->parameter("targetTempo")<<" stretch "<<p->parameter("stretchRatio")<<"\n";}
+ static void poll(MainComponent& h){h.pollClipOperation();}
+ static bool busy(MainComponent& h){return h.clipOperationBusy();}
+ static bool editor(MainComponent& h){return dynamic_cast<hem::PitchTimeProcessor*>(h.editedProcessor)!=nullptr;}
+ static void parameter(MainComponent& h,const char* id,float value){auto* p=h.editedProcessor->state.getParameter(id);if(!p)throw std::runtime_error("missing parameter");p->setValueNotifyingHost(p->convertTo0to1(value));}
+ static float parameter(MainComponent& h,const char* id){return h.editedProcessor->state.getRawParameterValue(id)->load();}
+ static juce::File source(MainComponent& h){return h.bank->tracks[0].playback->file;}
+ static hem::SessionSnapshot snapshot(MainComponent& h){return h.captureSession(false);}
+ static bool rackEmpty(MainComponent& h){for(int i=0;i<8;++i)if(h.bank->tracks[0].chain.activeProcessor(i))return false;return true;}
+ static void invalidate(MainComponent& h){h.invalidateClipAudio();++h.generation;}
+ static void close(MainComponent& h){h.closePluginEditor();}
+ static bool gated(MainComponent& h,const juce::File& f){return h.saveSessionFile(f).failed()&&h.clearTrackSources(true).failed()&&h.resetSessionConfirmed().failed();}
+};
+void check(bool b,const char* m){if(!b)throw std::runtime_error(m);}
+void finish(MainComponent& h){auto until=juce::Time::getMillisecondCounter()+30000;while(MainComponentTestAccess::busy(h)&&juce::Time::getMillisecondCounter()<until){MainComponentTestAccess::poll(h);juce::Thread::sleep(2);}MainComponentTestAccess::poll(h);check(!MainComponentTestAccess::busy(h),"host operation timeout");}
+int main(){juce::ScopedJuceInitialiser_GUI gui;try{
+ auto directory=juce::File::getCurrentWorkingDirectory().getChildFile("pitch-time-work").getChildFile("host-fixtures-"+juce::Uuid().toString());check(directory.createDirectory().wasOk(),"fixture directory");auto original=directory.getChildFile("original.wav");
+ {auto stream=original.createOutputStream();juce::WavAudioFormat format;std::unique_ptr<juce::AudioFormatWriter> writer(format.createWriterFor(stream.get(),48000,1,32,{},0));check(writer!=nullptr,"fixture writer");stream.release();juce::AudioBuffer<float> audio(1,48007);for(int i=0;i<audio.getNumSamples();++i)audio.setSample(0,i,float(.2*std::sin(2*juce::MathConstants<double>::pi*440*i/48000)));check(writer->writeFromAudioSampleBuffer(audio,0,audio.getNumSamples()),"fixture write");}
+ auto originalHash=juce::SHA256(original).toHexString();auto owner=std::make_unique<MainComponent>(false);auto& host=*owner;MainComponentTestAccess::load(host,original);
+ MainComponentTestAccess::open(host);check(MainComponentTestAccess::editor(host)&&MainComponentTestAccess::rackEmpty(host),"offline catalog creates editor not insert");finish(host);
+ MainComponentTestAccess::parameter(host,"pitchSemitones",7);MainComponentTestAccess::parameter(host,"output",-3);MainComponentTestAccess::command(host,0);check(MainComponentTestAccess::gated(host,directory.getChildFile("busy.xml")),"host busy work gates");finish(host);check(MainComponentTestAccess::source(host)==original,"preview changed production source");check(!MainComponentTestAccess::snapshot(host).tracks[0].clipEdit,"preview entered session state");
+ MainComponentTestAccess::command(host,1);finish(host);auto applied=MainComponentTestAccess::source(host);check(applied!=original&&applied.existsAsFile(),"apply did not switch playback");auto appliedState=MainComponentTestAccess::snapshot(host).tracks[0].clipEdit;check(appliedState&&appliedState->renderedActive&&appliedState->original.sha256==originalHash,"apply clip identity missing");check(MainComponentTestAccess::parameter(host,"pitchSemitones")==0&&MainComponentTestAccess::parameter(host,"output")==0,"apply did not neutralize pending controls");
+ MainComponentTestAccess::command(host,2);finish(host);check(MainComponentTestAccess::source(host)==original&&!MainComponentTestAccess::snapshot(host).tracks[0].clipEdit->renderedActive,"undo did not restore original");
+ MainComponentTestAccess::command(host,2);finish(host);check(MainComponentTestAccess::source(host)==applied&&MainComponentTestAccess::snapshot(host).tracks[0].clipEdit->renderedActive,"redo did not restore rendered");
+ MainComponentTestAccess::command(host,0);MainComponentTestAccess::parameter(host,"pitchCents",10);finish(host);check(MainComponentTestAccess::source(host)==applied,"recipe cancel changed source");
+ MainComponentTestAccess::command(host,0);MainComponentTestAccess::invalidate(host);finish(host);check(!MainComponentTestAccess::editor(host)&&MainComponentTestAccess::source(host)==applied,"device generation cancellation failed");
+ MainComponentTestAccess::open(host,true);finish(host);check(MainComponentTestAccess::editor(host)&&MainComponentTestAccess::rackEmpty(host),"time stretch not offline route");MainComponentTestAccess::parameter(host,"stretchRatio",1.5f);MainComponentTestAccess::parameter(host,"targetTempo",80);MainComponentTestAccess::diagnostic(host);MainComponentTestAccess::command(host,1);finish(host);auto stretched=MainComponentTestAccess::snapshot(host).tracks[0].clipEdit;std::cout<<"stretch state "<<bool(stretched)<<" frames "<<(stretched?stretched->rendered.frames:0)<<" active "<<(stretched?stretched->renderedActive:false)<<"\n";check(stretched&&stretched->renderedActive&&stretched->rendered.frames==72011,"time stretch host exact frames");MainComponentTestAccess::command(host,2);finish(host);check(MainComponentTestAccess::source(host)==applied,"time stretch undo source");MainComponentTestAccess::command(host,0);MainComponentTestAccess::load(host,original);finish(host);check(!MainComponentTestAccess::editor(host)&&MainComponentTestAccess::source(host)==original,"source replacement did not cancel private work");check(!MainComponentTestAccess::snapshot(host).tracks[0].clipEdit,"stale clip history entered session after source replacement");MainComponentTestAccess::close(host);check(juce::SHA256(original).toHexString()==originalHash,"original bytes altered");owner.reset();
+ for(auto f:directory.getChildFile("HEM Rendered Clips").findChildFiles(juce::File::findFiles,false,"*.wav"))f.deleteFile();directory.getChildFile("HEM Rendered Clips").deleteFile();original.deleteFile();directory.deleteFile();
+ std::cout<<"PASS actual no-device host: offline catalog routing, source inspection, private preview, stopped Apply, Undo/Redo, session metadata, neutralization, exact 1.5x duration Apply/Undo, stale recipe/device/source cancellation, work guards, original conservation. Hardware audition NOT RUN.\n";return 0;
+ }catch(const std::exception& e){std::cerr<<"FAIL "<<e.what()<<"\n";return 1;}}

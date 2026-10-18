@@ -1,0 +1,52 @@
+[
+  {
+    "path": "Documentation/RestorationModules/ClipRepair.md",
+    "sha256": "fe0f0a5832bba98f7534c5cf0c8ae0f063c98ae69d816e3bff96cf10b5cb288a",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Documentation/RestorationModules/ClipRepair.md"
+  },
+  {
+    "path": "Source/DSP/ClipRepairCore.h",
+    "sha256": "924abc6284babef0b37de5cf623301130bf572de53f10fff8146e74d8b463914",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Source/DSP/ClipRepairCore.h"
+  },
+  {
+    "path": "Source/DSP/RestorationCore.h",
+    "sha256": "a220dd40576105cae8e151a937ef18929044157a41e38d21fd1d4d9d3ce14295",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Source/DSP/RestorationCore.h"
+  },
+  {
+    "path": "Source/DSP/RestorationTelemetry.h",
+    "sha256": "279d89e9140f345699b2134bb61f5e55143c1a987f3baf1103d0fbb26e4dca91",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Source/DSP/RestorationTelemetry.h"
+  },
+  {
+    "path": "Source/Plugins/RestorationEditors.h",
+    "sha256": "8045b702c3e681ff3c0aec2bd7ba5092c21eac83c7a3862ed90801d42173f0c3",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Source/Plugins/RestorationEditors.h"
+  },
+  {
+    "path": "Source/Plugins/RestorationProcessors.cpp",
+    "sha256": "a981cf3e55948a1e83bd51ccf6ef830c027b77d76346cbefa089ae3e5ac427c9",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Source/Plugins/RestorationProcessors.cpp"
+  },
+  {
+    "path": "Source/Plugins/RestorationProcessors.h",
+    "sha256": "0bd203d848a1075904183ca481c8fc17d4ea4216625ccf9e17d8064a584ebcd8",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Source/Plugins/RestorationProcessors.h"
+  },
+  {
+    "path": "Tests/ClipRepairCoreTests.cpp",
+    "sha256": "d682e9d7e359149d32aa13f76257d33d9302a650b1f9f7fd48ee0a0e7a45abce",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Tests/ClipRepairCoreTests.cpp"
+  },
+  {
+    "path": "Tests/RestorationCoreTests.cpp",
+    "sha256": "0ae4a8a4b6e60a0d5129d55552f38caffd1a97a518c053c1d61ab8d31eff064d",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Tests/RestorationCoreTests.cpp"
+  },
+  {
+    "path": "Tests/RestorationEditorTests.cpp",
+    "sha256": "0cb7db2def2ac044b96fe201d2410865a8a24fc1b27cd1ba961cb56eccea576c",
+    "recovery_source": "recovery-20261006T2015/restoration/native/Tests/RestorationEditorTests.cpp"
+  }
+]

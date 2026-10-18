@@ -1,0 +1,14 @@
+[
+  {
+    "path": "Source/DSP/NonlinearCore.h",
+    "sha256": "08d01656e7dc3a7971e415cb426e26592b0c052cc98367a09f47bd05875c51db",
+    "recovered_sha256": "08d01656e7dc3a7971e415cb426e26592b0c052cc98367a09f47bd05875c51db",
+    "exact": true
+  },
+  {
+    "path": "Source/Plugins/NonlinearTelemetry.h",
+    "sha256": "5c8f64e83719d209fcb2c2bf5d13a66ce5b92569105282d4dbbd8b3c19ebff0d",
+    "recovered_sha256": "5c8f64e83719d209fcb2c2bf5d13a66ce5b92569105282d4dbbd8b3c19ebff0d",
+    "exact": true
+  }
+]

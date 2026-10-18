@@ -1,0 +1,53 @@
+# Instrumental Builder core: provenance and adaptation
+
+## Source snapshot
+
+The scheduler and sample-voice rendering in `InstrumentalCore.h` are adapted from the user's saved **Hybrid Studio 2.0.0** source archive. This is the source version identified by its CMake project declaration. It has not been verified as the latest GitHub revision. The separately recovered `hem-studio-plugins` project was not used as the sequencer source.
+
+- Original saved archive: [HybridStudio2 source on Google Drive](https://drive.google.com/file/d/149lO3l9bMd5lsRIQAP4lCTwaAErZyAuk/view)
+- Archive SHA-256: `6658d05273285f35b19a35abdcdd9665516df04e7e0addc80a665caf9456f72a`
+- Adaptation date: 2026-10-16
+- The original extracted source and archive are retained unchanged outside this destination project.
+
+Original files consulted:
+
+| Original path | SHA-256 |
+| --- | --- |
+| `Source/Engine/HybridEngine.cpp` | `eb98909ddf2a643cb2b7a95dc8467f1379b854b847f11e92f0d512e8fb1374df` |
+| `Source/Engine/HybridEngine.h` | `f80dd0aa14e39693ec66b8eb3247c4cded5ac2f8f8dbbf314ddcae19aea86574` |
+| `Source/Engine/Parameters.h` | `ccbee8bbc4a90a16dced7483376171fee255c5030125fdd72284746050add8ef` |
+| `Source/Engine/SampleData.h` | `204c4fdb2a0c1996bd879b803d0ab33f357a53f393dfe91ce5f666d3979d32a1` |
+| `Tests/EngineTests.cpp` | `5a27a6785794268bf67dfeb405997d81a3da6ba1ddcd00e374a95a6bebea1be2` |
+
+No project LICENSE or third-party license manifest was found in that source archive. This attribution preserves provenance; it does not grant or establish a license. Confirm the source's redistribution rights and the destination project's JUCE licensing before any release or distribution. No paid API, remote generation service, bundled sound pack, or new external dependency is introduced by this core.
+
+## Retained behavior
+
+- Thirteen sample lanes, each with a 32-bit pattern covering 32 sixteenth notes (two 4/4 bars).
+- Tempo 40–240 BPM, swing 50–75%, lane pitch ±24 semitones, pan −1 to +1, gain −60 to +12 dB, mute/solo, and four shared choke groups.
+- Original pitch/source-rate ratio and zero-padded Catmull–Rom sample interpolation.
+- Fixed 64-voice pool, same-lane retrigger micro-fades, cross-lane choke micro-fades, and oldest-fading-first voice stealing.
+- Stable ascending lane order for simultaneous triggers. A later lane in the same choke group fades earlier lanes' voices.
+- Mute and solo suppress the lane's output gain, not its events. A silent or non-soloed lane with a loaded sample still chokes other lanes in its group, matching the source engine. A lane without a sample does not start a voice or trigger a choke.
+- Centre-unity equal-power pan law and the original gain silence threshold at or below −59.9 dB.
+
+## Deliberate integration changes
+
+- The core is a standalone, header-only C++20 offline renderer, not a copy of `HybridEngine` or a second `AudioProcessor`.
+- All 13 stereo lanes render together at exactly 96,000 Hz into caller-owned planar IEEE float32 blocks. File encoding belongs to the host's background file worker. Memory use does not scale with rendered song duration.
+- The source's shared two-sample sequencer pre-roll is removed uniformly. Step zero lands at output frame zero. Subsequent fractional events retain the source's one-frame-early interpolation support and source-position offset.
+- Absolute step-index timing replaces incrementally accumulated step bases, so scheduling is independent of output block partitions. One rounded-up musical boundary is shared by every lane, followed by one shared rounded tail-frame count.
+- Controls and immutable sample ownership are snapshotted before rendering. No live automation or parameter smoothing is included; each render uses fixed lane gain/pan/pitch values from its start. UI edits affect the next render.
+- Repeat count and tail are explicit. No new triggers occur after the last repeat. The requested end frame is a hard cutoff; choose enough tail for sample decay. No automatic trimming, normalisation, or mastering is performed.
+- A renderer retains sample ownership once in its plan and uses raw read-only pointers in its fixed voice pool. Render blocks do not perform shared-pointer publication or deferred garbage collection.
+- Admission bounds cover ranges, finite numeric sample data, channel layouts, output pointer overlap, source length, a 512 MiB unique decoded sample budget, 4 GiB combined rendered output budget (including 4 MiB reserved for headers and bounded manifests), and 4,096-frame maximum blocks. The file layer may apply tighter bounds before decoding.
+- Cancellation is checked during sample admission and block rendering. Cancelled blocks return zero valid frames; the caller must discard partial output and must not publish an incomplete stem set.
+- No original master EQ, compressor, limiter, clipper, live MIDI path, audition FIFO, live transport, telemetry, stem playback engine, project manager, or UI was transplanted. Existing Studio inserts, mixer, transport, and master processing remain the integration host's responsibility.
+
+## Quality and verification boundaries
+
+The copied Catmull–Rom interpolation is not a band-limited resampler. Large pitch shifts and source/output sample-rate differences can alias; this adaptation does not claim to solve that existing limitation. Stereo channel phase and lane timing use a common schedule, but quality must be assessed with the intended material.
+
+`Tests/InstrumentalCoreTests.cpp` adds standalone source fixtures for all-13-lane exact frame alignment, zero preroll, the highest pattern bit, block-partition invariance, fractional BPM/swing timing, repeat limits, tail cutoff, stereo polarity, source-rate/pitch ratios, mono pan/gain, shared choke semantics (including muted and non-soloed triggers), stable simultaneous chokes, retrigger fades, missing samples, size/range/numeric validation, invalid output buffers, cancellation, and renderer restart.
+
+**No compilation, test execution, application launch, or audio audition was performed for this source-only integration.** The fixtures are intended future checks, not evidence of passing behavior or commercial release readiness. Live realtime performance, platform/JUCE integration, filesystem failure/rollback behavior, and end-to-end import require separate authorized verification.

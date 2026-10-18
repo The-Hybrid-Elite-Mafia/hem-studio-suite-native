@@ -1,0 +1,56 @@
+design_number,control_id,label,type,binding,source
+19,analysis.impulse_response,IMPULSE RESPONSE,plot_display,irDisplay waveform/RMS; peak-normalized; scaled source time,Source/Plugins/ReverbEditors.h
+19,global.bypass,BYPASS,toggle_button,APVTS:bypass,Source/Plugins/ReverbEditors.h
+19,global.highCut,HIGH CUT,rotary_knob,APVTS:highCut,Source/Plugins/ReverbEditors.h
+19,global.highCutOn,HIGH CUT ON,toggle_button,APVTS:highCutOn,Source/Plugins/ReverbEditors.h
+19,global.highCut_readout,HIGH CUT readout,value_readout,APVTS:highCut via attached slider text,Source/Plugins/ReverbEditors.h
+19,global.irSize,IR SIZE,rotary_knob,APVTS:irSize,Source/Plugins/ReverbEditors.h
+19,global.irSize_readout,IR SIZE readout,value_readout,APVTS:irSize via attached slider text,Source/Plugins/ReverbEditors.h
+19,global.lowCut,LOW CUT,rotary_knob,APVTS:lowCut,Source/Plugins/ReverbEditors.h
+19,global.lowCutOn,LOW CUT ON,toggle_button,APVTS:lowCutOn,Source/Plugins/ReverbEditors.h
+19,global.lowCut_readout,LOW CUT readout,value_readout,APVTS:lowCut via attached slider text,Source/Plugins/ReverbEditors.h
+19,global.mix,MIX,rotary_knob,APVTS:mix,Source/Plugins/ReverbEditors.h
+19,global.mix_readout,MIX readout,value_readout,APVTS:mix via attached slider text,Source/Plugins/ReverbEditors.h
+19,global.output,OUTPUT,rotary_knob,APVTS:output,Source/Plugins/ReverbEditors.h
+19,global.output_readout,OUTPUT readout,value_readout,APVTS:output via attached slider text,Source/Plugins/ReverbEditors.h
+19,global.predelay,PRE-DELAY,rotary_knob,APVTS:predelay,Source/Plugins/ReverbEditors.h
+19,global.predelay_readout,PRE-DELAY readout,value_readout,APVTS:predelay via attached slider text,Source/Plugins/ReverbEditors.h
+19,global.soloWet,SOLO WET,toggle_button,APVTS:soloWet,Source/Plugins/ReverbEditors.h
+19,iometers.input_1,INPUT 1,led_meter,PluginTelemetry.peak[0] and Levels.valid; -60..0 dBFS,Source/Plugins/ReverbEditors.h
+19,iometers.input_2,INPUT 2,led_meter,PluginTelemetry.peak[1] and Levels.valid; -60..0 dBFS,Source/Plugins/ReverbEditors.h
+19,iometers.input_readout,INPUT readout,value_readout,"dBFS(max PluginTelemetry.peak[0], peak[1]); Levels.valid",Source/Plugins/ReverbEditors.h
+19,iometers.output_1,OUTPUT 1,led_meter,PluginTelemetry.peak[2] and Levels.valid; -60..0 dBFS,Source/Plugins/ReverbEditors.h
+19,iometers.output_2,OUTPUT 2,led_meter,PluginTelemetry.peak[3] and Levels.valid; -60..0 dBFS,Source/Plugins/ReverbEditors.h
+19,iometers.output_readout,OUTPUT readout,value_readout,"dBFS(max PluginTelemetry.peak[2], peak[3]); Levels.valid",Source/Plugins/ReverbEditors.h
+19,ir_loader.ir_file,IR FILE,readout_or_text_field,resourceInfo name/loading/ready/status; irDisplay sizePercent,Source/Plugins/ReverbEditors.h
+19,ir_loader.ir_length,IR LENGTH,readout_or_text_field,irDisplay.seconds (scaled source duration),Source/Plugins/ReverbEditors.h
+19,ir_loader.load_ir,LOAD IR,button,Native FileChooser then requestIRFile; off-audio decode/hash/prepare,Source/Plugins/ReverbEditors.h
+19,ir_loader.sample_rate,SAMPLE RATE,readout_or_text_field,resourceInfo.sourceRate (original source rate),Source/Plugins/ReverbEditors.h
+20,algorithm.hall,HALL,mode_button,APVTS:algorithm=0; reverbChoiceParameter/reverbChoiceValue metadata,Source/Plugins/ReverbEditors.h
+20,algorithm.plate,PLATE,mode_button,APVTS:algorithm=2; reverbChoiceParameter/reverbChoiceValue metadata,Source/Plugins/ReverbEditors.h
+20,algorithm.room,ROOM,mode_button,APVTS:algorithm=1; reverbChoiceParameter/reverbChoiceValue metadata,Source/Plugins/ReverbEditors.h
+20,analysis.reverb_tail,REVERB TAIL,plot_display,wetTailDb 50ms RMS vs tailSampleTime over last10s; separately labelled nominal RT60 from decay,Source/Plugins/ReverbEditors.h
+20,global.bypass,BYPASS,toggle_button,APVTS:bypass,Source/Plugins/ReverbEditors.h
+20,global.damping,DAMPING,rotary_knob,APVTS:damping,Source/Plugins/ReverbEditors.h
+20,global.damping_readout,DAMPING readout,value_readout,APVTS:damping via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.decay,DECAY,rotary_knob,APVTS:decay,Source/Plugins/ReverbEditors.h
+20,global.decay_readout,DECAY readout,value_readout,APVTS:decay via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.diffusion,DIFFUSION,rotary_knob,APVTS:diffusion,Source/Plugins/ReverbEditors.h
+20,global.diffusion_readout,DIFFUSION readout,value_readout,APVTS:diffusion via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.mix,MIX,rotary_knob,APVTS:mix,Source/Plugins/ReverbEditors.h
+20,global.mix_readout,MIX readout,value_readout,APVTS:mix via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.modDepth,MOD DEPTH,rotary_knob,APVTS:modDepth,Source/Plugins/ReverbEditors.h
+20,global.modDepth_readout,MOD DEPTH readout,value_readout,APVTS:modDepth via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.modRate,MOD RATE,rotary_knob,APVTS:modRate,Source/Plugins/ReverbEditors.h
+20,global.modRate_readout,MOD RATE readout,value_readout,APVTS:modRate via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.output,OUTPUT,rotary_knob,APVTS:output,Source/Plugins/ReverbEditors.h
+20,global.output_readout,OUTPUT readout,value_readout,APVTS:output via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.predelay,PRE-DELAY,rotary_knob,APVTS:predelay,Source/Plugins/ReverbEditors.h
+20,global.predelay_readout,PRE-DELAY readout,value_readout,APVTS:predelay via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.size,SIZE,rotary_knob,APVTS:size,Source/Plugins/ReverbEditors.h
+20,global.size_readout,SIZE readout,value_readout,APVTS:size via attached slider text,Source/Plugins/ReverbEditors.h
+20,global.soloWet,SOLO WET,toggle_button,APVTS:soloWet,Source/Plugins/ReverbEditors.h
+20,iometers.input_1,INPUT 1,led_meter,PluginTelemetry.peak[0] and Levels.valid; -60..0 dBFS,Source/Plugins/ReverbEditors.h
+20,iometers.input_2,INPUT 2,led_meter,PluginTelemetry.peak[1] and Levels.valid; -60..0 dBFS,Source/Plugins/ReverbEditors.h
+20,iometers.output_1,OUTPUT 1,led_meter,PluginTelemetry.peak[2] and Levels.valid; -60..0 dBFS,Source/Plugins/ReverbEditors.h
+20,iometers.output_2,OUTPUT 2,led_meter,PluginTelemetry.peak[3] and Levels.valid; -60..0 dBFS,Source/Plugins/ReverbEditors.h

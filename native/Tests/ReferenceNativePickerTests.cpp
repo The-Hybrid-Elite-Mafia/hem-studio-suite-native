@@ -1,0 +1,22 @@
+#include "../Source/MainComponent.h"
+#include "../Source/Plugins/ReferenceMatchProcessor.h"
+#include <iostream>
+#include <windows.h>
+// Dedicated no-audio fixture; never addresses another process's windows.
+struct MainComponentTestAccess {
+ static void prepare(MainComponent& a){a.prepareOfflineSession();auto& c=a.bank->tracks[0].chain;auto n=c.stageNode(std::make_unique<hem::ReferenceMatchProcessor>(),a.sampleRate,a.blockSize,c.slotLatency());if(!n||!c.publishStopped(0,std::move(n)))throw std::runtime_error("fixture stage failed");a.openPlugin(0);}
+ static juce::String status(MainComponent& a){return a.referenceStatus;}
+ static bool choosing(MainComponent& a){return a.referenceChoosing;}
+ static bool device(MainComponent& a){return a.deviceManager.getCurrentAudioDevice()!=nullptr;}
+ static void cancel(MainComponent& a){a.cancelReferenceOperation();}
+};
+static juce::Button* findButton(juce::Component& c){if(c.getComponentID()=="loadReference")return dynamic_cast<juce::Button*>(&c);for(auto* child:c.getChildren())if(auto* b=findButton(*child))return b;return nullptr;}
+static HWND dialog=nullptr;
+static BOOL CALLBACK inspect(HWND h,LPARAM){DWORD pid=0;GetWindowThreadProcessId(h,&pid);if(pid!=GetCurrentProcessId())return TRUE;wchar_t title[512]{},cls[128]{};GetWindowTextW(h,title,512);GetClassNameW(h,cls,128);if(wcscmp(title,L"Load Reference / analyzes first30seconds")==0&&wcscmp(cls,L"#32770")==0&&IsWindowVisible(h))dialog=h;return TRUE;}
+static void pump(){MSG m;while(PeekMessageW(&m,nullptr,0,0,PM_REMOVE)){TranslateMessage(&m);DispatchMessageW(&m);}Sleep(5);}
+struct Window:juce::DocumentWindow{Window():DocumentWindow("HEM ISOLATED PICKER TEST - NO AUDIO",juce::Colours::black,DocumentWindow::closeButton){setUsingNativeTitleBar(true);}void closeButtonPressed()override{}};
+int main(){try{juce::ScopedJuceInitialiser_GUI init;Window window;auto app=std::make_unique<MainComponent>(false);MainComponentTestAccess::prepare(*app);if(MainComponentTestAccess::device(*app))throw std::runtime_error("unexpected physical device");window.setContentNonOwned(app.get(),true);window.centreWithSize(1000,650);window.setVisible(true);app->setVisible(true);for(int n=0;n<20;++n)pump();auto* previewButton=findButton(*app);if(!previewButton||!previewButton->isShowing()||previewButton->isEnabled())throw std::runtime_error("previewButton preview admission unexpected");std::cout<<"small_window=1000x650 load_visible=1 load_enabled=0 intentional_preview=1\n";window.centreWithSize(1680,1000);for(int n=0;n<20;++n)pump();auto* button=findButton(*app);std::cout<<"button="<<(button!=nullptr)<<" enabled="<<(button?button->isEnabled():false)<<" showing="<<(button?button->isShowing():false)<<" app_visible="<<app->isVisible()<<"\n";if(!button||!button->isEnabled()||!button->isShowing())throw std::runtime_error("Load button not visible/enabled");
+ std::cout<<"fixture_pid="<<GetCurrentProcessId()<<" physical_audio_device=none button_visible_enabled=1\n"<<std::flush;
+ for(int round=0;round<2;++round){dialog=nullptr;button->triggerClick();auto start=GetTickCount64();while(!dialog&&GetTickCount64()-start<10000){pump();EnumWindows(inspect,0);}if(!dialog)throw std::runtime_error("native dialog not visible in 10 seconds");DWORD ownerPid=0;auto owner=GetWindow(dialog,GW_OWNER);if(owner)GetWindowThreadProcessId(owner,&ownerPid);RECT r{};GetWindowRect(dialog,&r);std::cout<<"round="<<round<<" native_class=#32770 visible=1 dialog_pid="<<GetCurrentProcessId()<<" owner_pid="<<ownerPid<<" bounds="<<r.left<<","<<r.top<<","<<r.right<<","<<r.bottom<<" choosing="<<MainComponentTestAccess::choosing(*app)<<"\n"<<std::flush;if(!MainComponentTestAccess::choosing(*app))throw std::runtime_error("choosing guard missing");DWORD_PTR result=0;SendMessageTimeoutW(dialog,WM_COMMAND,IDCANCEL,0,SMTO_ABORTIFHUNG,2000,&result);start=GetTickCount64();while(MainComponentTestAccess::choosing(*app)&&GetTickCount64()-start<5000)pump();if(MainComponentTestAccess::choosing(*app)||!MainComponentTestAccess::status(*app).contains("cancelled"))throw std::runtime_error("native cancel callback did not clear choosing/status");std::cout<<"cancel_callback_status="<<MainComponentTestAccess::status(*app)<<"\n";}
+ MainComponentTestAccess::cancel(*app);window.clearContentComponent();app.reset();std::cout<<"PASS actual native Windows picker opens, cancels, reopens; production button dispatch; no physical audio; no mouse/file-selection claim\n";return 0;
+ }catch(const std::exception& e){std::cerr<<"FAIL "<<e.what()<<"\n";return 1;}}

@@ -1,0 +1,6 @@
+build/
+build-*/
+BuildOutput/
+Installer/Output/
+.vs/
+*.user

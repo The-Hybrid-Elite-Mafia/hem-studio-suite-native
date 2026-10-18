@@ -1,0 +1,34 @@
+# Multitap Delay and Tape Delay — isolated implementation handoff
+
+Implemented in `../delay-source`, copied from the preserved 2026-10-03/task-2/source baseline. Parent owns merging and acceptance. This document supersedes scaffold-only status; REVIEW-1 through REVIEW-4 preserve the original reference and contract review.
+
+## Original reference and controls
+
+Both original 1672 × 941 PNGs and their generation prompts were inspected. The original PNG bytes are bundled, without generation, replacement artwork, or external assets. Multitap exposes eight independent TIME/FEEDBACK/PAN/LEVEL/ON/SOLO/MUTE columns, selected-tap low/high cuts and enables, global MIX/OUTPUT/SYNC/BYPASS/BPM. Tape exposes TIME/FEEDBACK/WOW/FLUTTER/DRIVE/LOW CUT/HIGH CUT/MIX/OUTPUT, cut enables, SYNC/TAP TEMPO/BYPASS/BPM. Shared filters explicitly select a tap. Artwork pointers have fixed lighting; only pointer/value/indicator overlays move. Meter bars and tape waveform derive from processed audio, with no fabricated idle signal.
+
+Neutral defaults: mix, feedback, wow, flutter and drive zero; output and tap levels 0 dB; filters disabled. Multitap taps start off with 250 ms increments; Tape starts on at 250 ms. Original placeholder labels did not establish numerical ranges: engineering ranges and rhythmic IDs are listed in REVIEW-1 and source parameter catalogs.
+
+## Production architecture and contracts
+
+`DSP/DelayPrimitives.h`, `DelaySettings.h`, `DelayCore.h` implement the production DSP. `Plugins/DelayProcessors.*` provide strict APVTS state, preparation, tempo and telemetry; `DelayEditors.*` provide original-art controls. Earlier files named `Scaffold` remain review artifacts and deterministic test utilities, not production processing.
+
+Registry IDs `multitap-delay` and `tape-delay` append to the 17-entry baseline; previous IDs/order remain intact. Parameter counts are 100 and 14, direct-state roots MULTITAP_DELAY/TAPE_DELAY version 1. Invalid, duplicate, missing, unknown, nonfinite or out-of-range fields reject atomically. Session state stores BPM 20–400; old sessions explicitly default to 120. The outer audio callback reads one BPM context for every sub-block and track. Frozen export captures identical settings and BPM; later live tempo changes cannot alter it. Manual milliseconds and stable division IDs remain separate. Unavailable divisions display a conflict and use manual time live; unresolved audible export paths fail explicitly. Tap Tempo modifies manual time only and is disabled under sync.
+
+Delay histories allocate only in prepare. Callback DSP has no allocation, lock, or I/O. Rings run at native rate with linear interpolation and read-before-write. Feedback is bounded at 0.95; history guard is ±32, preserving ordinary full-scale coherent feedback (steady limit 20) but intentionally nonlinear for hotter signals. Tiny/nonfinite values recover deterministically; guard activity is telemetry. Multitap changes use 20 ms dual-head crossfades; Tape changes slew by at most 0.25 sample/sample. Tape wow/flutter maxima are ±5/±0.5 ms, supported by guarded ring capacity; minimum effective delay is 1 ms.
+
+Multitap intrinsic latency is zero. Tape intrinsic latency is 16 samples, including drive-zero dry/wet alignment. Existing verified FinishingCore oversampling is reused only for wet output coloration; feedback storage remains native rate. This is a tape-inspired output coloration model, not progressive nonlinear recirculating tape saturation. No new dependency is introduced.
+
+Live silence termination uses a conservative maximum 2500 s. Frozen export instead derives a per-tap bound from actual delay, feedback, filters, gains, modulation, and downstream FIR support. Parallel taps use maximum; serial chain nodes add. Zero-feedback unfiltered one-shots drain fully without a fade. Residual fade begins only after the proven bound and adds 20 ms. Export preflight reports a short requested tail or a serial bound over its 3600 s limit; explicit truncation is available but never excuses audible unresolved sync. Fresh source-free delay-only paths, muted paths, and bypassed nodes do not cause false sync failures. Non-delay upstream nodes are conservatively treated as possible signal generators.
+
+Live ring storage is approximately 8 × 2 × (ceil(rate × 4.006) + 2) × sizeof(float) for Multitap, one eighth that for Tape, plus small fixed state. Frozen preparation omits inactive histories. Maximum-rate Multitap is about 98.45 MB decimal per instance; many concurrent instances can exhaust memory. Delay core and host compensation allocations stage before commit, with allocation-failure tests authored. Arbitrary failures in legacy processor preparation are not fully rolled back; the host marks preparation failed and silences audio, reporting the error rather than processing at the wrong rate.
+
+## Verification and merge guidance
+
+Explicit single-job Release compilation targets: `hem_delay_core_tests`, `hem_delay_integration_tests`, and `HEMStudioSuite`. Toolchain MSVC 2019, C++20, JUCE 8.0.10, /MT, measured object-path limit 200 (CMake hashing budget 180 to accommodate names reused across targets). Only the pre-existing juceaide helper was executed. Newly built test and application executables have NOT been executed. No installation, system change, upload, network fetch or paid action occurred. The all-target suite was not built.
+
+Authored checks cover independent impulse and delay-change oracles; stereo pan/mute/solo; fractional reads; oversampling alias behavior; callback allocation detection; maximum headroom and finite recovery; partition/reprepare determinism; allocation failure; strict state; BPM persistence and frozen context; live/export parity; tail preflight; control attachment and vertical meter raster scale. These are compiled assertions, not passing runtime evidence. Five affected legacy test translation units receive compile-only syntax checks. Listening, rendered-image inspection, runtime tests, full regression linking/execution, and parent merge acceptance remain pending specific executable approval.
+
+Merge from SOURCE-CHANGES.json/review.patch, not by replacing the parent's active tree. Reconcile shared host/session/export/CMake/test changes with concurrent work, especially the export limit and registry append order. The integration test registry-count assertion reflects this isolated 19-module branch and must be adjusted to the merged catalog. Source manifest/provenance are regenerated for this isolated source; regenerate again after merging.
+
+Standalone source archive, hashes, baseline preservation audit, object-path audit, compiled artifact inventory and logs accompany this handoff. Original COPY-MANIFEST records initial copy provenance; final PRESERVATION-AUDIT verifies it again. Build scripts outside source contain local paths; normal source CMake is portable and permits an optional prebuilt juceaide override.
+

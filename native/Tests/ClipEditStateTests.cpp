@@ -1,0 +1,22 @@
+#include "../Source/Systems/ClipEditState.h"
+#include <juce_cryptography/juce_cryptography.h>
+#include <iostream>
+#include <stdexcept>
+static void check(bool ok,const char* m){if(!ok)throw std::runtime_error(m);}
+static void wave(const juce::File& file,float value){auto stream=file.createOutputStream();check(bool(stream),"open fixture");stream->setPosition(0);stream->truncate();juce::WavAudioFormat f;std::unique_ptr<juce::AudioFormatWriter> w(f.createWriterFor(stream.release(),48000,2,24,{},0));check(bool(w),"writer");juce::AudioBuffer<float> b(2,480);b.clear();b.setSample(0,10,value);check(w->writeFromAudioSampleBuffer(b,0,480),"write fixture");}
+static juce::String hash(const juce::File& file){juce::FileInputStream input(file);return juce::SHA256(input).toHexString();}
+int main(){try{using namespace hem::clipEdit;const auto dir=juce::File::getCurrentWorkingDirectory();auto a=dir.getChildFile("clip-original.wav"),b=dir.getChildFile("clip-rendered.wav");wave(a,.2f);wave(b,.3f);
+ hem::pitchtime::ClipRenderMetadata m;m.source=a;m.rendered=b;m.sourceSha256=hash(a);m.renderedSha256=hash(b);m.sourceBytes=a.getSize();m.renderedBytes=b.getSize();m.sourceFrames=m.renderedFrames=m.frameCount=480;m.sampleRate=48000;m.channels=2;
+ auto o=std::make_unique<juce::DynamicObject>();auto set=[&](const char* k,const juce::var& v){o->setProperty(k,v);};set("version",1);set("backend",hem::pitchtime::backendIdentity);set("sourceSha256",m.sourceSha256);set("sourceGeneration",0);set("startFrame",0);set("frameCount",480);set("sampleRate",48000.);set("channels",2);set("durationRatio",1.);set("pitchSemitones",1.e-20);set("formantSemitones",0.);set("formantBaseHz",0.);set("wetMix",1.);set("outputDb",0.);set("preserveFormants",true);set("strategy",2);set("tempoBpm",120.);set("correctionEnabled",false);set("key",0);set("scale",0);set("amount",1.);set("speedMs",80.);m.recipeJson=juce::JSON::toString(juce::var(o.release()),true,17);auto text=m.recipeJson.toStdString();m.recipeSha256=juce::SHA256(text.data(),text.size()).toHexString();
+ State s;auto captured=captureMetadata(m,3,s);if(captured.failed())std::cerr<<captured.getErrorMessage()<<'\n';check(captured.wasOk(),"capture exact renderer metadata");check(verifyFiles(s).wasOk(),"verify original+rendered bytes and audio headers");
+ juce::ValueTree t;check(encode(s,t).wasOk(),"encode");State roundtrip;check(decode(t,roundtrip).wasOk()&&sameIdentity(s.original,roundtrip.original),"tree roundtrip");
+ auto xml=t.createXml();State xmlResult;check(decode(juce::ValueTree::fromXml(*xml),xmlResult).wasOk()&&xmlResult.recipe.settings.pitchSemitones==s.recipe.settings.pitchSemitones,"exact XML recipe precision");
+ State undo;MediaIdentity target;check(stageToggle(s,false,s.rendered,undo,target).wasOk()&&!undo.renderedActive&&sameIdentity(target,s.original),"undo stage");check(stageToggle(undo,false,s.original,s,target).failed(),"only one undo level");State redo;check(stageToggle(undo,true,undo.original,redo,target).wasOk()&&redo.renderedActive,"redo stage");
+ auto bad=m;bad.startFrame=1;State unchanged;unchanged.trackIndex=12;check(captureMetadata(bad,3,unchanged).failed()&&unchanged.trackIndex==12,"partial range rejected unchanged");
+ auto invalid=t.createCopy();invalid.getChild(2).setProperty("backend","unknown",nullptr);check(decode(invalid,unchanged).failed(),"unknown backend rejected");invalid=t.createCopy();invalid.setProperty("extra",1,nullptr);check(decode(invalid,unchanged).failed(),"extra attribute rejected");
+ invalid=t.createCopy();invalid.getChild(0).setProperty("frames","480.000000000000001",nullptr);check(decode(invalid,unchanged).failed(),"fractional string integer rejected without rounding");
+ State alias=s;alias.rendered.path=alias.original.path;check(validate(alias).failed(),"no original overwrite");check(verifyFiles(s,[]{return true;}).failed(),"cancel verification");wave(a,.4f);check(verifyFiles(s).failed(),"changed original rejects recall/undo");check(stageToggle(redo,false,redo.rendered,unchanged,target).failed(),"changed undo media rejected");
+ State missing=s;missing.original.path=dir.getChildFile("absent-source.wav").getFullPathName();check(verifyFiles(missing).failed(),"missing original rejects recall");
+ std::cout<<"PASS ClipEdit state: renderer metadata, whole-stem scope, strict schema, exact XML, media hash/format verification, bounded undo/redo, change/missing/cancel rejection\n";return 0;
+ }catch(const std::exception& e){std::cerr<<"FAIL "<<e.what()<<'\n';return 1;}}
+

@@ -1,0 +1,54 @@
+{
+  "reference_library_id": "libfile_1579b340e1c48191893cadf35f23075c",
+  "assets": [
+    {
+      "file": "Reference/approved_module_reference.png",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "sha256": "d1fc647cd8882feb34a2e320690fd608267d56a8ba00433d7a6602680b6df79d"
+    },
+    {
+      "file": "button_states.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "77769aaf1616b4314230ab01b59611572ec0a869eb3e6aa2878a0a3015ec53a3"
+    },
+    {
+      "file": "dial_body.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "sha256": "f2fa3aa22c293b692231de6e95d844e300e446118519d6a96c0e9892b1c08602"
+    },
+    {
+      "file": "host_clean_regions.png",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "sha256": "74f600b2f639a762dbfc9ef856c22d1a626b1db9a8ddf27784c94591be1d4815"
+    },
+    {
+      "file": "module_faceplate.png",
+      "size": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "sha256": "78d37cf1e1b483e02ef403d001f74d7b7182ac78943aa818bb153777f2843338"
+    }
+  ],
+  "status": "Candidate for actual native Windows render review; no visual acceptance claimed",
+  "fixed_typography": "Original reference pixels composited by FaceplateLayers.h",
+  "host_cleanup": "Original host image retained outside feathered cleanup mask",
+  "generation": "Built-in imagegen, reference-guided edits; original reference preserved"
+}

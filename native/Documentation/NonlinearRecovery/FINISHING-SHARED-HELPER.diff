@@ -1,0 +1,38 @@
+--- test-only frozen005a with namespace/include isolation
++++ production FinishingCore.h
+@@ -1,8 +1,7 @@
+ #pragma once
+-#include "../../Source/DSP/SpecialtyCore.h"
++#include "SpecialtyCore.h"
+ 
+-namespace finishing005a {
+-using namespace hem;
++namespace hem {
+ // 4x oversampling with 65-tap Blackman-windowed low-pass filters on both sides
+ // of the nonlinearity. Fixed round-trip group delay: 16 base-rate samples.
+ // No allocation, trigonometry or coefficient design occurs in tick().
+@@ -19,7 +18,7 @@
+         up={};down={};dry={};position={};dryPosition={};
+     }
+     void resetHistory() noexcept {up={};down={};dry={};position={};dryPosition={};}
+-    float tick(float x,int channel,float drive,float bias,float amount) noexcept {
++    float tick(float x,int channel,float drive,float bias,float amount,bool residual=false) noexcept {
+         const auto ch=size_t(channel);auto& dp=dryPosition[ch];
+         const float delayed=dry[ch][size_t(dp)];dry[ch][size_t(dp)]=x;dp=(dp+1)%latencySamples;
+         auto& pos=position[ch];float result=0;
+@@ -30,13 +29,13 @@
+             double interpolated=0;
+             for(int k=0;k<taps;++k)interpolated+=coefficients[size_t(k)]*up[ch][size_t((pos-k+taps)%taps)];
+             const double shaped=(std::tanh(interpolated*drive+bias)-zero)/(drive*slope);
+-            down[ch][size_t(pos)]=shaped;
++            down[ch][size_t(pos)]=residual?shaped-interpolated:shaped;
+             double filtered=0;
+             for(int k=0;k<taps;++k)filtered+=coefficients[size_t(k)]*down[ch][size_t((pos-k+taps)%taps)];
+             if(phase==0)result=float(filtered);
+             pos=(pos+1)%taps;
+         }
+-        return delayed+amount*(result-delayed);
++        return residual?amount*result:delayed+amount*(result-delayed);
+     }
+ private:
+     std::array<double,taps> coefficients{};

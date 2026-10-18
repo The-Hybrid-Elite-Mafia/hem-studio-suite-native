@@ -1,0 +1,81 @@
+name: Build HEM Studio Suite Windows installer
+
+# Builds the app on a Windows machine in the cloud, runs the focused regression tests,
+# makes the Inno Setup installer and publishes it as a Release.
+# MANUAL ONLY: Actions > this workflow > Run workflow. Never runs by itself.
+
+on:
+  workflow_dispatch:
+    inputs:
+      full_tests:
+        description: "Also build and run every test target (slow, 2+ hours)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-2022
+    timeout-minutes: 350
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Configure (bundled JUCE 8.0.10 and MIT VST3 SDK, static runtime, assertions on)
+        run: >
+          cmake -S native -B build -G "Visual Studio 17 2022" -A x64
+          -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded
+          "-DCMAKE_CXX_FLAGS_RELEASE=/O2 /Ob2 /UNDEBUG"
+          -DHEM_ENABLE_ASIO=OFF -DHEM_BUILD_VST3_TEST_FIXTURE=OFF -DBUILD_TESTING=ON
+
+      - name: Build the app and the focused tests
+        run: >
+          cmake --build build --config Release --parallel
+          --target HEMStudioSuite hem_utility_panel_sizing_tests hem_instrumental_core_tests hem_spectral_core_tests hem_import_tests
+
+      - name: Run the focused tests
+        run: ctest --test-dir build -C Release --output-on-failure -R "^hem_(utility_panel_sizing|instrumental_core|spectral_core|import)_tests$" 2>&1 | Tee-Object -FilePath tests.txt; exit $LASTEXITCODE
+
+      - name: Build and run every test target
+        if: ${{ inputs.full_tests }}
+        run: |
+          cmake --build build --config Release --parallel
+          ctest --test-dir build -C Release --output-on-failure -j 4 2>&1 | Tee-Object -FilePath tests-full.txt; exit $LASTEXITCODE
+
+      - name: Keep the test logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: HEMStudioSuite-test-logs
+          path: tests*.txt
+          if-no-files-found: ignore
+
+      - name: Install Inno Setup 6
+        run: choco install innosetup -y --no-progress
+
+      - name: Build the installer
+        shell: cmd
+        run: |
+          for /f "tokens=4 delims=( " %%v in ('findstr /C:"project(HEMStudioSuite VERSION" native\CMakeLists.txt') do set VER=%%v
+          set "ISCC=%ProgramFiles(x86)%\Inno Setup 6\ISCC.exe"
+          if not exist "%ISCC%" set "ISCC=%ProgramFiles%\Inno Setup 6\ISCC.exe"
+          "%ISCC%" "/DBuildDir=%GITHUB_WORKSPACE%\build\HEMStudioSuite_artefacts\Release" "/DAppVersion=%VER%" Installer\HEMStudioSuite.iss
+          dir Installer\Output
+
+      - name: Publish the installer as a Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          EXE=$(ls Installer/Output/*.exe | head -1)
+          VER=$(sed -n 's/.*project(HEMStudioSuite VERSION \([0-9.]*\).*/\1/p' native/CMakeLists.txt)
+          test -n "$VER"
+          SUMMARY=$(grep -E "tests passed|tests failed" tests.txt | tail -1 || true)
+          gh release create "studio-suite-$VER-run-${{ github.run_id }}" "$EXE" \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "${{ github.sha }}" \
+            --title "HEM Studio Suite $VER (Windows PC)" \
+            --notes "Windows installer built in the cloud from commit ${{ github.sha }}. Focused tests: $SUMMARY. Not code-signed: if Windows SmartScreen says 'Windows protected your PC', click More info, then Run anyway."

@@ -1,0 +1,4162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<HEM_SESSION version="1" tracks="13" slotsPerTrack="8" inputDb="0.0" outputDb="0.0"
+             positionSeconds="0.0" looping="0" masterCeilingDbTP="-1.0">
+  <MONITOR>
+    <PARAMETERS>
+      <PARAM id="bass" value="0.0"/>
+      <PARAM id="body" value="0.0"/>
+      <PARAM id="presence" value="0.0"/>
+      <PARAM id="air" value="0.0"/>
+      <PARAM id="preamp" value="0.0"/>
+      <PARAM id="enabled" value="0.0"/>
+    </PARAMETERS>
+  </MONITOR>
+  <TRACK index="0" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="1" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="2" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="3" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="4" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="5" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="6" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="7" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="8" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="9" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="10" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="11" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+  <TRACK index="12" name="EMPTY TRACK" source="" absoluteSource="" gainDb="0.0"
+         muted="0" solo="0">
+    <SLOT index="0" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="b1On" value="0.0"/>
+        <PARAM id="b1Freq" value="20.0"/>
+        <PARAM id="b1Gain" value="-12.0"/>
+        <PARAM id="b1Q" value="0.25"/>
+        <PARAM id="b1Threshold" value="-60.0"/>
+        <PARAM id="b1Range" value="0.0"/>
+        <PARAM id="b1Attack" value="0.1000000014901161"/>
+        <PARAM id="b1Release" value="10.0"/>
+        <PARAM id="b2On" value="0.0"/>
+        <PARAM id="b2Freq" value="20.0"/>
+        <PARAM id="b2Gain" value="-12.0"/>
+        <PARAM id="b2Q" value="0.25"/>
+        <PARAM id="b2Threshold" value="-60.0"/>
+        <PARAM id="b2Range" value="0.0"/>
+        <PARAM id="b2Attack" value="0.1000000014901161"/>
+        <PARAM id="b2Release" value="10.0"/>
+        <PARAM id="b3On" value="0.0"/>
+        <PARAM id="b3Freq" value="20.0"/>
+        <PARAM id="b3Gain" value="-12.0"/>
+        <PARAM id="b3Q" value="0.25"/>
+        <PARAM id="b3Threshold" value="-60.0"/>
+        <PARAM id="b3Range" value="0.0"/>
+        <PARAM id="b3Attack" value="0.1000000014901161"/>
+        <PARAM id="b3Release" value="10.0"/>
+        <PARAM id="b4On" value="0.0"/>
+        <PARAM id="b4Freq" value="20.0"/>
+        <PARAM id="b4Gain" value="-12.0"/>
+        <PARAM id="b4Q" value="0.25"/>
+        <PARAM id="b4Threshold" value="-60.0"/>
+        <PARAM id="b4Range" value="0.0"/>
+        <PARAM id="b4Attack" value="0.1000000014901161"/>
+        <PARAM id="b4Release" value="10.0"/>
+        <PARAM id="b5On" value="0.0"/>
+        <PARAM id="b5Freq" value="20.0"/>
+        <PARAM id="b5Gain" value="-12.0"/>
+        <PARAM id="b5Q" value="0.25"/>
+        <PARAM id="b5Threshold" value="-60.0"/>
+        <PARAM id="b5Range" value="0.0"/>
+        <PARAM id="b5Attack" value="0.1000000014901161"/>
+        <PARAM id="b5Release" value="10.0"/>
+        <PARAM id="b6On" value="0.0"/>
+        <PARAM id="b6Freq" value="20.0"/>
+        <PARAM id="b6Gain" value="-12.0"/>
+        <PARAM id="b6Q" value="0.25"/>
+        <PARAM id="b6Threshold" value="-60.0"/>
+        <PARAM id="b6Range" value="0.0"/>
+        <PARAM id="b6Attack" value="0.1000000014901161"/>
+        <PARAM id="b6Release" value="10.0"/>
+        <PARAM id="b7On" value="0.0"/>
+        <PARAM id="b7Freq" value="20.0"/>
+        <PARAM id="b7Gain" value="-12.0"/>
+        <PARAM id="b7Q" value="0.25"/>
+        <PARAM id="b7Threshold" value="-60.0"/>
+        <PARAM id="b7Range" value="0.0"/>
+        <PARAM id="b7Attack" value="0.1000000014901161"/>
+        <PARAM id="b7Release" value="10.0"/>
+        <PARAM id="b8On" value="0.0"/>
+        <PARAM id="b8Freq" value="20.0"/>
+        <PARAM id="b8Gain" value="-12.0"/>
+        <PARAM id="b8Q" value="0.25"/>
+        <PARAM id="b8Threshold" value="-60.0"/>
+        <PARAM id="b8Range" value="0.0"/>
+        <PARAM id="b8Attack" value="0.1000000014901161"/>
+        <PARAM id="b8Release" value="10.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="1" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="18000.0"/>
+        <PARAM id="m1Gain" value="12.0"/>
+        <PARAM id="m1Q" value="8.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="18000.0"/>
+        <PARAM id="m2Gain" value="12.0"/>
+        <PARAM id="m2Q" value="8.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="18000.0"/>
+        <PARAM id="m3Gain" value="12.0"/>
+        <PARAM id="m3Q" value="8.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="18000.0"/>
+        <PARAM id="m4Gain" value="12.0"/>
+        <PARAM id="m4Q" value="8.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="18000.0"/>
+        <PARAM id="s1Gain" value="12.0"/>
+        <PARAM id="s1Q" value="8.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="18000.0"/>
+        <PARAM id="s2Gain" value="12.0"/>
+        <PARAM id="s2Q" value="8.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="18000.0"/>
+        <PARAM id="s3Gain" value="12.0"/>
+        <PARAM id="s3Q" value="8.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="18000.0"/>
+        <PARAM id="s4Gain" value="12.0"/>
+        <PARAM id="s4Q" value="8.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="2" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="200.0"/>
+        <PARAM id="xHigh" value="2500.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="lowThreshold" value="0.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="10.00000095367432"/>
+        <PARAM id="lowRelease" value="100.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="24.0"/>
+        <PARAM id="lowMakeup" value="0.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="0.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="10.00000095367432"/>
+        <PARAM id="midRelease" value="100.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="24.0"/>
+        <PARAM id="midMakeup" value="0.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="0.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="10.00000095367432"/>
+        <PARAM id="highRelease" value="100.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="24.0"/>
+        <PARAM id="highMakeup" value="0.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="3" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowMono" value="0.0"/>
+        <PARAM id="lowWidth" value="0.0"/>
+        <PARAM id="lowGain" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midWidth" value="0.0"/>
+        <PARAM id="midGain" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highWidth" value="0.0"/>
+        <PARAM id="highGain" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="4" pluginId="dynamic-eq-8" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="b1On" value="1.0"/>
+        <PARAM id="b1Freq" value="18000.0"/>
+        <PARAM id="b1Gain" value="12.0"/>
+        <PARAM id="b1Q" value="8.0"/>
+        <PARAM id="b1Threshold" value="0.0"/>
+        <PARAM id="b1Range" value="18.0"/>
+        <PARAM id="b1Attack" value="100.0"/>
+        <PARAM id="b1Release" value="1000.0"/>
+        <PARAM id="b2On" value="1.0"/>
+        <PARAM id="b2Freq" value="18000.0"/>
+        <PARAM id="b2Gain" value="12.0"/>
+        <PARAM id="b2Q" value="8.0"/>
+        <PARAM id="b2Threshold" value="0.0"/>
+        <PARAM id="b2Range" value="18.0"/>
+        <PARAM id="b2Attack" value="100.0"/>
+        <PARAM id="b2Release" value="1000.0"/>
+        <PARAM id="b3On" value="1.0"/>
+        <PARAM id="b3Freq" value="18000.0"/>
+        <PARAM id="b3Gain" value="12.0"/>
+        <PARAM id="b3Q" value="8.0"/>
+        <PARAM id="b3Threshold" value="0.0"/>
+        <PARAM id="b3Range" value="18.0"/>
+        <PARAM id="b3Attack" value="100.0"/>
+        <PARAM id="b3Release" value="1000.0"/>
+        <PARAM id="b4On" value="1.0"/>
+        <PARAM id="b4Freq" value="18000.0"/>
+        <PARAM id="b4Gain" value="12.0"/>
+        <PARAM id="b4Q" value="8.0"/>
+        <PARAM id="b4Threshold" value="0.0"/>
+        <PARAM id="b4Range" value="18.0"/>
+        <PARAM id="b4Attack" value="100.0"/>
+        <PARAM id="b4Release" value="1000.0"/>
+        <PARAM id="b5On" value="1.0"/>
+        <PARAM id="b5Freq" value="18000.0"/>
+        <PARAM id="b5Gain" value="12.0"/>
+        <PARAM id="b5Q" value="8.0"/>
+        <PARAM id="b5Threshold" value="0.0"/>
+        <PARAM id="b5Range" value="18.0"/>
+        <PARAM id="b5Attack" value="100.0"/>
+        <PARAM id="b5Release" value="1000.0"/>
+        <PARAM id="b6On" value="1.0"/>
+        <PARAM id="b6Freq" value="18000.0"/>
+        <PARAM id="b6Gain" value="12.0"/>
+        <PARAM id="b6Q" value="8.0"/>
+        <PARAM id="b6Threshold" value="0.0"/>
+        <PARAM id="b6Range" value="18.0"/>
+        <PARAM id="b6Attack" value="100.0"/>
+        <PARAM id="b6Release" value="1000.0"/>
+        <PARAM id="b7On" value="1.0"/>
+        <PARAM id="b7Freq" value="18000.0"/>
+        <PARAM id="b7Gain" value="12.0"/>
+        <PARAM id="b7Q" value="8.0"/>
+        <PARAM id="b7Threshold" value="0.0"/>
+        <PARAM id="b7Range" value="18.0"/>
+        <PARAM id="b7Attack" value="100.0"/>
+        <PARAM id="b7Release" value="1000.0"/>
+        <PARAM id="b8On" value="1.0"/>
+        <PARAM id="b8Freq" value="18000.0"/>
+        <PARAM id="b8Gain" value="12.0"/>
+        <PARAM id="b8Q" value="8.0"/>
+        <PARAM id="b8Threshold" value="0.0"/>
+        <PARAM id="b8Range" value="18.0"/>
+        <PARAM id="b8Attack" value="100.0"/>
+        <PARAM id="b8Release" value="1000.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="5" pluginId="mid-side-eq" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="output" value="0.0"/>
+        <PARAM id="m1On" value="1.0"/>
+        <PARAM id="m1Freq" value="80.0"/>
+        <PARAM id="m1Gain" value="0.0"/>
+        <PARAM id="m1Q" value="1.0"/>
+        <PARAM id="m2On" value="1.0"/>
+        <PARAM id="m2Freq" value="350.0"/>
+        <PARAM id="m2Gain" value="0.0"/>
+        <PARAM id="m2Q" value="1.0"/>
+        <PARAM id="m3On" value="1.0"/>
+        <PARAM id="m3Freq" value="2500.0"/>
+        <PARAM id="m3Gain" value="0.0"/>
+        <PARAM id="m3Q" value="1.0"/>
+        <PARAM id="m4On" value="1.0"/>
+        <PARAM id="m4Freq" value="10000.0"/>
+        <PARAM id="m4Gain" value="0.0"/>
+        <PARAM id="m4Q" value="1.0"/>
+        <PARAM id="s1On" value="1.0"/>
+        <PARAM id="s1Freq" value="80.0"/>
+        <PARAM id="s1Gain" value="0.0"/>
+        <PARAM id="s1Q" value="1.0"/>
+        <PARAM id="s2On" value="1.0"/>
+        <PARAM id="s2Freq" value="350.0"/>
+        <PARAM id="s2Gain" value="0.0"/>
+        <PARAM id="s2Q" value="1.0"/>
+        <PARAM id="s3On" value="1.0"/>
+        <PARAM id="s3Freq" value="2500.0"/>
+        <PARAM id="s3Gain" value="0.0"/>
+        <PARAM id="s3Q" value="1.0"/>
+        <PARAM id="s4On" value="1.0"/>
+        <PARAM id="s4Freq" value="10000.0"/>
+        <PARAM id="s4Gain" value="0.0"/>
+        <PARAM id="s4Q" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="6" pluginId="multiband-dynamics" bypassed="0">
+      <PARAMETERS>
+        <PARAM id="enabled" value="0.0"/>
+        <PARAM id="xLow" value="80.0"/>
+        <PARAM id="xHigh" value="1200.0"/>
+        <PARAM id="output" value="-24.0"/>
+        <PARAM id="lowThreshold" value="-60.0"/>
+        <PARAM id="lowRatio" value="1.0"/>
+        <PARAM id="lowAttack" value="0.1000000014901161"/>
+        <PARAM id="lowRelease" value="10.0"/>
+        <PARAM id="lowKnee" value="0.0"/>
+        <PARAM id="lowRange" value="0.0"/>
+        <PARAM id="lowMakeup" value="-12.0"/>
+        <PARAM id="lowSolo" value="0.0"/>
+        <PARAM id="midThreshold" value="-60.0"/>
+        <PARAM id="midRatio" value="1.0"/>
+        <PARAM id="midAttack" value="0.1000000014901161"/>
+        <PARAM id="midRelease" value="10.0"/>
+        <PARAM id="midKnee" value="0.0"/>
+        <PARAM id="midRange" value="0.0"/>
+        <PARAM id="midMakeup" value="-12.0"/>
+        <PARAM id="midSolo" value="0.0"/>
+        <PARAM id="highThreshold" value="-60.0"/>
+        <PARAM id="highRatio" value="1.0"/>
+        <PARAM id="highAttack" value="0.1000000014901161"/>
+        <PARAM id="highRelease" value="10.0"/>
+        <PARAM id="highKnee" value="0.0"/>
+        <PARAM id="highRange" value="0.0"/>
+        <PARAM id="highMakeup" value="-12.0"/>
+        <PARAM id="highSolo" value="0.0"/>
+      </PARAMETERS>
+    </SLOT>
+    <SLOT index="7" pluginId="multiband-imager" bypassed="1">
+      <PARAMETERS>
+        <PARAM id="enabled" value="1.0"/>
+        <PARAM id="xLow" value="800.0"/>
+        <PARAM id="xHigh" value="8000.0"/>
+        <PARAM id="output" value="6.0"/>
+        <PARAM id="lowMono" value="1.0"/>
+        <PARAM id="lowWidth" value="200.0"/>
+        <PARAM id="lowGain" value="12.0"/>
+        <PARAM id="lowSolo" value="1.0"/>
+        <PARAM id="midWidth" value="200.0"/>
+        <PARAM id="midGain" value="12.0"/>
+        <PARAM id="midSolo" value="1.0"/>
+        <PARAM id="highWidth" value="200.0"/>
+        <PARAM id="highGain" value="12.0"/>
+        <PARAM id="highSolo" value="1.0"/>
+      </PARAMETERS>
+    </SLOT>
+  </TRACK>
+</HEM_SESSION>
