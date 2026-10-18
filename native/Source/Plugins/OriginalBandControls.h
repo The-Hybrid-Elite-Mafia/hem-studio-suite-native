@@ -86,7 +86,7 @@ public:
         const auto text=mode?(button.getToggleState()?"UP":"DOWN"):button.getButtonText();
         g.setColour(juce::Colours::whitesmoke.withAlpha(button.isEnabled()?1.f:.45f));
         bandText(g,text,bounds.reduced(5,1),1,juce::Justification::centred,16,true);
-        if(over||button.hasKeyboardFocus(true)){g.setColour(juce::Colour(0xff44dce9));g.drawRoundedRectangle(bounds.reduced(1),2,1);}
+        if(over&&!active){g.setColour(juce::Colours::white.withAlpha(.07f));g.fillRoundedRectangle(bounds.reduced(1),2);}
     }
     void drawButtonBackground(juce::Graphics& g,juce::Button& button,const juce::Colour&,bool over,bool down) override {
         buttonSurface(g,button.getLocalBounds().toFloat(),button.getToggleState()||down||over,button.isEnabled());

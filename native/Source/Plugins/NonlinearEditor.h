@@ -1,4 +1,5 @@
 #pragma once
+#include "../UI/ButtonLight.h"
 #include "NonlinearProcessors.h"
 #include <ApprovedArt.h>
 #include <complex>
@@ -18,7 +19,7 @@ class OriginalNonlinearEditor final:public juce::AudioProcessorEditor,private ju
             slider.getProperties().set("bodyX",x+w*.5f);slider.getProperties().set("bodyY",y+h*.5f);
             material.drawRotarySlider(g,x,y,w,h,position,juce::MathConstants<float>::pi*1.25f,juce::MathConstants<float>::pi*2.75f,slider);
         }
-        void drawToggleButton(juce::Graphics& g,juce::ToggleButton& b,bool hover,bool down) override {if(hover||down||b.hasKeyboardFocus(false)){g.setColour(juce::Colours::white.withAlpha(.6f));g.drawRoundedRectangle(b.getLocalBounds().toFloat().reduced(1),3,1);}}
+        void drawToggleButton(juce::Graphics& g,juce::ToggleButton& b,bool hover,bool down) override {hem::ui::drawButtonLight(g,b.getLocalBounds().toFloat().reduced(2),b.getToggleState(),down,hover,b.isEnabled(),3);}
         void drawComboBox(juce::Graphics& g,int w,int h,bool,int,int,int,int,juce::ComboBox& c) override {
             // One opaque full-width live control replaces the baked field.
             // Reuse the original arrow cell once; never draw a second glyph.

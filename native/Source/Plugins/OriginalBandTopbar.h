@@ -1,4 +1,5 @@
 #pragma once
+#include "../UI/ButtonLight.h"
 #include "BandProcessors.h"
 namespace hem {
 // An editor owns this component; no callback or asynchronous chooser retains a
@@ -46,7 +47,7 @@ private:
         void paintButton(juce::Graphics& g,bool over,bool down) override {
             if(!original){juce::TextButton::paintButton(g,over,down);return;}
             if(!isEnabled()){g.setColour(juce::Colour(0x77010609));g.fillRoundedRectangle(getLocalBounds().toFloat(),3);}
-            if(over||down||hasKeyboardFocus(true)){g.setColour(juce::Colour(down?0xffffa642:0xff44dce9));g.drawRoundedRectangle(getLocalBounds().toFloat().reduced(1),3,1.5f);}
+            hem::ui::drawButtonLight(g,getLocalBounds().toFloat().reduced(1),getToggleState(),down,over,isEnabled(),3);
         }
     };
     void setup(juce::TextButton& button,const char* id,const char* caption){button.setComponentID(id);button.setName(caption);button.setButtonText(caption);button.setWantsKeyboardFocus(true);addAndMakeVisible(button);}

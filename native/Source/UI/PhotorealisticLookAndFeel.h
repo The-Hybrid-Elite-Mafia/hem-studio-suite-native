@@ -28,7 +28,7 @@ public:
  }
  void drawButtonBackground(juce::Graphics& g,juce::Button& button,const juce::Colour&,bool over,bool down) override {
   const juce::Graphics::ScopedSaveState state(g);paintButton(g,button.getLocalBounds().toFloat().reduced(1),button.getToggleState()||down,button.isEnabled());
-  if(over||button.hasKeyboardFocus(true)){g.setColour(juce::Colour(0xff71eaff));g.drawRoundedRectangle(button.getLocalBounds().toFloat().reduced(3),3,1);}
+  if(over&&!(button.getToggleState()||down)&&button.isEnabled()){g.setColour(juce::Colours::white.withAlpha(.07f));g.fillRoundedRectangle(button.getLocalBounds().toFloat().reduced(3),3);}
  }
  void drawToggleButton(juce::Graphics& g,juce::ToggleButton& button,bool over,bool down) override {
   const juce::Graphics::ScopedSaveState state(g);const auto bounds=button.getLocalBounds().toFloat().reduced(2);
@@ -36,7 +36,7 @@ public:
   g.setColour((button.getToggleState()?juce::Colour(0xffffdeb1):juce::Colour(0xffb4f4ff)).withAlpha(button.isEnabled()?1.f:.4f));
   g.setFont(juce::Font(juce::FontOptions(std::clamp(bounds.getHeight()*.37f,10.f,15.f)).withStyle("Bold")));
   g.drawFittedText(button.getButtonText(),bounds.reduced(8,3).toNearestInt(),juce::Justification::centred,2);
-  if(over||button.hasKeyboardFocus(true)){g.setColour(juce::Colour(0xff71eaff));g.drawRoundedRectangle(bounds.reduced(1),3,1);}
+  if(over&&!(button.getToggleState()||down)&&button.isEnabled()){g.setColour(juce::Colours::white.withAlpha(.07f));g.fillRoundedRectangle(bounds.reduced(1),3);}
  }
 private:
  void paintButton(juce::Graphics& g,juce::Rectangle<float> b,bool on,bool enabled) const {

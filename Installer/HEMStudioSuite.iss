@@ -1,6 +1,6 @@
 ; HEM Studio Suite - Inno Setup 6 script (same kind of installer as Hybrid Studio and Rework Playground)
 ;
-; Build:  iscc /DBuildDir="<folder with Hybrid Elite Mafia - Studio Suite.exe>" /DAppVersion=0.11.5 Installer\HEMStudioSuite.iss
+; Build:  iscc /DBuildDir="<folder with Hybrid Elite Mafia - Studio Suite.exe>" /DAppVersion=0.11.6 Installer\HEMStudioSuite.iss
 ;
 ; - AppId is fixed forever, so every new version installs over the old one in place.
 ; - Sessions, media and settings are never listed here: upgrades and uninstall leave them alone.
@@ -9,7 +9,7 @@
 ;   that one has its own "Remove this version" shortcut.
 
 #ifndef AppVersion
-  #define AppVersion "0.11.5"
+  #define AppVersion "0.11.6"
 #endif
 #ifndef BuildDir
   #define BuildDir "..\build\HEMStudioSuite_artefacts\Release"

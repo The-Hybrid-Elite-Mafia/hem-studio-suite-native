@@ -84,7 +84,6 @@ public:
         g.fillAll(juce::Colour(0xff15191c));
         g.setColour(juce::Colours::white.withAlpha(box.isEnabled()?1.f:.35f));
         juce::Path arrow;arrow.addTriangle(w*.46f,h*.38f,w*.54f,h*.38f,w*.5f,h*.67f);g.fillPath(arrow);
-        if(box.hasKeyboardFocus(true)){g.setColour(juce::Colour(0xff08dce8));g.drawRect(1,1,w-2,h-2);}
     }
     juce::Font getComboBoxFont(juce::ComboBox&) override {return juce::Font(juce::FontOptions(12.f));}
 };

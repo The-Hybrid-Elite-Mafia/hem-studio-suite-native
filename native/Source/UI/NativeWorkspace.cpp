@@ -142,7 +142,6 @@ public:
         if(!compact)text(g,"MAX L/R",{0,getHeight()-32,getWidth(),12},8,dim,1,juce::Justification::centred);
         const auto status=!live?frame.status():value.nonFiniteSamples>0?juce::String("INVALID"):db(juce::jmax(value.left.peakDb,value.right.peakDb));
         text(g,status,{0,getHeight()-17,getWidth(),16},compact?9.f:10.f,value.nonFiniteSamples?amber:live?cyan:dim,1,juce::Justification::centred);
-        if(hasKeyboardFocus(true)){g.setColour(cyan);g.drawRect(getLocalBounds(),1);}
     }
 };
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "../UI/ButtonLight.h"
 #include "ReferenceMatchProcessor.h"
 #include <ApprovedArt.h>
 namespace hem {
@@ -11,7 +12,7 @@ class ReferenceMatchEditor final:public juce::AudioProcessorEditor,private juce:
             auto b=juce::Rectangle<float>(float(x),float(y),float(w),float(h));float diameter=std::min(b.getWidth(),b.getHeight())*.99f;auto disk=juce::Rectangle<float>(diameter,diameter).withCentre(b.getCentre());
             g.setGradientFill(juce::ColourGradient(juce::Colour(0xff4c5055),disk.getTopLeft(),juce::Colour(0xff080a0d),disk.getBottomRight(),false));g.fillEllipse(disk);g.setColour(juce::Colour(0xffa6acaf));g.drawEllipse(disk,1.5f);float angle=start+(end-start)*p;auto center=disk.getCentre();g.setColour(juce::Colour(0xffffaa43));g.drawLine(center.x+std::sin(angle)*diameter*.27f,center.y-std::cos(angle)*diameter*.27f,center.x+std::sin(angle)*diameter*.44f,center.y-std::cos(angle)*diameter*.44f,3);
         }
-        void drawButtonBackground(juce::Graphics& g,juce::Button& b,const juce::Colour&,bool hover,bool down)override{if(hover||b.hasKeyboardFocus(true)){g.setColour(juce::Colour(0xff37dcea));g.drawRect(b.getLocalBounds().reduced(2),1);}if(down||b.getToggleState()){g.setColour(juce::Colour(0xffff9b34));g.fillRect(8,3,std::max(1,b.getWidth()-16),3);}}
+        void drawButtonBackground(juce::Graphics& g,juce::Button& b,const juce::Colour&,bool hover,bool down)override{hem::ui::drawButtonLight(g,b.getLocalBounds().toFloat().reduced(2),b.getToggleState(),down,hover,b.isEnabled(),2);if(down||b.getToggleState()){g.setColour(juce::Colour(0xffff9b34));g.fillRect(8,3,std::max(1,b.getWidth()-16),3);}}
         void drawButtonText(juce::Graphics&,juce::TextButton&,bool,bool)override{}
     } look;
     ReferenceMatchProcessor& processor;

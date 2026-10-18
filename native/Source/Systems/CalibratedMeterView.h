@@ -74,10 +74,6 @@ public:
         g.setColour(warning ? juce::Colour(0xffff8a55) : juce::Colour(0xff8aa6b3));
         g.setFont(juce::Font(juce::FontOptions(layout.font * .78f)));
         g.drawFittedText(statusText(), layout.status, juce::Justification::centred, 1, .70f);
-        if (hasKeyboardFocus(true)) {
-            g.setColour(juce::Colours::white);
-            g.drawRoundedRectangle(bounds.reduced(3), 3, 1);
-        }
     }
     void mouseDown(const juce::MouseEvent&) override { meters.resetClip(); }
     bool keyPressed(const juce::KeyPress& key) override {

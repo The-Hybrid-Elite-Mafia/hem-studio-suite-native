@@ -1,4 +1,5 @@
 #pragma once
+#include "../UI/ButtonLight.h"
 #include "Editors.h"
 #include "PluginMeterReadout.h"
 #include "../UI/FoundationMaterialLook.h"
@@ -113,9 +114,9 @@ class NativePairApprovedEditor : public ModuleEditor {
             // the actual Boolean indicator, never a replacement generic button.
             const auto box=b.getLocalBounds().toFloat();
             const bool active=b.isEnabled()&&(b.getToggleState()||down);
-            g.setColour(active?juce::Colour(0xffffc374):juce::Colour(0xff152b32));
+            hem::ui::drawButtonLight(g,box.reduced(5),b.getToggleState(),down,hover,b.isEnabled());
+            g.setColour(active?juce::Colour(0xffffe2b0):juce::Colour(0xff152b32));
             g.fillRect(box.reduced(box.getWidth()*.15f,0).withY(box.getHeight()*.1f).withHeight(std::max(2.f,box.getHeight()*.055f)));
-            if(hover||b.hasKeyboardFocus(true)){g.setColour(juce::Colour(0xff40f1ff));g.drawRect(box.reduced(5),1);}
         }
     } look;
     struct Dial final : ui::PhysicalValueSlider {

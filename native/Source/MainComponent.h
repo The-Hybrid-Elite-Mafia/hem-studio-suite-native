@@ -1,4 +1,5 @@
 #pragma once
+#include "UI/ButtonLight.h"
 #include "Systems/DeviceSettingsPanel.h"
 #include "Systems/NativeAudioDeviceHost.h"
 #include "Systems/OfflineMixPanel.h"
@@ -183,7 +184,7 @@ private:
  // The approved printed menu labels are the visuals; these real controls add
  // focus/hover feedback and accessibility without duplicating their artwork.
  class ArtworkMenuButton final:public juce::TextButton {
-  void paintButton(juce::Graphics& g,bool over,bool down) override {if(over||down||hasKeyboardFocus(true)){g.setColour(juce::Colour(down?0xffffb248:0xff71eaff));g.drawRoundedRectangle(getLocalBounds().toFloat().reduced(1),3,1);}}
+  void paintButton(juce::Graphics& g,bool over,bool down) override {hem::ui::drawButtonLight(g,getLocalBounds().toFloat().reduced(1),getToggleState(),down,over,isEnabled(),3);}
  };
  ArtworkMenuButton file,headerRack,headerHome,headerMenu;
  hem::ui::PhysicalValueSlider inputKnob,outputKnob;juce::Slider trackTrim;

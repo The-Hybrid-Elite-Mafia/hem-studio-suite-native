@@ -75,7 +75,6 @@ private:
         const bool active=b.isEnabled()&&(b.getToggleState()||down);
         if(active){for(int i=4;i>=1;--i){g.setColour(juce::Colour(0xffff961a).withAlpha(.045f*(5-i)));g.strokePath(ui::chamfered(box.reduced(5)),juce::PathStrokeType(float(i*2)));}g.setColour(juce::Colour(0xffffad36));g.strokePath(ui::chamfered(box.reduced(5)),juce::PathStrokeType(1.5f));}
         if(!b.isEnabled()&&b.getToggleState()){g.setColour(juce::Colour(0xffffad36).withAlpha(.38f));g.strokePath(ui::chamfered(box.reduced(5)),juce::PathStrokeType(1.5f));}
-        if(b.hasKeyboardFocus(true)){g.setColour(juce::Colour(0xff40f1ff));g.strokePath(ui::chamfered(box.reduced(2)),juce::PathStrokeType(1));}
     }
     void paintLegend(juce::Graphics& g,juce::Button& b){
         const bool on=b.getToggleState()||(b.isEnabled()&&b.isDown());

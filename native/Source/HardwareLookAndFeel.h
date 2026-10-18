@@ -143,10 +143,6 @@ public:
                                    bounds.getBottom() - 4.0f * scale, bounds.getWidth() * 0.34f,
                                    2.0f * scale, 1.0f * scale);
         }
-        if (button.hasKeyboardFocus(true)) {
-            g.setColour(juce::Colours::white.withAlpha(alpha));
-            g.drawRoundedRectangle(bounds.reduced(3.0f * scale), 2.0f * scale, 1.0f);
-        }
     }
 
     void drawButtonText(juce::Graphics& g, juce::TextButton& button, bool, bool down) override {
@@ -203,10 +199,6 @@ public:
         g.setFont(juce::Font(juce::FontOptions(juce::jlimit(11.0f, 15.0f, float(button.getHeight()) * 0.36f))));
         g.drawFittedText(button.getButtonText(), button.getLocalBounds().withTrimmedLeft(int(size) + 16).reduced(2),
                          juce::Justification::centredLeft, 2);
-        if (button.hasKeyboardFocus(true)) {
-            g.setColour(cyan().withAlpha(alpha));
-            g.drawRoundedRectangle(button.getLocalBounds().toFloat().reduced(1), 3, 1);
-        }
     }
 
 private:

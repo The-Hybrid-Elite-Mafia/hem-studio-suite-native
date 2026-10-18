@@ -1,4 +1,5 @@
 #include "DelayEditors.h"
+#include "../UI/ButtonLight.h"
 #include "../UI/PhysicalValueSlider.h"
 #include "../UI/FoundationMaterialLook.h"
 #include "../UI/SegmentedMeter.h"
@@ -35,11 +36,11 @@ struct FixedLighting:juce::LookAndFeel_V4 {
     }
     void drawToggleButton(juce::Graphics& g,juce::ToggleButton& b,bool hover,bool down)override {
         auto area=b.getLocalBounds().toFloat().reduced(2);
-        if(b.getToggleState()){const auto colour=bool(b.getProperties()["unavailable"])?juce::Colours::orange:juce::Colours::cyan;g.setColour(colour.withAlpha(.13f));g.fillRoundedRectangle(area,3);g.setColour(colour);g.drawRoundedRectangle(area,3,2);}
-        else if(hover||down||b.hasKeyboardFocus(false)){g.setColour(juce::Colours::white.withAlpha(.65f));g.drawRoundedRectangle(area,3,1);}
+        const bool unavailable=bool(b.getProperties()["unavailable"]);
+        hem::ui::drawButtonLight(g,area,b.getToggleState(),down,hover,b.isEnabled(),3,unavailable?juce::Colours::orange:juce::Colour(0xffffb23a));
     }
     void drawButtonBackground(juce::Graphics& g,juce::Button& b,const juce::Colour&,bool hover,bool down)override {
-        if(hover||down||b.hasKeyboardFocus(false)){g.setColour(juce::Colours::cyan.withAlpha(.55f));g.drawRoundedRectangle(b.getLocalBounds().toFloat().reduced(2),3,1);}
+        hem::ui::drawButtonLight(g,b.getLocalBounds().toFloat().reduced(2),b.getToggleState(),down,hover,b.isEnabled(),3);
     }
     void drawButtonText(juce::Graphics&,juce::TextButton&,bool,bool)override {}
 };

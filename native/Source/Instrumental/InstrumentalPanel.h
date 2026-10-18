@@ -103,11 +103,6 @@ class InstrumentalPanel final : public juce::Component {
             g.setFont(juce::Font(juce::FontOptions(10.0f)));
             g.drawFittedText(juce::String(step + 1), getLocalBounds().reduced(1, 5),
                              juce::Justification::centred, 1, 0.7f);
-            if (hasKeyboardFocus(true))
-            {
-                g.setColour(juce::Colours::white.withAlpha(opacity));
-                g.drawRoundedRectangle(box.reduced(1.5f), 1.5f, 1.0f);
-            }
         }
 
     private:
