@@ -76,14 +76,15 @@ void state(){
 }
 void sessionRecall(){
     hem::SessionSnapshot snapshot;hem::MonitorProcessor monitor;snapshot.monitorParameters=hem::SessionState::captureParameters(monitor);
-    const std::array<const char*,3>ids{"dynamic-resonance-suppressor","breath-mouth-control","clip-repair"};
+    // "breath-mouth-control" is now the 2026-10 faceplate processor (StudioFaceplateEditorTests).
+    const std::array<const char*,2>ids{"dynamic-resonance-suppressor","clip-repair"};
     for(size_t i=0;i<ids.size();++i){auto p=hem::PluginRegistry::create(ids[i]);check(dynamic_cast<hem::RestorationProcessor*>(p.get())!=nullptr,"registry restoration class missing");check(hem::PluginRegistry::idFor(*p)==ids[i],"registry persistence ID mismatch");for(const auto&s:p->parameterSpecs())set(*p,s.id,s.maximum);auto&slot=snapshot.tracks[0].slots[i];slot.pluginId=ids[i];slot.bypassed=i==1;slot.parameters=hem::SessionState::captureParameters(*p);}
     auto xmlFile=juce::File::getSpecialLocation(juce::File::tempDirectory).getNonexistentChildFile("hem-restoration-state",".hem.xml");auto jsonFile=xmlFile.withFileExtension("json");
     struct Cleanup {juce::File a,b;~Cleanup(){a.deleteFile();b.deleteFile();}}cleanup{xmlFile,jsonFile};
     hem::SessionState::save(snapshot,xmlFile);hem::PresetManager::save(snapshot,jsonFile);
     for(auto recalled:{hem::SessionState::load(xmlFile),hem::PresetManager::load(jsonFile)})for(size_t i=0;i<ids.size();++i){const auto&slot=recalled.tracks[0].slots[i];check(slot.pluginId==ids[i]&&slot.bypassed==(i==1),"session identity/order/bypass recall");auto p=hem::PluginRegistry::create(slot.pluginId);hem::SessionState::restoreParameters(*p,slot.parameters);check(hem::SessionState::captureParameters(*p).isEquivalentTo(snapshot.tracks[0].slots[i].parameters),"XML/JSON restoration parameter recall");
         auto original=hem::SessionState::captureParameters(*p);auto bad=original.createCopy();bad.getChild(0).setProperty("value","garbage",nullptr);bool rejected=false;try{hem::SessionState::restoreParameters(*p,bad);}catch(const std::exception&){rejected=true;}check(rejected&&hem::SessionState::captureParameters(*p).isEquivalentTo(original),"session malformed restore not atomic");}
-    std::cout<<"PASS real registry + SessionState XML and PresetManager JSON recall for all three modules\n";
+    std::cout<<"PASS real registry + SessionState XML and PresetManager JSON recall for the registered restoration modules\n";
 }
 void chain(){
     for(bool bypass:{false,true}){hem::InsertChain chain;chain.prepare(48000,128);for(int slot=0;slot<3;++slot){auto p=make(slot==0?2:slot==1?6:9);set(*p,"bypass",bypass?1:0);chain.installInitial(slot,chain.stageNode(std::move(p),48000,128,chain.slotLatency()),false);}

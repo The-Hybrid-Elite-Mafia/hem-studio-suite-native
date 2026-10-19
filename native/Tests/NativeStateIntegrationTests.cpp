@@ -58,12 +58,12 @@ public:
 };
 struct Contract {const char* id;const char* type;const char* parameters;};
 const Contract contracts[]{
-{"sipa","SIPA","5d5f90e8d9f6fef375d6327a3654424e35ee9e35d0de5682a54b72af261f3a4f"},
+{"sipa","SIPA","0aeea3ef00b5eeba21e28e80a2dcda95e3f78761b41602b15c62ded42d8eea07"}, // 2026-10 faceplate replacement,
 {"surgical-eq","SURGICAL_EQ","dc4753e60be98944c01d111151449ba6001e4a6bb5df2997f08e7a3c1cd351fe"},
 {"vca","VCA","66f0e4145236b2fdf4d2197a1d757d3177dd9d2951e1089c1143326f0635536d"},
 {"true-peak","TRUE_PEAK","43bf1742a1ac45538fbd94fd26af3c736ea955bbbc38f56380adbb9acd671104"},
 {"dhta","DHTA","f86189090c5f49d3855f90fa1a9eaa01027f47dd3fd3087375ddb05924401324"},
-{"transient","TRANSIENT","91d3143a7da2792f39c6e45dae6f3c401328017aca54d4800cfbc9ca0bff8d10"},
+{"transient","TRANSIENT","13d439bafac06e07fd894f675fcea9b314e2ad7042f0db289f251a7e18aeb4ad"}, // 2026-10 faceplate replacement,
 {"sub-bass","SUB_BASS","79edeb47e15158065c8634bd85b10dcede4db0b4788d30a7e76e807bd107c71f"},
 {"spectral-restorer","RESTORER","38339908e6f3b082084b87775d35ba6726497bac7305e9bd3fd47a4543ed0ae1"},
 {"vocal-presence","VPR_ARCHITECT","b9ef6ae7bd4fbd8e86387c09522aaaeb76777b84e6921f397f9a49b2574ce0f0"},
@@ -91,11 +91,11 @@ const Contract contracts[]{
 {"parallel-distortion","PARALLEL_DISTORTION","f4a18eba1e3eb3a1145c813a2e5f09dfffb6b07645df2e7ec8462e9626b83735"},
 {"exciter","EXCITER","e61b08be6269cbc2ae359bedc71f819a80dc9d631a02ceb66fc6c7d13fed3be3"},
 {"dynamic-resonance-suppressor","DYNAMIC_RESONANCE_SUPPRESSOR","46a3cd7e0cddb915a125888763b7439b8b124d99376e12a787dafa7eaa2b8ae4"},
-{"breath-mouth-control","BREATH_MOUTH_CONTROL","db0fb5bff8561a9eefd617e45d4975a8dd1a6864e84fb94f15f61894f0e23665"},
+{"breath-mouth-control","BREATH_MOUTH_CONTROL","ddb435e2d86ea14e444fbf2e5fc761bd938680b19a4bf85eaa4109ba3c763212"}, // 2026-10 faceplate replacement,
 {"clip-repair","CLIP_REPAIR","3f376138c2fa11588319ecffc5356d23870101e45986899135ea18f7cc6809c3"},
 };
 void legacyContracts(){
-    check(PluginRegistry::entries().size()==40&&std::size(contracts)==35,"Expected preserved 35 identities plus five approved functions");
+    check(PluginRegistry::entries().size()==41&&std::size(contracts)==35,"Expected preserved 35 identities plus six approved functions");
     const char* added[]{"drum-replacer","amp-cabinet","reference-match"};
     for(size_t i=0;i<std::size(added);++i){
         check(juce::String(PluginRegistry::entries()[35+i].id)==added[i],"Additive registry ordering changed");

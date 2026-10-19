@@ -13,6 +13,7 @@
 #include "AmpCabinetProcessor.h"
 #include "ReferenceMatchProcessor.h"
 #include "PitchTimeProcessors.h"
+#include "StudioFaceplateProcessors.h"
 namespace hem {
 // Stable string IDs are the persistence contract; menu indices are UI-only.
 // Registration and construction are message-thread operations.
@@ -28,14 +29,14 @@ public:
         bool clipOperation=false;
         bool trackingAllowed=true;
     };
-    static const std::array<Entry,40>& entries() {
-        static const std::array<Entry,40> list{{
-            {"sipa","S.I.P.A. / Stereo Image & Phase","Spatial",&make<SipaProcessor>},
+    static const std::array<Entry,41>& entries() {
+        static const std::array<Entry,41> list{{
+            {"sipa","S.I.P.A. / Stereo Image & Phase Architect","Spatial",&make<SipaArchitectProcessor>},
             {"surgical-eq","Surgical Master EQ","EQ",&make<SurgicalEqProcessor>},
             {"vca","VCA Compressor","Dynamics",&make<VcaProcessor>},
             {"true-peak","True-Peak Limiter","Master",&make<TruePeakProcessor>},
             {"dhta","D.H.T.A. / De-Esser & Harshness","Dynamics",&make<DhtaProcessor>},
-            {"transient","Transient Shaper & Attack Enhancer","Dynamics",&make<TransientProcessor>},
+            {"transient","Transient Shaper","Dynamics",&make<TransientShaperProcessor>},
             {"sub-bass","808 Sub-Bass Manager","Bass",&make<SubBassProcessor>},
             {"spectral-restorer","Artifact & Spectral Restorer","Restoration",&make<RestorerProcessor>},
             {"vocal-presence","Vocal Presence & Resonance Architect","Vocal",&make<VocalProcessor>},
@@ -63,11 +64,12 @@ public:
             {"parallel-distortion","Parallel Distortion","Saturation",&make<ParallelProcessor>},
             {"exciter","Exciter","Saturation",&make<ExciterProcessor>},
             {"dynamic-resonance-suppressor","Dynamic Resonance Suppressor","Restoration",&make<DynamicResonanceSuppressorProcessor>},
-            {"breath-mouth-control","Breath / Mouth Control","Restoration",&make<BreathMouthControlProcessor>},
+            {"breath-mouth-control","Breath / Mouth Control","Vocal",&make<BreathMouthStudioProcessor>},
             {"clip-repair","Clip Repair","Restoration",&make<ClipRepairProcessor>},
             {"drum-replacer","Drum Replacer","Drums",&make<DrumReplacerProcessor>},
             {"amp-cabinet","Amp & Cabinet Lab","Guitar",&make<AmpCabinetProcessor>},
             {"reference-match","Reference Match","Master",&make<ReferenceMatchProcessor>},
+            {"vocal-de-reverb","Vocal De-Reverb","Vocal",&make<VocalDeReverbProcessor>},
             {"pitch-formant","Pitch / Formant","Clip Operations",&makePitch,false,false,true,false},
             {"time-pitch-stretch","Time / Pitch Stretch","Clip Operations",&makeStretch,false,false,true,false}
         }};
@@ -79,7 +81,7 @@ public:
     }
     static juce::String idFor(const ModuleProcessor& processor) {
         if(processor.isExternal())return "external-vst3";
-        static const std::array<const char*,40> types{{"SIPA","SURGICAL_EQ","VCA","TRUE_PEAK","DHTA","TRANSIENT","SUB_BASS","RESTORER","VPR_ARCHITECT","TRIODE_TUBE","TAPE","MONITOR_EQ","DC_SUBSONIC","SMART_GATE","VOCAL_RIDER","PLOSIVE_CONTROL","HUM_BUZZ","LOUDNESS_LAB","SPECTRUM_SPECTROGRAM","DELTA_MONITOR","CONVOLUTION_REVERB","ALGORITHMIC_REVERB","CHORUS_FLANGER_PHASER","ROTARY_TREMOLO_AUTOPAN","MULTITAP_DELAY","TAPE_DELAY","DYNAMIC_EQ_8","MID_SIDE_EQ","MULTIBAND_DYNAMICS","MULTIBAND_IMAGER","PARALLEL_DISTORTION","EXCITER","DYNAMIC_RESONANCE_SUPPRESSOR","BREATH_MOUTH_CONTROL","CLIP_REPAIR","DRUM_REPLACER","AMP_CABINET","REFERENCE_MATCH","PITCH_FORMANT","TIME_PITCH_STRETCH"}};
+        static const std::array<const char*,41> types{{"SIPA","SURGICAL_EQ","VCA","TRUE_PEAK","DHTA","TRANSIENT","SUB_BASS","RESTORER","VPR_ARCHITECT","TRIODE_TUBE","TAPE","MONITOR_EQ","DC_SUBSONIC","SMART_GATE","VOCAL_RIDER","PLOSIVE_CONTROL","HUM_BUZZ","LOUDNESS_LAB","SPECTRUM_SPECTROGRAM","DELTA_MONITOR","CONVOLUTION_REVERB","ALGORITHMIC_REVERB","CHORUS_FLANGER_PHASER","ROTARY_TREMOLO_AUTOPAN","MULTITAP_DELAY","TAPE_DELAY","DYNAMIC_EQ_8","MID_SIDE_EQ","MULTIBAND_DYNAMICS","MULTIBAND_IMAGER","PARALLEL_DISTORTION","EXCITER","DYNAMIC_RESONANCE_SUPPRESSOR","BREATH_MOUTH_CONTROL","CLIP_REPAIR","DRUM_REPLACER","AMP_CABINET","REFERENCE_MATCH","VOCAL_DE_REVERB","PITCH_FORMANT","TIME_PITCH_STRETCH"}};
         for(size_t i=0;i<types.size();++i) if(processor.state.state.hasType(types[i])) return entries()[i].id;
         return {};
     }

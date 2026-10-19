@@ -11,6 +11,9 @@ void check(bool condition,const juce::String& message){++checks;if(!condition)th
 void set(hem::ModuleProcessor& p,const char* id,float value){auto* parameter=p.state.getParameter(id);check(parameter!=nullptr,juce::String("Missing parameter ")+id);parameter->setValueNotifyingHost(parameter->convertTo0to1(value));}
 juce::Component* find(juce::Component& c,const juce::String& id){return hem::controlChecks::find(c,id);}
 std::unique_ptr<hem::RestorationProcessor> make(int number){
+    // The registry's breath-mouth-control is now the 2026-10 faceplate processor; the
+    // previous restoration class is still checked directly.
+    if(number==6)return std::make_unique<hem::BreathMouthControlProcessor>();
     const char* id=number==2?"dynamic-resonance-suppressor":number==6?"breath-mouth-control":"clip-repair";
     auto module=hem::PluginRegistry::create(id);check(module!=nullptr,"Restoration registry factory missing");
     auto* typed=dynamic_cast<hem::RestorationProcessor*>(module.get());check(typed!=nullptr,"Registered restoration processor type mismatch");

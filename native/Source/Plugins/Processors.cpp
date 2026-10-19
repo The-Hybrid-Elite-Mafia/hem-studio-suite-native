@@ -6,8 +6,18 @@ juce::AudioProcessorValueTreeState::ParameterLayout ModuleProcessor::layout(cons
     juce::AudioProcessorValueTreeState::ParameterLayout result;
     for(const auto& s:specs){const juce::ParameterID key(s.id,1);
         if(s.toggle)result.add(std::make_unique<juce::AudioParameterBool>(key,s.name,s.initial>.5f));
+        else if(s.skewCentre<0&&s.minimum>0){
+            // Logarithmic travel: equal knob movement per octave.
+            const float lo=s.minimum,hi=s.maximum,step=s.step;
+            juce::NormalisableRange<float> range(lo,hi,
+                [](float a,float b,float t){return a*std::pow(b/a,t);},
+                [](float a,float b,float v){return std::log(v/a)/std::log(b/a);},
+                [step](float a,float b,float v){return juce::jlimit(a,b,step>0?std::round(v/step)*step:v);});
+            result.add(std::make_unique<juce::AudioParameterFloat>(key,s.name,range,s.initial,
+                juce::AudioParameterFloatAttributes().withLabel(s.unit)));}
         else {juce::NormalisableRange<float> range(s.minimum,s.maximum,s.step);
-            if(juce::String(s.unit)=="Hz"&&s.maximum/s.minimum>20)range.setSkewForCentre(std::sqrt(s.minimum*s.maximum));
+            if(s.skewCentre>s.minimum&&s.skewCentre<s.maximum)range.setSkewForCentre(s.skewCentre);
+            else if(juce::String(s.unit)=="Hz"&&s.minimum>0&&s.maximum/s.minimum>20)range.setSkewForCentre(std::sqrt(s.minimum*s.maximum));
             result.add(std::make_unique<juce::AudioParameterFloat>(key,s.name,range,s.initial,
                 juce::AudioParameterFloatAttributes().withLabel(s.unit)));}}
     return result;
@@ -16,10 +26,10 @@ ModuleProcessor::ModuleProcessor(juce::String identifier,juce::String name,std::
  :AudioProcessor(BusesProperties().withInput("Input",juce::AudioChannelSet::stereo(),true).withOutput("Output",juce::AudioChannelSet::stereo(),true)),
  state(*this,nullptr,juce::Identifier(identifier),layout(s)),id(std::move(identifier)),title(std::move(name)),specs(std::move(s)),kind(meterType) {
     for(const auto& p:specs)parameters.push_back(state.getRawParameterValue(p.id));
-    const juce::StringArray supported{"SIPA","SURGICAL_EQ","VCA","TRUE_PEAK","DHTA","TRANSIENT","SUB_BASS","RESTORER","VPR_ARCHITECT","TRIODE_TUBE","TAPE","MONITOR_EQ","DC_SUBSONIC","SMART_GATE","VOCAL_RIDER","PLOSIVE_CONTROL","HUM_BUZZ","CONVOLUTION_REVERB","ALGORITHMIC_REVERB","CHORUS_FLANGER_PHASER","ROTARY_TREMOLO_AUTOPAN","MULTITAP_DELAY","TAPE_DELAY","DYNAMIC_EQ_8","MID_SIDE_EQ","MULTIBAND_DYNAMICS","MULTIBAND_IMAGER","PARALLEL_DISTORTION","EXCITER","DYNAMIC_RESONANCE_SUPPRESSOR","BREATH_MOUTH_CONTROL","CLIP_REPAIR","DRUM_REPLACER","AMP_CABINET","REFERENCE_MATCH"};
+    const juce::StringArray supported{"SIPA","SURGICAL_EQ","VCA","TRUE_PEAK","DHTA","TRANSIENT","SUB_BASS","RESTORER","VPR_ARCHITECT","TRIODE_TUBE","TAPE","MONITOR_EQ","DC_SUBSONIC","SMART_GATE","VOCAL_RIDER","PLOSIVE_CONTROL","HUM_BUZZ","CONVOLUTION_REVERB","ALGORITHMIC_REVERB","CHORUS_FLANGER_PHASER","ROTARY_TREMOLO_AUTOPAN","MULTITAP_DELAY","TAPE_DELAY","DYNAMIC_EQ_8","MID_SIDE_EQ","MULTIBAND_DYNAMICS","MULTIBAND_IMAGER","PARALLEL_DISTORTION","EXCITER","DYNAMIC_RESONANCE_SUPPRESSOR","BREATH_MOUTH_CONTROL","CLIP_REPAIR","DRUM_REPLACER","AMP_CABINET","REFERENCE_MATCH","VOCAL_DE_REVERB"};
     const bool spectrum=id=="SURGICAL_EQ"||id=="SUB_BASS"||id=="VPR_ARCHITECT"||id=="MONITOR_EQ";
     // These native editors own their core visualization; only lock-free levels are needed.
-    const bool ownVisualization=id=="DYNAMIC_EQ_8"||id=="MID_SIDE_EQ"||id=="MULTIBAND_DYNAMICS"||id=="MULTIBAND_IMAGER"||id=="PARALLEL_DISTORTION"||id=="EXCITER"||id=="DYNAMIC_RESONANCE_SUPPRESSOR"||id=="BREATH_MOUTH_CONTROL"||id=="CLIP_REPAIR"||id=="DRUM_REPLACER"||id=="AMP_CABINET"||id=="REFERENCE_MATCH";
+    const bool ownVisualization=id=="DYNAMIC_EQ_8"||id=="MID_SIDE_EQ"||id=="MULTIBAND_DYNAMICS"||id=="MULTIBAND_IMAGER"||id=="PARALLEL_DISTORTION"||id=="EXCITER"||id=="DYNAMIC_RESONANCE_SUPPRESSOR"||id=="BREATH_MOUTH_CONTROL"||id=="CLIP_REPAIR"||id=="DRUM_REPLACER"||id=="AMP_CABINET"||id=="REFERENCE_MATCH"||id=="VOCAL_DE_REVERB";
     if(supported.contains(id))telemetry=std::make_unique<PluginTelemetry>(spectrum,!ownVisualization);
 }
 void ModuleProcessor::resetMeterTelemetry() noexcept {

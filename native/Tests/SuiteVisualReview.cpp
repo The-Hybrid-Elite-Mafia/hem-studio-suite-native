@@ -19,7 +19,7 @@ int main(int argc,char** argv){try{juce::ScopedJuceInitialiser_GUI gui;check(arg
     if(id=="dhta"){set(*p,"threshold",-50);set(*p,"range",12);set(*p,"frequency",2707);}
     if(id=="spectral-restorer"){set(*p,"amount",12);set(*p,"floor",-25);set(*p,"protect",0);}
     if(id=="true-peak"){set(*p,"input",12);set(*p,"ceiling",-6);}
-    if(id=="transient"){set(*p,"attack",6);set(*p,"sustain",-6);}
+    if(id=="transient"){set(*p,"attackAmount",33);set(*p,"sustainAmount",-33);}
     if(id=="smart-gate"){set(*p,"threshold",-18);set(*p,"range",24);set(*p,"gate",1);}
     if(id=="vocal-presence"){set(*p,"range",12);set(*p,"threshold",-45);set(*p,"cutEnabled",1);}
     if(id=="dc-subsonic"){set(*p,"dcOn",1);set(*p,"subOn",1);}

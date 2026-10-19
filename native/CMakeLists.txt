@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(HEMStudioSuite VERSION 0.11.6 LANGUAGES C CXX)
+project(HEMStudioSuite VERSION 0.12.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_compile_definitions(JUCE_PLUGINHOST_VST3=1)
@@ -514,7 +514,7 @@ target_link_libraries(hem_delay_integration_tests PRIVATE StudioArtwork HEMCoreB
 add_test(NAME hem_delay_integration_tests COMMAND hem_delay_integration_tests)
 
 # Additive native project-tempo and approved-artwork regression gates.
-foreach(pair IN ITEMS "hem_native_tempo_route_tests|NativeTempoRouteTests" "hem_delay_editor_approved_tests|DelayEditorApprovedTests" "hem_outer_callback_tempo_tests|OuterCallbackTempoTests" "hem_band_levels_only_tests|BandLevelsOnlyTests" "hem_band_history_glass_tests|BandHistoryGlassTests" "hem_nonlinear_lifecycle_tests|NonlinearLifecycleTests" "hem_nonlinear_editor_tests|NonlinearPluginEditorTests" "hem_restoration_binding_tests|RestorationBindingTests" "hem_restoration_editor_tests|RestorationEditorTests" "hem_restoration_lifecycle_tests|RestorationLifecycleTests" "hem_restoration_host_close_tests|RestorationHostCloseTests" "hem_calibrated_host_meter_tests|CalibratedHostMeterTests" "hem_native_pair_approved_editor_tests|NativePairApprovedEditorTests" "hem_foundation_approved_editor_tests|FoundationApprovedEditorTests" "hem_native_state_integration_tests|NativeStateIntegrationTests")
+foreach(pair IN ITEMS "hem_studio_faceplate_editor_tests|StudioFaceplateEditorTests" "hem_native_tempo_route_tests|NativeTempoRouteTests" "hem_delay_editor_approved_tests|DelayEditorApprovedTests" "hem_outer_callback_tempo_tests|OuterCallbackTempoTests" "hem_band_levels_only_tests|BandLevelsOnlyTests" "hem_band_history_glass_tests|BandHistoryGlassTests" "hem_nonlinear_lifecycle_tests|NonlinearLifecycleTests" "hem_nonlinear_editor_tests|NonlinearPluginEditorTests" "hem_restoration_binding_tests|RestorationBindingTests" "hem_restoration_editor_tests|RestorationEditorTests" "hem_restoration_lifecycle_tests|RestorationLifecycleTests" "hem_restoration_host_close_tests|RestorationHostCloseTests" "hem_calibrated_host_meter_tests|CalibratedHostMeterTests" "hem_native_pair_approved_editor_tests|NativePairApprovedEditorTests" "hem_foundation_approved_editor_tests|FoundationApprovedEditorTests" "hem_native_state_integration_tests|NativeStateIntegrationTests")
  string(REPLACE "|" ";" parts "${pair}")
  list(GET parts 0 target)
  list(GET parts 1 fixture)
@@ -633,3 +633,24 @@ foreach(target IN LISTS HEM_DEVICE_OWNER_TARGETS)
 endforeach()
 
 
+
+# 2026-10 Studio faceplates: Vocal De-Reverb (new) and the replacement S.I.P.A.,
+# Transient Shaper and Breath / Mouth Control. Attached to every registry consumer.
+juce_add_binary_data(FaceplateArtwork HEADER_NAME FaceplateArt.h NAMESPACE FaceplateArt SOURCES
+ Assets/Faceplates2026/vocal_de_reverb.jpg
+ Assets/Faceplates2026/sipa_architect.jpg
+ Assets/Faceplates2026/transient_shaper.jpg
+ Assets/Faceplates2026/breath_mouth_control.jpg)
+get_property(HEM_FACEPLATE_TARGETS DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
+foreach(target IN LISTS HEM_FACEPLATE_TARGETS)
+ get_target_property(sources ${target} SOURCES)
+ if("Source/Plugins/Editors.cpp" IN_LIST sources)
+  target_sources(${target} PRIVATE Source/Plugins/StudioFaceplateProcessors.cpp Source/Plugins/StudioFaceplateEditors.cpp)
+  target_link_libraries(${target} PRIVATE FaceplateArtwork juce::juce_dsp)
+ endif()
+endforeach()
+
+# Numerical checks for the four faceplate DSP engines (no GUI, no JUCE).
+add_executable(hem_studio_faceplate_dsp_tests Tests/StudioFaceplateDspTests.cpp)
+target_compile_features(hem_studio_faceplate_dsp_tests PRIVATE cxx_std_20)
+add_test(NAME hem_studio_faceplate_dsp_tests COMMAND hem_studio_faceplate_dsp_tests)

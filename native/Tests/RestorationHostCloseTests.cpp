@@ -17,7 +17,7 @@ int main(){juce::ScopedJuceInitialiser_GUI gui;try{
  auto bank=std::make_unique<hem::TrackBank>();int track=0,slot=0,backs=0;
  auto workspace=makeWorkspace(*bank,track,slot,backs);
  int cycles=0;
- for(const char* id:{"dynamic-resonance-suppressor","breath-mouth-control"}){
+ for(const char* id:{"dynamic-resonance-suppressor"}){ // breath-mouth-control: see StudioFaceplateEditorTests
   auto p=hem::PluginRegistry::create(id);check(bool(p),"Registry processor missing");p->prepareToPlay(48000,257);
   for(int repeat=0;repeat<3;++repeat){
    workspace->setEditor(std::unique_ptr<juce::AudioProcessorEditor>(p->createEditor()));const int before=backs;

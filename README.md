@@ -4,6 +4,8 @@ Windows 13-stem processing studio (C++20, JUCE 8.0.10): import 1–13 WAV stems,
 the native HEM processors with their photoreal faceplates, plugin vault, routing, sessions (XML/JSON) and stereo export.
 Originally built by ChatGPT (handoff "0.11.4 checkpoint 6"); made public, given the HEM icon and a standard installer by Claude.
 
+**0.12.0:** new **Vocal De-Reverb**, and **S.I.P.A.**, **Transient Shaper** and **Breath / Mouth Control** rebuilt on the new 2026-10 faceplates, with every control wired. See [`native/FACEPLATES-2026-10.md`](native/FACEPLATES-2026-10.md).
+
 ## Layout
 | Folder | What |
 |---|---|
@@ -20,7 +22,7 @@ Originally built by ChatGPT (handoff "0.11.4 checkpoint 6"); made public, given 
 cmake -S native -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded -DHEM_ENABLE_ASIO=OFF -DHEM_BUILD_VST3_TEST_FIXTURE=OFF -DBUILD_TESTING=ON
 cmake --build build --config Release --parallel --target HEMStudioSuite
 ctest --test-dir build -C Release -R "^hem_(utility_panel_sizing|instrumental_core|spectral_core|import)_tests$"
-"%ProgramFiles(x86)%\Inno Setup 6\ISCC.exe" "/DBuildDir=%CD%\build\HEMStudioSuite_artefacts\Release" /DAppVersion=0.11.6 Installer\HEMStudioSuite.iss
+"%ProgramFiles(x86)%\Inno Setup 6\ISCC.exe" "/DBuildDir=%CD%\build\HEMStudioSuite_artefacts\Release" /DAppVersion=0.12.0 Installer\HEMStudioSuite.iss
 ```
 JUCE and the VST3 SDK are picked up from `Dependencies/` automatically. Linux (g++, Ninja) also builds the app and tests.
 

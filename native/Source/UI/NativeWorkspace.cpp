@@ -7,6 +7,7 @@
 #include "../Plugins/ReferenceMatchEditor.h"
 #include "../Plugins/DrumReplacerEditor.h"
 #include "../Plugins/AmpCabinetEditor.h"
+#include "../Plugins/StudioFaceplateEditors.h"
 #include "../HardwareLookAndFeel.h"
 #include <algorithm>
 #include <cmath>
@@ -309,6 +310,15 @@ struct NativeWorkspace::Impl::PluginPage final : juce::Component {
                 const juce::Component::SafePointer<PluginPage> page(this);
                 const juce::Component::SafePointer<juce::AudioProcessorEditor> expected(editor.get());
                 restoration->setCloseRequest([page,expected]{
+                    juce::MessageManager::callAsync([page,expected]{
+                        if(page&&expected&&page->editor.get()==expected.getComponent())page->host.owner.backFromEditor();
+                    });
+                });
+            }
+            if(auto* faceplate=dynamic_cast<StudioFaceplateEditor*>(editor.get())){
+                const juce::Component::SafePointer<PluginPage> page(this);
+                const juce::Component::SafePointer<juce::AudioProcessorEditor> expected(editor.get());
+                faceplate->setCloseRequest([page,expected]{
                     juce::MessageManager::callAsync([page,expected]{
                         if(page&&expected&&page->editor.get()==expected.getComponent())page->host.owner.backFromEditor();
                     });

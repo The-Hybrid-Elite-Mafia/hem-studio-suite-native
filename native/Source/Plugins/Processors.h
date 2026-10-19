@@ -8,6 +8,7 @@ namespace hem {
 struct ParameterSpec {
     const char* id; const char* name;float minimum,maximum,initial,step;
     const char* unit;bool toggle=false;
+    float skewCentre=0; // >0: knob/automation travel centred on this value; <0: logarithmic travel (Hz)
 };
 // Raw detector values are amplitude for peaks, dB for dynamics, and -1..+1
 // for correlation. A zero-initialized detector is NOT evidence of audio.

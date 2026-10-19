@@ -45,6 +45,7 @@ For the entire suite, build all targets first, then run ctest --test-dir build -
 
 ## Read first
 
+- FACEPLATES-2026-10.md: Vocal De-Reverb and the rebuilt S.I.P.A., Transient Shaper and Breath / Mouth Control (0.12.0)
 - VST3-INTEGRATION-STATUS.md: exact external-host contract, tests and compatibility limits
 - Documentation/RELEASE-LICENSE-CHECK.md: pinned SDK/JUCE licensing checkpoint before distribution
 - INTEGRATION-STATUS.md: provenance, current capabilities and remaining release scope
