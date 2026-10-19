@@ -41,7 +41,8 @@ void feed(hem::ModuleProcessor& p, double seconds) {
 int main(int argc, char** argv) {
     juce::ScopedJuceInitialiser_GUI gui;
     try {
-        const juce::File out = argc > 1 ? juce::File(juce::String(argv[1])) : juce::File::getSpecialLocation(juce::File::tempDirectory).getChildFile("hem-faceplates");
+        const auto renderDir = juce::SystemStats::getEnvironmentVariable("HEM_FACEPLATE_RENDER_DIR", {});
+        const juce::File out = argc > 1 ? juce::File(juce::String(argv[1])) : renderDir.isNotEmpty() ? juce::File(renderDir) : juce::File::getSpecialLocation(juce::File::tempDirectory).getChildFile("hem-faceplates");
         out.createDirectory();
         struct Case { const char* id; const char* type; };
         for (const auto& c : std::array<Case, 4>{{{"vocal-de-reverb", "VOCAL_DE_REVERB"}, {"sipa", "SIPA"}, {"transient", "TRANSIENT"}, {"breath-mouth-control", "BREATH_MOUTH_CONTROL"}}}) {

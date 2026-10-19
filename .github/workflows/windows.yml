@@ -36,6 +36,8 @@ jobs:
           --target HEMStudioSuite hem_utility_panel_sizing_tests hem_instrumental_core_tests hem_spectral_core_tests hem_import_tests hem_studio_faceplate_dsp_tests hem_studio_faceplate_editor_tests
 
       - name: Run the focused tests
+        env:
+          HEM_FACEPLATE_RENDER_DIR: ${{ runner.temp }}/hem-faceplates
         run: ctest --test-dir build -C Release --output-on-failure -R "^hem_(utility_panel_sizing|instrumental_core|spectral_core|import|studio_faceplate_dsp|studio_faceplate_editor)_tests$" 2>&1 | Tee-Object -FilePath tests.txt; exit $LASTEXITCODE
 
       - name: Build and run every test target
