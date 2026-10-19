@@ -200,17 +200,18 @@ class FaceSlider final : public juce::Slider {
 public:
     FaceSlider() { setSliderStyle(juce::Slider::LinearHorizontal); setTextBoxStyle(juce::Slider::NoTextBox, false, 0, 0); setMouseCursor(juce::MouseCursor::PointingHandCursor); }
     std::function<juce::String(double)> format;
+    // Track and thumb use JUCE's own value-to-pixel mapping, so drawing and mouse agree.
     void paint(juce::Graphics& g) override {
         const auto b = getLocalBounds().toFloat();
-        const float thumb = b.getHeight() * .5f;
-        const auto track = juce::Rectangle<float>(b.getX() + thumb, b.getCentreY() - 2.5f, b.getWidth() - 2 * thumb, 5);
-        const float x = track.getX() + track.getWidth() * float(valueToProportionOfLength(getValue()));
+        const float x0 = float(getPositionOfValue(getMinimum())), x1 = float(getPositionOfValue(getMaximum())), x = float(getPositionOfValue(getValue()));
+        const float thumb = std::min(b.getHeight() * .22f, 11.f);
+        const auto track = juce::Rectangle<float>(x0, b.getCentreY() - 2.5f, x1 - x0, 5);
         g.setColour(juce::Colour(0xff020406)); g.fillRoundedRectangle(track.expanded(2), 4);
         g.setColour(juce::Colour(0xff2b3640)); g.drawRoundedRectangle(track.expanded(2), 4, 1);
         const auto filled = track.withRight(x);
         g.setColour(colours::cyan.withAlpha(.3f)); g.fillRoundedRectangle(filled.expanded(0, 3), 4);
         g.setColour(colours::cyan); g.fillRoundedRectangle(filled, 2.5f);
-        const auto knob = juce::Rectangle<float>(thumb * 1.8f, thumb * 1.8f).withCentre({x, b.getCentreY()});
+        const auto knob = juce::Rectangle<float>(thumb * 2, thumb * 2).withCentre({x, b.getCentreY()});
         g.setColour(juce::Colours::black.withAlpha(.7f)); g.fillEllipse(knob.translated(0, 1.5f).expanded(1));
         juce::ColourGradient grad(juce::Colour(0xff9aa1a8), knob.getX(), knob.getY(), juce::Colour(0xff15181c), knob.getX(), knob.getBottom(), false);
         g.setGradientFill(grad); g.fillEllipse(knob);

@@ -91,6 +91,7 @@ private:
     std::vector<float> tailIn, tailOut;   // 3 s of 10 ms energy frames (dB)
     double accIn = 0, accOut = 0; int accCount = 0;
     std::vector<std::array<float, 4>> field; size_t fieldWrite = 0;
+    fp::FaceSlider* focusSlider = nullptr;
 };
 
 class SipaArchitectEditor final : public StudioFaceplateEditor {

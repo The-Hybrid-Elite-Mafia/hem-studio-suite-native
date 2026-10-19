@@ -113,7 +113,7 @@ void legacyContracts(){
         NativeProcessorSnapshot captured;ok(NativeProcessorState::capture(*p,captured));
         check(!captured.native&&captured.parameters.isEquivalentTo(SessionState::captureParameters(*p)),"Legacy scalar capture changed");
         std::unique_ptr<ModuleProcessor> restored;ok(NativeProcessorState::restoreUnpublished(entry.create(),captured,{},restored));
-        check(SessionState::captureParameters(*restored).isEquivalentTo(captured.parameters),"Legacy scalar restore changed");
+        check(SessionState::captureParameters(*restored).isEquivalentTo(captured.parameters),juce::String("Legacy scalar restore changed: ")+expected.id+" "+SessionState::captureParameters(*restored).toXmlString()+" vs "+captured.parameters.toXmlString());
     }
     InsertChain chain;for(double rate:{44100,48000,96000,192000}){chain.prepare(rate,256);check(chain.slotLatency()==int(std::ceil(rate*.006)),"6 ms slot admission changed");}
     ConvolutionReverbProcessor convolution;auto parameters=SessionState::captureParameters(convolution);
@@ -124,7 +124,8 @@ void legacyContracts(){
 }
 SessionSnapshot legacySnapshot(){
     SessionSnapshot s;MonitorProcessor monitor;s.monitorParameters=SessionState::captureParameters(monitor);
-    for(const auto* id:{"sipa","convolution-reverb"}){const int i=juce::String(id)=="sipa"?0:1;auto p=PluginRegistry::create(id);s.tracks[0].slots[i].pluginId=id;s.tracks[0].slots[i].parameters=SessionState::captureParameters(*p);}return s;
+    for(const auto* id:{"sipa","convolution-reverb"}){const int i=juce::String(id)=="sipa"?0:1;// Byte fixture: the sipa slot keeps the pre-0.12 S.I.P.A. parameter set (the writer format is what is frozen here).
+        std::unique_ptr<ModuleProcessor> p=juce::String(id)=="sipa"?std::unique_ptr<ModuleProcessor>(std::make_unique<SipaProcessor>()):PluginRegistry::create(id);s.tracks[0].slots[i].pluginId=id;s.tracks[0].slots[i].parameters=SessionState::captureParameters(*p);}return s;
 }
 juce::String legacyExternalPath(){return juce::File("/tmp/hem-native-legacy-fixture.vst3").getFullPathName().replaceCharacter(char(92),'/');}
 void addExternal(SessionSnapshot& s,const juce::String& path=legacyExternalPath()){

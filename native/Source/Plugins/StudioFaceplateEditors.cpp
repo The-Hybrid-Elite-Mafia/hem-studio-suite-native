@@ -263,8 +263,8 @@ VocalDeReverbEditor::VocalDeReverbEditor(VocalDeReverbProcessor& p)
     toggle("learn", Rect(1452, 719, 156, 24), "LEARN", FaceButton::Style::blue).setTooltip("Learn the room from the material while it plays (used by LEARNED)");
     momentary("resetLearn", Rect(1452, 751, 156, 24), "RESET");
     toggle("bypass", Rect(1452, 783, 156, 24), "BYPASS", FaceButton::Style::red);
-    slider("focus", Rect(505, 733, 300, 24), Rect(615, 780, 82, 26), hz);
-    slider("sensitivity", Rect(893, 733, 232, 24), Rect(970, 780, 84, 26), pct);
+    focusSlider = &slider("focus", Rect(495, 718, 320, 54), Rect(615, 780, 82, 26), hz);
+    slider("sensitivity", Rect(883, 718, 252, 54), Rect(970, 780, 84, 26), pct);
     viewChoice("fieldView", 2, {{Rect(1095, 440, 104, 36), "BEFORE"}, {Rect(1205, 440, 100, 36), "AFTER"}, {Rect(1314, 440, 96, 36), "BOTH"}});
     historyButtons(Rect(1105, 852, 80, 38), Rect(1200, 852, 84, 38), Rect(1297, 852, 84, 38));
     dynamicRegion(Rect(296, 214, 348, 236)); dynamicRegion(Rect(676, 214, 386, 230)); dynamicRegion(Rect(1138, 228, 226, 226));
@@ -350,9 +350,11 @@ void VocalDeReverbEditor::drawOverlay(juce::Graphics& g) {
     const Rect labels(498, 762, 318, 16);
     g.setColour(juce::Colour(0xff090c10)); g.fillRect(labels);
     g.setColour(colours::text); g.setFont(font(13, false));
-    const Rect track(517, 733, 276, 24);
-    for (auto [f, t] : std::initializer_list<std::pair<float, const char*>>{{20.f, "20"}, {200.f, "200"}, {2000.f, "2K"}, {20000.f, "20K"}})
-        g.drawText(t, Rect(freqToX(f, track) - 20, labels.getY(), 40, 16), juce::Justification::centred);
+    const float k = float(getWidth()) / designW;
+    for (auto [f, t] : std::initializer_list<std::pair<float, const char*>>{{20.f, "20"}, {200.f, "200"}, {2000.f, "2K"}, {20000.f, "20K"}}) {
+        const float x = (float(focusSlider->getX()) + float(focusSlider->getPositionOfValue(f))) / k;
+        g.drawText(t, Rect(x - 20, labels.getY(), 40, 16), juce::Justification::centred);
+    }
 }
 
 // =====================================================================================
@@ -634,7 +636,7 @@ BreathMouthStudioEditor::BreathMouthStudioEditor(BreathMouthStudioProcessor& p)
 }
 void BreathMouthStudioEditor::setView(int v) {
     static constexpr std::array<int, 5> tabView{0, 3, 1, 2, 4};
-    processorRef.setViewSetting("view", v);
+    if (view("view", 0) != v) processorRef.setViewSetting("view", v); // opening the editor must not change plugin state
     for (size_t i = 0; i < 5; ++i) tabs[i]->setToggleState(tabView[i] == v, juce::dontSendNotification);
     viewBox->setSelectedItemIndex(juce::jlimit(0, 4, v), juce::dontSendNotification);
     repaint();

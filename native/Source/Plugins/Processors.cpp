@@ -6,18 +6,28 @@ juce::AudioProcessorValueTreeState::ParameterLayout ModuleProcessor::layout(cons
     juce::AudioProcessorValueTreeState::ParameterLayout result;
     for(const auto& s:specs){const juce::ParameterID key(s.id,1);
         if(s.toggle)result.add(std::make_unique<juce::AudioParameterBool>(key,s.name,s.initial>.5f));
-        else if(s.skewCentre<0&&s.minimum>0){
-            // Logarithmic travel: equal knob movement per octave.
+        else if((s.skewCentre<0&&s.minimum>0)||(s.skewCentre>s.minimum&&s.skewCentre<s.maximum)){
+            // Logarithmic (skewCentre<0) or centred-skew travel. JUCE does not snap custom
+            // ranges in convertFrom0to1, so the mapping snaps itself; dividing by a whole
+            // number (10, 100...) makes a saved value restore to the identical float.
             const float lo=s.minimum,hi=s.maximum,step=s.step;
-            juce::NormalisableRange<float> range(lo,hi,
-                [](float a,float b,float t){return a*std::pow(b/a,t);},
-                [](float a,float b,float v){return std::log(v/a)/std::log(b/a);},
-                [step](float a,float b,float v){return juce::jlimit(a,b,step>0?std::round(v/step)*step:v);});
+            const float perUnit=step>0?std::round(1.f/step):0.f;
+            const auto snap=[perUnit](float a,float b,float v){return juce::jlimit(a,b,perUnit>=1?std::round(v*perUnit)/perUnit:v);};
+            juce::NormalisableRange<float> range;
+            if(s.skewCentre<0)
+                range=juce::NormalisableRange<float>(lo,hi,
+                    [snap](float a,float b,float t){return snap(a,b,a*std::pow(b/a,t));},
+                    [](float a,float b,float v){return std::log(v/a)/std::log(b/a);},snap);
+            else{
+                const float skew=float(std::log(.5)/std::log((s.skewCentre-lo)/(hi-lo)));
+                range=juce::NormalisableRange<float>(lo,hi,
+                    [skew,snap](float a,float b,float t){return snap(a,b,a+(b-a)*std::pow(t,1.f/skew));},
+                    [skew](float a,float b,float v){return std::pow((v-a)/(b-a),skew);},snap);
+            }
             result.add(std::make_unique<juce::AudioParameterFloat>(key,s.name,range,s.initial,
                 juce::AudioParameterFloatAttributes().withLabel(s.unit)));}
         else {juce::NormalisableRange<float> range(s.minimum,s.maximum,s.step);
-            if(s.skewCentre>s.minimum&&s.skewCentre<s.maximum)range.setSkewForCentre(s.skewCentre);
-            else if(juce::String(s.unit)=="Hz"&&s.minimum>0&&s.maximum/s.minimum>20)range.setSkewForCentre(std::sqrt(s.minimum*s.maximum));
+            if(juce::String(s.unit)=="Hz"&&s.minimum>0&&s.maximum/s.minimum>20)range.setSkewForCentre(std::sqrt(s.minimum*s.maximum));
             result.add(std::make_unique<juce::AudioParameterFloat>(key,s.name,range,s.initial,
                 juce::AudioParameterFloatAttributes().withLabel(s.unit)));}}
     return result;

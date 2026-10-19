@@ -599,7 +599,7 @@ int main(int argc,char** argv){juce::ScopedJuceInitialiser_GUI gui;try{
         processor->getStateInformation(after);require(before==after,"Takeover changed processor state");
       }
     }
-    require(visited.size()==40,"Workspace no longer covers the original35 plus approved5 identities");
+    require(visited.size()==41,"Workspace no longer covers the original35 plus approved6 identities");
     std::cout<<"PASS toggle OFF/ON pixels; calibrated graph endpoint pixels and caption exclusion; Rider extrema; preview/minimum interaction policy\n";
     std::cout<<"PASS all "<<hem::PluginRegistry::entries().size()<<" takeover editors, "<<3*hem::PluginRegistry::entries().size()<<" Back/Escape lifetime cycles, aspect fit, DPI rasters, exact state parity; realtime entries sample-exact audio parity against no-editor twins; offline entries reject realtime preparation\n";
     // A replacement bank is resolved through the getter, never a stale reference.
