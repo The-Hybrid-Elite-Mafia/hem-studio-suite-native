@@ -623,6 +623,22 @@ foreach(target IN LISTS HEM_TRANSPORT_TARGETS)
   target_sources(${target} PRIVATE Source/Systems/ReadAheadTransport.cpp)
  endif()
 endforeach()
+# Windows device-bridge regression gate. This exercises the production-owned
+# audio callback, device restart lifecycle, channel compaction, malformed
+# callback fail-safe, and verifies zero heap allocation/free on the callback.
+if(WIN32)
+ juce_add_console_app(hem_native_audio_device_host_tests PRODUCT_NAME "HEM Native Audio Device Host Tests")
+ juce_generate_juce_header(hem_native_audio_device_host_tests)
+ target_sources(hem_native_audio_device_host_tests PRIVATE
+  Tests/NativeAudioDeviceHostTests.cpp
+  Source/Systems/NativeAudioDeviceHost.cpp)
+ target_compile_definitions(hem_native_audio_device_host_tests PRIVATE JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0)
+ target_link_libraries(hem_native_audio_device_host_tests PRIVATE
+  juce::juce_audio_utils
+  juce::juce_recommended_config_flags)
+ add_test(NAME hem_native_audio_device_host_tests COMMAND hem_native_audio_device_host_tests)
+endif()
+
 # Device owner is used by the main host and the standalone vocal-panel fixtures.
 get_property(HEM_DEVICE_OWNER_TARGETS DIRECTORY PROPERTY BUILDSYSTEM_TARGETS)
 foreach(target IN LISTS HEM_DEVICE_OWNER_TARGETS)
