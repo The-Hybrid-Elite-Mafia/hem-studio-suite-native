@@ -33,12 +33,12 @@ jobs:
       - name: Build the app and the focused tests
         run: >
           cmake --build build --config Release --parallel
-          --target HEMStudioSuite hem_utility_panel_sizing_tests hem_instrumental_core_tests hem_spectral_core_tests hem_import_tests hem_studio_faceplate_dsp_tests hem_studio_faceplate_editor_tests
+          --target HEMStudioSuite hem_utility_panel_sizing_tests hem_instrumental_core_tests hem_spectral_core_tests hem_import_tests hem_studio_faceplate_dsp_tests hem_studio_faceplate_editor_tests hem_native_audio_device_host_tests
 
       - name: Run the focused tests
         env:
           HEM_FACEPLATE_RENDER_DIR: ${{ runner.temp }}/hem-faceplates
-        run: ctest --test-dir build -C Release --output-on-failure -R "^hem_(utility_panel_sizing|instrumental_core|spectral_core|import|studio_faceplate_dsp|studio_faceplate_editor)_tests$" 2>&1 | Tee-Object -FilePath tests.txt; exit $LASTEXITCODE
+        run: ctest --test-dir build -C Release --output-on-failure -R "^hem_(utility_panel_sizing|instrumental_core|spectral_core|import|studio_faceplate_dsp|studio_faceplate_editor|native_audio_device_host)_tests$" 2>&1 | Tee-Object -FilePath tests.txt; exit $LASTEXITCODE
 
       - name: Build and run every test target
         if: ${{ inputs.full_tests }}
