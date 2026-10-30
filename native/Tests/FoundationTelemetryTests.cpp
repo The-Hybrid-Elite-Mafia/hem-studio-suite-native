@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <thread>
+#include <chrono>
 #include <cstring>
 #include <vector>
 #include <limits>
@@ -91,13 +92,29 @@ void mappingOracles(){
     }
 }
 void concurrent(){
+    // Every frame carries different, serial-derived values, so a frame mixed
+    // from two writes (e.g. slot reuse after 512 frames) is detectable. The old
+    // check used identical data in every frame and also failed whenever the
+    // reader thread never got scheduled before the writer finished (reads==0):
+    // a scheduling flake reported as "Torn concurrent snapshot".
     hem::FoundationTelemetry telemetry;telemetry.prepare(8000);
-    std::atomic<bool> done{false},coherent{true};std::atomic<unsigned> reads{0};
-    std::thread writer([&]{for(int i=0;i<500000;++i)telemetry.observe({.25,-.5},{.125f,-.25f},7,true);done.store(true);});
-    std::thread reader([&]{while(!done.load()){hem::FoundationDisplayFrame f;if(telemetry.read(telemetry.latestSerial(),f)){
-        ++reads;if(f.values[0]!=.5f||f.values[1]!=.25f||f.values[6]!=.125f||f.values[9]!=-.25f||f.values[10]!=7||f.values[11]!=1)coherent=false;
+    constexpr uint32_t bin=67; // lround(8000/120)
+    std::atomic<bool> done{false},coherent{true},readerStarted{false};std::atomic<unsigned> reads{0};
+    std::thread writer([&]{
+        while(!readerStarted.load())std::this_thread::yield();
+        const auto deadline=std::chrono::steady_clock::now()+std::chrono::seconds(60);
+        for(uint32_t i=0;;++i){const float s=float(i/bin+1);telemetry.observe({.5*s,-double(s)},{s,-s},s,true);
+            // At least 500000 samples AND at least 200 overlapping successful reads.
+            if(i+1>=500000&&(reads.load()>=200||std::chrono::steady_clock::now()>deadline))break;}
+        done.store(true);});
+    std::thread reader([&]{readerStarted.store(true);while(!done.load()){const auto serial=telemetry.latestSerial();hem::FoundationDisplayFrame f;if(telemetry.read(serial,f)){
+        ++reads;const float s=float(serial);
+        if(f.serial!=serial||f.samples!=bin||f.endSample!=uint64_t(serial)*bin||f.values[0]!=s||f.values[1]!=s||f.values[6]!=s||f.values[7]!=s
+           ||f.values[8]!=-s||f.values[9]!=-s||f.values[10]!=s||f.values[11]!=1)coherent=false;
     }}});
-    writer.join();reader.join();require(coherent.load()&&reads.load()>0,"Torn concurrent snapshot");
+    writer.join();reader.join();
+    require(reads.load()>=200,"Concurrent reader made fewer than 200 overlapping reads");
+    require(coherent.load(),"Torn concurrent snapshot");
     hem::FoundationDisplayFrame f;const auto end=telemetry.latestSerial();require(!telemetry.read(end-uint32_t(hem::FoundationTelemetry::capacity),f),"Overwritten serial accepted");
 }
 }
