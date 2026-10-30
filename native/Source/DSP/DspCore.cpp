@@ -70,27 +70,51 @@ void CompressorCore::process(float* l,float* r,int n,const CompressorParameters&
 Reconstruction::Reconstruction(){for(int p=0;p<phases;++p){double sum=0;for(int i=0;i<taps;++i){const double x=i-(taps/2-1)-double(p)/phases;
     const double sinc=std::abs(x)<1e-12?1:std::sin(pi*x)/(pi*x);const double window=.42-.5*std::cos(2*pi*i/(taps-1))+.08*std::cos(4*pi*i/(taps-1));h[size_t(p)][size_t(i)]=sinc*window;sum+=sinc*window;}
     for(auto& c:h[size_t(p)])c/=sum;}}
-void LimiterCore::prepare(double rate){sr=rate;delay=std::max(Reconstruction::taps,int(std::ceil(sr*.005)));size=delay+Reconstruction::taps+1;
-    for(auto& c:audio)c.assign(size_t(size),0);budgets.assign(size_t(size),1);history={};meterHistory={};position=histPos=meterPos=0;previousGain=1;input.reset(sr,1);ceiling.reset(sr,-1);release.reset(sr,100);}
+DetectorReconstruction::DetectorReconstruction(){constexpr double beta=9,half=taps/2;
+    auto i0=[](double x){double sum=1,term=1;for(int k=1;k<60;++k){term*=(x/(2*k))*(x/(2*k));sum+=term;}return sum;};
+    for(int p=0;p<phases;++p){double sum=0;for(int i=0;i<taps;++i){const double x=i-(taps/2-1)-double(p)/phases,u=x/half;
+        const double sinc=std::abs(x)<1e-12?1:std::sin(pi*x)/(pi*x);const double w=i0(beta*std::sqrt(std::max(0.0,1-u*u)))/i0(beta);
+        h[size_t(p)][size_t(i)]=sinc*w;sum+=sinc*w;}
+    for(auto& c:h[size_t(p)])c/=sum;}}
+void LimiterCore::prepare(double rate){sr=rate;
+    // Same 5 ms look-ahead as before at 44.1/48/96 kHz; never shorter than 1.5 windows.
+    delay=std::max(window+window/2,int(std::ceil(sr*.005)));size=delay+1;
+    attackLength=delay-window+2;holdLength=delay+1;
+    for(auto& c:audio)c.assign(size_t(size),0);
+    holdValue.assign(size_t(holdLength+1),1);holdIndex.assign(size_t(holdLength+1),0);attackBox.assign(size_t(attackLength),1);
+    holdHead=holdCount=attackPos=0;counter=0;attackSum=attackLength;
+    history={};meterHistory={};position=histPos=meterPos=0;previousGain=1;input.reset(sr,1);ceiling.reset(sr,-1);release.reset(sr,100);}
 void LimiterCore::process(float* l,float* r,int n,const LimiterParameters& p) noexcept {
     input.set(gain(p.input));ceiling.set(p.ceiling);release.set(p.release);float maxGR=0,maxTP=0;
-    for(int sample=0;sample<n;++sample){const float drive=input.next(),limit=gain(ceiling.next())*.99999f;
-        audio[0][size_t(position)]=l[sample]*drive;audio[1][size_t(position)]=r[sample]*drive;budgets[size_t(position)]=1;
-        history[0][size_t(histPos)]=l[sample]*drive;history[1][size_t(histPos)]=r[sample]*drive;
-        // A conservative bound, not just sample clipping: every reconstructed
-        // window constrains ALL contributing future output samples. Triangle
-        // inequality then bounds each 8x FIR phase by the ceiling. Budgets are
-        // final before the 5 ms delayed sample is emitted. Stereo is linked.
-        double bound=std::max(std::abs(l[sample]*drive),std::abs(r[sample]*drive));
-        for(int ch=0;ch<2;++ch)for(const auto& phase:filter.h){double b=0;for(int k=0;k<Reconstruction::taps;++k)b+=std::abs(phase[size_t(k)]*history[size_t(ch)][size_t((histPos-k+Reconstruction::taps)%Reconstruction::taps)]);bound=std::max(bound,b);}
-        const float budget=bound>limit?float(limit/bound):1.f;
-        for(int k=0;k<Reconstruction::taps;++k){auto& v=budgets[size_t((position-k+size)%size)];v=std::min(v,budget);}
-        const int read=(position-delay+size)%size;const float releaseCoeff=float(std::exp(-1/(sr*.001*release.next())));
-        previousGain=std::min(budgets[size_t(read)],releaseCoeff*previousGain+(1-releaseCoeff));
+    const int capacity=holdLength+1;
+    for(int sample=0;sample<n;++sample){// 0.01 dB safety margin: the gain still moves slightly inside some
+        // windows while it ramps, which measured up to +0.0005 dB over with no margin.
+        const float drive=input.next(),limit=gain(ceiling.next()-.01f);
+        const float x[2]{l[sample]*drive,r[sample]*drive};
+        audio[0][size_t(position)]=x[0];audio[1][size_t(position)]=x[1];
+        // Signed reconstruction of the newest 64-sample window: x[n-k]=history[newest-k].
+        const int newest=histPos+window;double peak=0;
+        for(size_t ch=0;ch<2;++ch){auto& hist=history[ch];hist[size_t(histPos)]=hist[size_t(newest)]=x[ch];
+            for(const auto& phase:detector.h){double v=0;for(int k=0;k<window;++k)v+=phase[size_t(k)]*hist[size_t(newest-k)];peak=std::max(peak,std::abs(v));}
+            // The 32-tap meter filter on the same window centre (16 samples later in time).
+            for(const auto& phase:filter.h){double v=0;for(int k=0;k<Reconstruction::taps;++k)v+=phase[size_t(k)]*hist[size_t(newest-16-k)];peak=std::max(peak,std::abs(v));}}
+        const float required=peak>limit?float(limit/peak):1.f;
+        // Sliding minimum over the last holdLength requirements: every window
+        // that touches the sample about to receive this gain.
+        while(holdCount>0&&holdValue[size_t((holdHead+holdCount-1)%capacity)]>=required)--holdCount;
+        holdValue[size_t((holdHead+holdCount)%capacity)]=required;holdIndex[size_t((holdHead+holdCount)%capacity)]=counter;++holdCount;
+        while(holdIndex[size_t(holdHead)]<=counter-holdLength){holdHead=(holdHead+1)%capacity;--holdCount;}
+        const float hold=holdValue[size_t(holdHead)];
+        // Box-average attack: reaches the held value before the peak window arrives.
+        attackSum+=double(hold)-double(attackBox[size_t(attackPos)]);attackBox[size_t(attackPos)]=hold;
+        if(++attackPos==attackLength){attackPos=0;attackSum=0;for(const float v:attackBox)attackSum+=v;}
+        const float target=std::min(1.f,float(attackSum/attackLength));
+        const int read=(position+1)%size;const float releaseCoeff=float(std::exp(-1/(sr*.001*release.next())));
+        previousGain=std::min(target,releaseCoeff*previousGain+(1-releaseCoeff));
         l[sample]=audio[0][size_t(read)]*previousGain;r[sample]=audio[1][size_t(read)]*previousGain;
         meterHistory[0][size_t(meterPos)]=l[sample];meterHistory[1][size_t(meterPos)]=r[sample];
         for(int ch=0;ch<2;++ch)for(const auto& phase:filter.h){double v=0;for(int k=0;k<Reconstruction::taps;++k)v+=phase[size_t(k)]*meterHistory[size_t(ch)][size_t((meterPos-k+Reconstruction::taps)%Reconstruction::taps)];maxTP=std::max(maxTP,float(std::abs(v)));}
-        maxGR=std::max(maxGR,-decibels(previousGain));position=(position+1)%size;histPos=(histPos+1)%Reconstruction::taps;meterPos=(meterPos+1)%Reconstruction::taps;}
+        maxGR=std::max(maxGR,-decibels(previousGain));position=read;histPos=(histPos+1)%window;meterPos=(meterPos+1)%Reconstruction::taps;++counter;}
     reduction.store(maxGR,std::memory_order_relaxed);truePeak.store(maxTP,std::memory_order_relaxed);
 }
 } // namespace hem

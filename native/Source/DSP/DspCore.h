@@ -75,19 +75,37 @@ struct Reconstruction {
     std::array<std::array<double,taps>,phases> h{};
     Reconstruction();
 };
+// The limiter's own look-ahead detector: 8x, 64-tap, Kaiser (beta 9) windowed
+// sinc at the original Nyquist. Longer and flatter to Nyquist than the 32-tap
+// meter filter, so it does not under-read near-Nyquist peaks. Each phase sums to one.
+struct DetectorReconstruction {
+    static constexpr int taps=64,phases=8;
+    std::array<std::array<double,taps>,phases> h{};
+    DetectorReconstruction();
+};
 struct LimiterParameters { float input=0,ceiling=-1,release=100; };
+// Look-ahead true-peak limiter. Per input window the SIGNED oversampled peak
+// (both reconstruction filters) sets the gain that window needs; a sliding
+// minimum over every window touching a sample, then a box-average attack,
+// makes the gain flat across each limiting window before that audio leaves
+// the delay line. Release is a one-pole return to unity. latency() == delay.
 class LimiterCore {
 public:
     void prepare(double);void process(float*,float*,int,const LimiterParameters&) noexcept;
     int latency() const noexcept { return delay; }
     std::atomic<float> reduction{0},truePeak{0};
 private:
-    Reconstruction filter;
-    double sr=96000; int delay=480,size=0,position=0;
+    static constexpr int window=DetectorReconstruction::taps;
+    Reconstruction filter;DetectorReconstruction detector;
+    double sr=96000; int delay=480,size=0,position=0,attackLength=1,holdLength=2;
     std::array<std::vector<float>,2> audio;
-    std::vector<float> budgets;
-    std::array<std::array<float,Reconstruction::taps>,2> history{},meterHistory{};
+    // Input history stored twice so every 64-sample window is contiguous.
+    std::array<std::array<double,2*window>,2> history{};
+    std::array<std::array<float,Reconstruction::taps>,2> meterHistory{};
     int histPos=0,meterPos=0;
+    // Monotonic deque (sliding minimum of required gains) and attack box filter.
+    std::vector<float> holdValue,attackBox;std::vector<long long> holdIndex;
+    int holdHead=0,holdCount=0,attackPos=0;long long counter=0;double attackSum=0;
     Ramp input,ceiling,release;
     float previousGain=1;
 };
