@@ -265,6 +265,7 @@ public:
         child->addComponentListener(this);
         setResizable(child->isResizable(), false);
         setSize(juce::jlimit(64, 8192, child->getWidth()), juce::jlimit(64, 8192, child->getHeight()));
+        getProperties().set("externalVst3", true);
        #if JUCE_LINUX || JUCE_BSD
         // Observe all ancestor moves, not just resize notifications on the
         // plug-in child. JUCE's VST3PluginWindow ignores moved-only callbacks,
@@ -283,6 +284,16 @@ public:
         owner->instance->editorBeingDeleted(child.get());
         child.reset();
         owner->editorOpen = false;
+    }
+    // The host shrinks or grows a plug-in by scaling its component. A VST3 editor is a native child window,
+    // which a component transform cannot scale: its window would shrink while the plug-in kept drawing at full
+    // size (cut off). So the scale is also handed to the plug-in (VST3 content scale): it redraws at the new
+    // size and its native window matches the transformed bounds exactly.
+    void setScaleFactor(float newScale) override {
+        juce::AudioProcessorEditor::setScaleFactor(newScale);
+        // (Not for the generic fallback editor: it is ordinary JUCE components and scales with this transform.)
+        if (child && dynamic_cast<juce::GenericAudioProcessorEditor*>(child.get()) == nullptr) child->setScaleFactor(newScale);
+        refreshEmbeddedBounds();
     }
     void resized() override {
         if (resizing || !child) return;
