@@ -464,7 +464,10 @@ struct NativeWorkspace::Impl::PluginPage final : juce::Component {
             // Keep the processor's native layout and pointer coordinate system,
             // but fit its complete bounds into this host pane at any desktop DPI.
             const float fit=std::nextafter(std::min(float(ew)/float(juce::jmax(1,editor->getWidth())),float(eh)/float(juce::jmax(1,editor->getHeight()))),0.f);
-            previewOnly=fit<.9f-0.0001f;
+            // A loaded VST3 (the HEM plug-ins) redraws itself at the host's scale with its controls still under the
+            // pointer, so it stays usable down to half size; the built-in modules keep the 90 % rule.
+            const bool externalVst3=bool(editor->getProperties()["externalVst3"]);
+            previewOnly=fit<(externalVst3?.5f:.9f)-0.0001f;
             editor->setEnabled(!previewOnly);
             editor->getProperties().set("previewOnly",previewOnly);
             editorTitle.setText(previewOnly?juce::String("PREVIEW ONLY - enlarge to 1152 x 686 to edit"):editor->getAudioProcessor()->getName(),juce::dontSendNotification);
